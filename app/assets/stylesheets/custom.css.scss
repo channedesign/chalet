@@ -1,0 +1,130 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+	background-color: white;
+}
+
+.center {
+	text-align: center;
+}
+
+h1, h2, p {
+	font-weight: 100;
+}
+
+.lead {
+	font-weight: 200;
+}
+
+.row {
+	margin-bottom: 50px;
+}
+
+.marginTopMin {
+	margin-top: 50px;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+ul li p {
+	font-size: 0.5em;
+}
+
+
+
+
+
+
+.photo_background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+	z-index: -2;
+	overflow: hidden;
+}
+
+.photo_background img {
+	position: absolute;
+	width: 100%;
+	height: 75%;
+	z-index: -1;
+}
+
+.photo_background .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.home_title {
+	position: relative;
+	top: 30%;
+	left: 35%;
+	color: #f5f5f5;
+}
+
+.home_main_content {
+	margin-top: 60vh;
+	background-color: white;
+}
+
+.home_content {
+	background-color: white;
+}
+
+.band {
+	height: 200px;
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding-top: 60px;
+}
+
+.pic_main_content_div {
+	max-width: 100%;
+}
+
+.pic_main_content {
+	width: 100%;
+	height: 250px;
+}
+
+.pic_main_content2 {
+	width: 100%;
+}
+
+.background_image {
+	background-image: image-url("background_image.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	height: 300px;
+}
+
+.background_image2 {
+	background-image: image-url("background_image2.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	height: 300px;
+}
+
+
+
+
+footer {
+	text-align: center;
+	background-color: black;
+	height: 300px;
+	color: #f5f5f5;
+}
+
+
