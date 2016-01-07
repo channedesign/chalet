@@ -14,6 +14,10 @@ h1, h2, p {
 	font-weight: 100;
 }
 
+.heavy {
+	font-weight: 300;
+}
+
 .lead {
 	font-weight: 200;
 }
@@ -26,12 +30,14 @@ h1, h2, p {
 	margin-top: 50px;
 }
 
-ul li {
+ul {
 	list-style-type: none;
+	padding-left: 0;
+	margin: 20px 0 50px 0;
 }
 
-ul li p {
-	font-size: 0.5em;
+ul li .lead {
+	font-size: 1.3em;
 }
 
 
