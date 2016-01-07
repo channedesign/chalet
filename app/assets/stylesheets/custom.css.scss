@@ -2,6 +2,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
+/*---------------    General    ------------------*/
+
 body {
 	background-color: white;
 }
@@ -40,8 +43,12 @@ ul li .lead {
 	font-size: 1.3em;
 }
 
+img {
+	border-radius: 10px;
+}
 
 
+/*---------------    Home    ------------------*/
 
 
 
@@ -60,6 +67,7 @@ ul li .lead {
 	width: 100%;
 	height: 75%;
 	z-index: -1;
+	border-radius: 0px;
 }
 
 .photo_background .overlay {
@@ -124,7 +132,7 @@ ul li .lead {
 	height: 300px;
 }
 
-
+/*---------------    Footer    ------------------*/
 
 
 footer {
