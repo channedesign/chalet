@@ -2,8 +2,8 @@
 	<div class="photo_background">
 		<%= image_tag("chalet1_home.jpg", class: "pic_home") %>	
 		<div class="overlay">
-			<div class="home_title">
-				<h1>Chalet Rental HideAway</h1>
+			<div class="home_title_div">
+				<h1 class="home_title">Chalet Rental HideAway</h1>
 			</div>
 		</div>
 	</div>
@@ -17,10 +17,10 @@
 				<p class="lead">On Chamonix's main mountain, the Grands-Montets piste. You ski-in &amp; ski-out by gravity right to and from your doorstep. <br>Next to the Panda Ski School and the Panda Riding School, open to the woods and the mountain.</p>
 			</div>
 			<div class="col-md-4 pic_main_content_div">
-				<%= image_tag("chalet2.jpg", class: "pic_main_content") %>
+				<%= image_tag("chalet_neige.jpg", class: "pic_main_content") %>
 			</div>
 			<div class="col-md-4 pic_main_content_div">
-				<%= image_tag("chalet4.jpg", class: "pic_main_content") %>
+				<%= image_tag("chalet_neige2.jpg", class: "pic_main_content") %>
 			</div>
 			<div class="col-md-4 pic_main_content_div">
 				<%= image_tag("chalet5.jpg", class: "pic_main_content") %>
@@ -30,17 +30,20 @@
 	<div class="band center">
 		<div class="col-md-4">	
 			<%= fa_icon "paw 4x" %>
+			<p class="lead">Comfort &amp; Nature</p>
 		</div>
 		<div class="col-md-4">	
 			<%= fa_icon "paw 4x" %>
+			<p class="lead">Altitude: 1300m</p>
 		</div>
 		<div class="col-md-4">	
 			<%= fa_icon "paw 4x" %>
+			<p class="lead">Astonishing Surroundings</p>
 		</div>
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 center">
+			<div class="col-md-12 center marginTopMin">
 				<h1>About Chalets HideAway</h1>
 				<p class="lead">The awesome HideAway Chalets have an un-rivalled ski in ski out location at the bottom of the Grands Montets ski area.  Lively apres ski bars are within skipping distance of the chalets and the centre of Argentière is just a short stroll away.</p>
 			</div>
@@ -49,10 +52,15 @@
 			<div class="col-md-8 center">
 				<h2>HideAway 1</h2>
 				<div class="owl-carousel owl-theme">
-					<div><%= image_tag("chalet1.jpg", class: "pic_main_content2") %></div>
-					<div><%= image_tag("chalet2.jpg", class: "pic_main_content2") %></div>
-					<div><%= image_tag("chalet3.jpg", class: "pic_main_content2") %></div>
-					<div><%= image_tag("chalet4.jpg", class: "pic_main_content2") %></div>
+					<div><%= image_tag("hideaway1-1.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-2.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-3.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-4.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-5.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-6.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-7.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-8.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway1-9.jpg", class: "pic_carou") %></div>
 				</div>
 				<p>Chalet HideAway 1 comprises 4 twin / double bedrooms which each have their own private bathroom facilities. There is a large open plan living area with widescreen satellite TV, media centre and wifi. There is a private outdoor hot tub on the sun terrace which enjoy stunning views of the Mont Blanc Massif.</p>
 				<small>For groups of 10 people we can make two of the rooms into triples.</small>
@@ -69,7 +77,7 @@
 				</ul>
 				<h2 class="heavy">Property Features</h2>
 				<ul>
-					<li><p class="lead"><%= fa_icon "cube" %>&nbsp;&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
+					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "gamepad" %>&nbsp;&nbsp;&nbsp;&nbsp;X box Kinect</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony and terrace</p></li>
 					<li><p class="lead"><%= fa_icon "dollar" %>&nbsp;&nbsp;&nbsp;&nbsp;Prices from £429 per person per week</p></li>
@@ -99,10 +107,10 @@
 				</ul>
 				<h2 class="heavy">Property Features</h2>
 				<ul>
-					<li><p class="lead"><%= fa_icon "heartbeat" %>&nbsp;&nbsp;&nbsp;&nbsp;Heated indoor swimming pool</p></li>
+					<li><p class="lead"><%= image_tag("poolicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Heated indoor swimming pool</p></li>
 					<li><p class="lead"><%= fa_icon "sun-o" %>&nbsp;&nbsp;&nbsp;&nbsp;Sauna</p></li>
 					<li><p class="lead"><%= fa_icon "fire" %>&nbsp;&nbsp;&nbsp;&nbsp;Wood burning stove</p></li>
-					<li><p class="lead"><%= fa_icon "cube" %>&nbsp;&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
+					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "gamepad" %>&nbsp;&nbsp;&nbsp;&nbsp;X box Kinect</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony and terrace</p></li>
 					<li><p class="lead"><%= fa_icon "dollar" %>&nbsp;&nbsp;&nbsp;&nbsp;Prices from £429 per person per week</p></li>
@@ -111,10 +119,19 @@
 			<div class="col-md-8 center">
 				<h2>HideAway 2</h2>
 				<div class="owl-carousel owl-theme">
-					<div><%= image_tag("chalet1.jpg", class: "pic_main_content2") %></div>
-					<div><%= image_tag("chalet2.jpg", class: "pic_main_content2") %></div>
-					<div><%= image_tag("chalet3.jpg", class: "pic_main_content2") %></div>
-					<div><%= image_tag("chalet4.jpg", class: "pic_main_content2") %></div>
+					<div><%= image_tag("hideaway2-1.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-2.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-3.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-4.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-5.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-6.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-7.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-8.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-9.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-10.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-11.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-12.jpg", class: "pic_carou") %></div>
+					<div><%= image_tag("hideaway2-13.jpg", class: "pic_carou") %></div>
 				</div>
 				<p>Chalet HideAway 2 comprises of five twin / double bedrooms which each have their own private bathroom facilities.   There is a large open plan living area with widescreen satellite TV, media centre, table football and wifi.  Beneath the chalet there is a private heated indoor swimming pool, swedish sauna and on the sun terrace guests can enjoy the outdoor hot tub which has stunning views of the Mont Blanc Massif.</p>
 				<small>For groups of 12 people we can make two of the rooms into triples.</small>
