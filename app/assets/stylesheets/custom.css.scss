@@ -9,11 +9,15 @@ body {
 	background-color: white;
 }
 
+a {
+	color: black;
+}
+
 .center {
 	text-align: center;
 }
 
-h1, h2, p {
+h1, h2, h3, p {
 	font-weight: 100;
 }
 
@@ -33,6 +37,10 @@ h1, h2, p {
 	margin-top: 50px;
 }
 
+.marginTopMinMin {
+	margin-top: 20px;
+}
+
 ul {
 	list-style-type: none;
 	padding-left: 0;
@@ -47,6 +55,39 @@ img {
 	border-radius: 10px;
 }
 
+.btn {
+	background-color: rgba(10,10,10,0);
+	border: 1px solid black;
+	color: white;
+}
+
+.btn:hover {
+	background-color: rgba(10,10,10,0.5);
+	border: 1px solid white;
+	color: white;
+}
+
+/*---------------    Nav    ------------------*/
+
+.navbar {
+	border-radius: 0px;
+	margin-bottom: 0px;
+	opacity: 0;
+	background-color: white;
+}
+
+.margin_nav {
+	margin-top: 450px;
+}
+
+#my_nav {
+	position: relative;
+	right: 1%;
+}
+
+#my_nav li {
+	margin-left: 20px;
+}
 
 /*---------------    Home    ------------------*/
 
@@ -55,15 +96,15 @@ img {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 75%;
+	height: 600px;
 	z-index: -2;
 	overflow: hidden;
+	color: #f5f5f5;
 }
 
 .photo_background img {
 	position: absolute;
 	width: 100%;
-	height: 75%;
 	z-index: -1;
 	border-radius: 0px;
 }
@@ -73,14 +114,13 @@ img {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 75%;
+	height: 450px;
 }
 
 .home_title_div {
 	position: relative;
 	top: 30%;
 	left: 35%;
-	color: #f5f5f5;
 }
 
 .home_title {
@@ -88,9 +128,23 @@ img {
 	font-size: 3em;
 }
 
+.home_nav ul li {
+	float: left;
+	padding: 10px;
+}
+
+.home_nav {
+	position: absolute;
+	top: 85%;
+	right: 10%;
+}
+
 .home_main_content {
-	margin-top: 60vh;
 	background-color: white;
+}
+
+.margin_home_main_content {
+	margin-top: 500px;
 }
 
 .home_content {
@@ -139,6 +193,11 @@ img {
 .icon {
 	width: 22px;
 	height: 25px;
+	padding-bottom: 5px;
+}
+
+.panda_winter {
+	border-right: 1px solid black;
 }
 
 /*---------------    Footer    ------------------*/
