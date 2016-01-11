@@ -13,6 +13,10 @@ a {
 	color: black;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 .center {
 	text-align: center;
 }
@@ -65,6 +69,23 @@ img {
 	background-color: rgba(10,10,10,0.5);
 	border: 1px solid white;
 	color: white;
+}
+
+.btn-black {
+	background-color: rgba(10,10,10,0);
+	border: 1px solid black;
+	color: black;
+}
+
+.btn-black:hover {
+	background-color: black;
+	border: 1px solid white;
+	color: white;
+}
+
+iframe {
+	border: none;
+	border-radius: 10px;
 }
 
 /*---------------    Nav    ------------------*/
@@ -172,6 +193,7 @@ img {
 .pic_carou {
 	width: 100%;
 	margin: 20px 0 20px 0;
+	height: 500px;
 }
 
 .background_image {
@@ -200,6 +222,10 @@ img {
 	border-right: 1px solid #dddddd;
 }
 
+.tab-pane {
+	padding-top: 20px;
+}
+
 .tab_logo_panda {
 	width: 200px;
 	height: 150px;
@@ -211,14 +237,45 @@ img {
 }
 
 .tab_logo_round {
-	width: 80px;
-	height: 80px;
+	width: 60px;
+	height: 60px;
 }
 
 .tab_horizontal_border {
 	border-bottom: 1px solid #dddddd;
 	padding: 10px;
 }
+
+.tab_horizontal_border:hover {
+	border: 1px solid black;
+
+}
+
+/*---------------    Modal    ------------------*/
+
+.close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: black;
+}
+
+.modal-header {
+	margin: 0;
+	padding: 0;
+}
+
+.modal_picture {
+	width: 100%;
+	border-radius: 0;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.modal-footer {
+	border-top: 1px solid black;
+}
+
 /*---------------    Footer    ------------------*/
 
 
