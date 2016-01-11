@@ -197,9 +197,28 @@ img {
 }
 
 .panda_winter {
-	border-right: 1px solid black;
+	border-right: 1px solid #dddddd;
 }
 
+.tab_logo_panda {
+	width: 200px;
+	height: 150px;
+}
+
+.tab_logo {
+	width: 100px;
+	height: 50px;
+}
+
+.tab_logo_round {
+	width: 80px;
+	height: 80px;
+}
+
+.tab_horizontal_border {
+	border-bottom: 1px solid #dddddd;
+	padding: 10px;
+}
 /*---------------    Footer    ------------------*/
 
 
