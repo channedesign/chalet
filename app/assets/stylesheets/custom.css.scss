@@ -177,6 +177,36 @@ img {
 	margin: 20px 0 20px 0;
 }
 
+.owl_carousel_anchor {
+	position: relative;
+}
+
+.carousel_arrow_div {
+	z-index: 999;
+	position: absolute;
+	width: 50px;
+	display: none;
+}
+
+.carousel_arrow_div:hover {
+	background-color: rgba(0,0,0,0.4);
+}
+
+.carousel_arrow_pic {
+	width: 100%;
+}
+
+.carousel_arrow_div_pic_left {
+	top: 200px;
+	left: 0px;
+}
+
+.carousel_arrow_div_pic_right {
+	top: 200px;
+	right: 0px;
+}
+
+
 .background_image {
 	background-image: image-url("background_image.jpg");
 	background-size: cover;
@@ -354,6 +384,9 @@ footer p {
 	}
 	.pic_home {
 		display: none;
+	}
+	.navbar {
+		opacity: 1;
 	}
 }
 
