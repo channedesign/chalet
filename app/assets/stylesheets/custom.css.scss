@@ -101,13 +101,13 @@ iframe {
 	margin-top: 450px;
 }
 
-#my_nav {
-	position: relative;
-	right: 1%;
-}
-
 #my_nav li {
 	margin-left: 20px;
+}
+
+.navbar_brand {
+	padding-top: 12px;
+	width: 300px;
 }
 
 /*---------------    Home    ------------------*/
@@ -138,26 +138,9 @@ iframe {
 	height: 450px;
 }
 
-.home_title_div {
-	position: relative;
-	top: 30%;
-	left: 35%;
-}
-
-.home_title {
-	font-weight: 500;
-	font-size: 3em;
-}
-
 .home_nav ul li {
 	float: left;
 	padding: 10px;
-}
-
-.home_nav {
-	position: absolute;
-	top: 85%;
-	right: 10%;
 }
 
 .home_main_content {
@@ -201,7 +184,6 @@ iframe {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center;
-	height: 300px;
 }
 
 .background_image2 {
@@ -209,7 +191,6 @@ iframe {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center;
-	height: 300px;
 }
 
 .icon {
@@ -247,7 +228,11 @@ iframe {
 }
 
 .tab_horizontal_border:hover {
-	border: 1px solid black;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	-webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 
 }
 
@@ -308,6 +293,42 @@ footer p {
 .terms ul li {
 	float: left;
 	margin-left: 30px;
+}
+
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+
+
+
+/*---------------    1950    ------------------*/
+
+@media (max-width: 1950px) {
+	.home_nav {
+		position: absolute;
+		top: 85%;
+		right: 20%;
+	}
+	.band_height{
+		height: 400px;
+	}
+}
+
+/*---------------    1500    ------------------*/
+
+@media (max-width: 1500px) {
+	.home_nav {
+		position: absolute;
+		top: 85%;
+		right: 10%;
+	}
+	.band_height{
+		height: 300px;
+	}
 }
 
 
