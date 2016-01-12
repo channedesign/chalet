@@ -171,7 +171,6 @@ img {
 .pic_carou {
 	width: 100%;
 	margin: 20px 0 20px 0;
-	height: 500px;
 }
 
 .background_image {
@@ -186,6 +185,15 @@ img {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center;
+}
+
+.band_height_mobile {
+	display: none;
+}
+
+.background_image_mobile {
+	width: 100%;
+	border-radius: 0;
 }
 
 .icon {
@@ -326,11 +334,14 @@ footer p {
 	}
 }
 
-/*---------------    992    ------------------*/
+/*---------------    992/add touch    ------------------*/
 
 @media (max-width: 992px) {
-	.band, .band_height {
+	.band_height {
 		display: none;
+	}
+	.band_height_mobile {
+		display: block;
 	}
 }
 

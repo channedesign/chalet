@@ -6,7 +6,6 @@ $(document).ready(function(){
 	  	autoplayTimeout: 3000,
 	  	autoplayHoverPause: true,
 	  	margin:10
-
 	 });
 
 		
