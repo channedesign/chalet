@@ -200,21 +200,23 @@
 				  <div id="tab_panda_club" class="tab-pane fade in active">
 				    <div class="col-md-6 panda_winter">
 				    	<h4>Winter</h4>
+				    	<%= image_tag("pandaclubhiver.jpg", class: "tab_logo_panda") %>
 				    	<p>Set in the heart of the forest, at the foot of Grand Montet, is our Panda Club, which is home to our Children's Ski School.</p>
 
 				    	
-				    	<%= image_tag("pandaclubhiver.jpg", class: "tab_logo_panda") %>
+				    	
 
 
-				    	<p><small>From 3 to 14 years old. The Panda Club is famous in Chamonix for its super child friendly service, exceptional standards and success rates, but more importantly enjoyment factor for children.</small></p>
+				    	<p>From 3 to 14 years old. The Panda Club is famous in Chamonix for its super child friendly service, exceptional standards and success rates, but more importantly enjoyment factor for children.</p>
 				    	
 				    	<%= link_to("More Info", "", data: {toggle: "modal", target: "#panda_club_winter"}, class: "btn btn-black") %>
 				    	
 				    </div>
 				    <div class="col-md-6">
 				    	<h4>Summer</h4>
-				    	<p class="lead">Come with your horse</p>
 				    	<%= image_tag("chaletsummerhorse.jpg", class: "tab_logo_panda") %>
+				    	<p class="lead">Come with your horse</p>
+				    	
 				    	<p>Stables on site for your horses</p>
 				    	<%= link_to("More Info", "", data: {toggle: "modal", target: "#panda_club_summer"}, class: "btn btn-black") %>
 				    </div>
@@ -247,19 +249,39 @@
 				  </div>
 				  <div id="tab_restaurant" class="tab-pane fade">
 				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-4">
-				    		<%= link_to(image_tag("argentero.jpg", class: "tab_logo"), "", target: "_blank") %>
-				    	</div>
 				    	<div class="col-md-8">
-				    		<p>L'Argentero</p>
+				    		<p class="lead">L'Argentero</p>
+				    		<%= link_to(image_tag("argentero.jpg", class: "tab_logo_resto"), "", target: "_blank") %>
+				    		<p>Distance: 100m</p>
+				    	</div>
+				    	<div class="col-md-4">
+				    		<a href="tel:+33 4 50 54 03 77"><%= fa_icon "phone" %>&nbsp;&nbsp;&nbsp;&nbsp;+33 4 50 54 03 77</a>
+				    		
+				    		<p><%= fa_icon "map-marker" %>&nbsp;&nbsp;&nbsp;&nbsp;180 Chemin Glacière, 74400 Argentière</p>
 				    	</div>
 				    </div>
 				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-4">
-				    		<%= link_to(image_tag("marmotton.jpg", class: "tab_logo"), "", target: "_blank") %>
-				    	</div>
 				    	<div class="col-md-8">
-				    		<p>Les Marmottons</p>
+				    		<p class="lead">Les Marmottons</p>
+				    		<%= link_to(image_tag("marmotton.jpg", class: "tab_logo_resto"), "", target: "_blank") %>
+				    		<p>Distance: 150m</p>
+				    	</div>
+				    	<div class="col-md-4">
+				    		<p>Phone: </p>
+				    		<p>Website:</p>
+				    		<p>Address:</p>
+				    	</div>
+				    </div>
+				    <div class="col-md-12 tab_horizontal_border">
+				    	<div class="col-md-8">
+				    		<p class="lead">La Crémerie</p>
+				    		<%= link_to(image_tag("cremerie.jpg", class: "tab_logo_resto"), "", target: "_blank") %>
+				    		<p>Distance: 600m</p>
+				    	</div>
+				    	<div class="col-md-4">
+				    		<p>Phone:</p>
+				    		<p>Website:</p>
+				    		<p>Address:</p>
 				    	</div>
 				    </div>
 				  </div>

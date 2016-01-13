@@ -206,7 +206,6 @@ img {
 	right: 0px;
 }
 
-
 .background_image {
 	background-image: image-url("background_image.jpg");
 	background-size: cover;
@@ -236,6 +235,8 @@ img {
 	padding-bottom: 5px;
 }
 
+/*---------------    Tab    ------------------*/
+
 .panda_winter {
 	border-right: 1px solid #dddddd;
 }
@@ -247,6 +248,7 @@ img {
 .tab_logo_panda {
 	width: 200px;
 	height: 150px;
+	margin: 10px;
 }
 
 .tab_logo {
@@ -257,6 +259,11 @@ img {
 .tab_logo_round {
 	width: 60px;
 	height: 60px;
+}
+
+.tab_logo_resto {
+	width: 300px;
+	height: 150px;
 }
 
 .tab_horizontal_border {
@@ -270,7 +277,10 @@ img {
 	-webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+}
 
+#tab_restaurant .col-md-4 {
+	padding-top: 80px;
 }
 
 /*---------------    Modal    ------------------*/
