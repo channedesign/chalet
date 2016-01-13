@@ -255,9 +255,10 @@
 				    		<p>Distance: 100m</p>
 				    	</div>
 				    	<div class="col-md-4">
-				    		<a href="tel:+33 4 50 54 03 77"><%= fa_icon "phone" %>&nbsp;&nbsp;&nbsp;&nbsp;+33 4 50 54 03 77</a>
-				    		
-				    		<p><%= fa_icon "map-marker" %>&nbsp;&nbsp;&nbsp;&nbsp;180 Chemin Glacière, 74400 Argentière</p>
+				    		<%= link_to((fa_icon "phone") + "&nbsp;&nbsp;&nbsp;&nbsp;".html_safe + "+33 4 50 54 03 77", "tel:+33 4 50 54 03 77") %>
+				    		<br>
+				    		<br>
+				    		<%= link_to((fa_icon "map-marker") + "&nbsp;&nbsp;&nbsp;".html_safe + "180 Chemin Glacière, 74400 Argentière", "http://maps.google.com/?ll=45.978361, 6.927775", target: "_blank") %>
 				    	</div>
 				    </div>
 				    <div class="col-md-12 tab_horizontal_border">
