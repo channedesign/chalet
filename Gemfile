@@ -37,6 +37,7 @@ gem 'pg'
 gem 'jquery-turbolinks'
 gem "passenger"
 gem "font-awesome-rails"
+gem 'gmaps4rails'
 
 
 gem 'heroku-deflater', :group => :production

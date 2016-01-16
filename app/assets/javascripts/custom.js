@@ -72,7 +72,61 @@ $(document).ready(function(){
 	});
 
 
+	//Google map Init
+	var handler = Gmaps.build('Google');
+	var handlerSkiRental = Gmaps.build('Google');
+
+	function gMap(handler, zoomNum, centerNum, mapID, moreMarkers) {
+		handler.buildMap({ 
+		provider: {
+			zoom: zoomNum,
+			center: new google.maps.LatLng(centerNum)
+		},
+		internal: {id: mapID }}, function() {
+			var markers = handler.addMarkers([
+				{lat: 45.977618, lng: 6.927604, infowindow: "<h1>Chalets Hideaway</h1><p>117 Chemin des Carterons, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=home|000000", width: 40, height: 40}},
+				moreMarkers
+			]);
+			
+		});
+	}
+
 	
 
+	handler.buildMap({ 
+		provider: {
+			zoom: 18,
+			center: new google.maps.LatLng(45.977618, 6.927604)
+		},
+		internal: {id: 'map' }}, function() {
+			var markers = handler.addMarkers([
+			{lat: 45.977618, lng: 6.927604, infowindow: "<h1>Chalets Hideaway</h1><p>117 Chemin des Carterons, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=home|000000", width: 40, height: 40} },
+			{lat: 45.978253, lng: 6.928390, infowindow: "<h1>Panda-Club</h1><h3>Children Ski School</h3><p>214 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=ski|F55A51", width: 40, height: 40}},
+			]);
+			
+		});
+
+	handlerSkiRental.buildMap({ 
+		provider: {
+			zoom: 15,
+			center: new google.maps.LatLng(45.979828, 6.926322)
+		},
+		internal: {id: 'map_ski_rental' }}, function() {
+			var markers = handlerSkiRental.addMarkers([
+			{lat: 45.977618, lng: 6.927604, infowindow: "<h1>Chalets Hideaway</h1><p>117 Chemin des Carterons, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=home|000000", width: 40, height: 40} },
+			{lat: 45.984628, lng: 6.927215, infowindow: "<h1>Sportech</h1><h3>Ski Rental</h3><p>352 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=shoppingbag|F55A51", width: 40, height: 40}},
+			]);
+			
+		});
+	
+	$("#click_tab_ski_rental").click(function() {
+		$(".map").css({"opacity": 0, "z-index" : -1});
+		$("#map_ski_rental").css({"opacity": 1, "z-index" : 1});
+	});
+
+	$("#click_tab_panda_club").click(function() {
+		$(".map").css({"opacity": 0, "z-index" : -1});
+		$("#map").css({"opacity": 1, "z-index" : 1});
+	});
 });
 

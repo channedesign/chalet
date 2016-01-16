@@ -191,15 +191,18 @@
 			<div class="col-md-6 center">
 				<h1>Location</h1>
 				<div class="marginTopMinMin">
-					<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:400px;'><div id='gmap_canvas' style='height:400px;border-radius:10px'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://www.embed-map.net/' style="color:white;">add google map to my website</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=668e816bb7036cc8d5ec60f77ebdd122368f53e0'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(45.9776916,6.927751299999954),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(45.9776916,6.927751299999954)});infowindow = new google.maps.InfoWindow({content:'<strong>HideAway Chalets</strong><br>117 chemin des carterons<br>74400 argentiere<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+					<div class="map_wrapper">
+  						<div id="map" class="map"></div>
+  						<div id="map_ski_rental" class="map"></div>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-6 center">
 				<h1>What's around</h1>
 			
 				<ul class="nav nav-tabs">
-				  <li class="active"><%= link_to("Panda Club", "#tab_panda_club", data: {toggle: "tab"}) %></li>
-				  <li><%= link_to("Ski Rental", "#tab_ski_rental", data: {toggle: "tab"}) %></li>
+				  <li class="active"><%= link_to("Panda Club", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
+				  <li><%= link_to("Ski Rental", "#tab_ski_rental", data: {toggle: "tab"}, id: "click_tab_ski_rental") %></li>
 				  <li><%= link_to("Restaurant", "#tab_restaurant", data: {toggle: "tab"}) %></li>
 				  <li><%= link_to("Transport", "#tab_transport", data: {toggle: "tab"}) %></li>
 				  <li><%= link_to("Other cool stuff", "#tab_other", data: {toggle: "tab"}) %></li>
