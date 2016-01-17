@@ -51,7 +51,7 @@ $(document).ready(function(){
 		} else {
 			nav.addClass("navbar-fixed-top");
 			$('.home_main_content').addClass("margin_home_main_content");
-			nav.removeClass("margin_nav");
+			
 		}
 	});
 
