@@ -18,11 +18,14 @@ $(document).ready(function(){
     	owl.trigger('next.owl.carousel');
 	})
 	//Only show owl-carousel buttons on hover
-	$(".owl_carousel_anchor").hover(function() {
-		$(".carousel_arrow_div").show();
-	}, function() {
-		$(".carousel_arrow_div").hide();
-	});
+	if ($(window).width() > 992) {
+		$(".owl_carousel_anchor").hover(function() {
+			$(".carousel_arrow_div").show();
+		}, function() {
+			$(".carousel_arrow_div").hide();
+		});
+	}
+	
 		
 	   
   	//Scroll rules
