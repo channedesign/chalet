@@ -1,0 +1,34 @@
+<div class="col-md-12 tab_horizontal_border">
+	<div class="col-md-6">
+		<p class="lead"><%= name %></p>
+		<%= image_tag("#{name_pic}", class: "tab_logo") %>
+		<p>Distance: <%= distance %>m</p>
+	</div>
+	<div class="col-md-6 paddingTopTab">
+		<div class="col-xs-2">
+			<%= fa_icon "phone" %>
+		</div>
+		<div class="col-xs-10 left">
+			<%= link_to("#{phone}", "tel:#{phone}") %>
+		</div>
+		<br>
+		<br>
+		<% if web.present? && real_web.present? %>
+			<div class="col-xs-2">
+				<%= fa_icon "globe" %>
+			</div>
+			<div class="col-xs-10 left">
+				<%= link_to("www.#{web}", "http://#{real_web}", target: "_blank") %>
+			</div>
+			<br>
+			<br>
+		<% end %>
+		<div class="col-xs-2">
+			<%= fa_icon "map-marker" %>
+		</div>
+		<div class="col-xs-10 left">
+			<%= link_to("#{address}", "http://maps.google.com/?ll=#{latlng}", target: "_blank") %>
+		</div>
+	</div>
+</div>
+

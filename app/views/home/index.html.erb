@@ -194,6 +194,7 @@
 					<div class="map_wrapper">
   						<div id="map" class="map"></div>
   						<div id="map_ski_rental" class="map"></div>
+  						<div id="map_restaurant" class="map"></div>
 					</div>
 				</div>
 			</div>
@@ -203,7 +204,7 @@
 				<ul class="nav nav-tabs">
 				  <li class="active"><%= link_to("Panda Club", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
 				  <li><%= link_to("Ski Rental", "#tab_ski_rental", data: {toggle: "tab"}, id: "click_tab_ski_rental") %></li>
-				  <li><%= link_to("Restaurant", "#tab_restaurant", data: {toggle: "tab"}) %></li>
+				  <li><%= link_to("Restaurant", "#tab_restaurant", data: {toggle: "tab"}, id: "click_tab_restaurant") %></li>
 				  <li><%= link_to("Transport", "#tab_transport", data: {toggle: "tab"}) %></li>
 				  <li><%= link_to("Other cool stuff", "#tab_other", data: {toggle: "tab"}) %></li>
 				</ul>
@@ -232,71 +233,26 @@
 				    	<%= link_to("More Info", "", data: {toggle: "modal", target: "#panda_club_summer"}, class: "btn btn-black") %>
 				    </div>
 				  </div>
+
+
 				  <div id="tab_ski_rental" class="tab-pane fade">
-				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-4">
-				    		<%= link_to(image_tag("sportech.png", class: "tab_logo"), "http://www.sportech-argentiere.fr/en/ski-shop-sportech.html", target: "_blank") %>
-				    	</div>
-				    	<div class="col-md-8">
-				    		<p>Sportech is THE mountain specialist, and has been for over 15 years.</p>
-				    	</div>
-				    </div>
-				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-4">
-				    		<%= link_to(image_tag("sanglard.png", class: "tab_logo"), "http://uk.rentski.com", target: "_blank") %>
-				    	</div>
-				    	<div class="col-md-8">
-				    		<p>Sanglard is located at the foot of the Grands Montets ski area directly behind the Lognan lift</p>
-				    	</div>
-				    </div>
-				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-4">
-				    		<%= link_to(image_tag("grandmontetsport.png", class: "tab_logo_round"), "http://www.grands-montets-sports.com/?lang=en", target: "_blank") %>
-				    	</div>
-				    	<div class="col-md-8">
-				    		<p>Grand Montet Sport is a ski,snowboard and hiking equipment rental shop in Argentière</p>
-				    	</div>
-				    </div>
+				  	<%= render("home/tab", name: "Sanglard", name_pic: "sanglard.png", distance: "150", phone: "+33 4 50 54 05 27", web: "uk.rentski.com", real_web: "uk.rentski.com/shops/argentiere.html", address: "98 chemin de la Glacière, 74400 Argentière, France", latlng: "45.978684, 6.927316") %>
+
+				  	<%= render("home/tab", name: "Grands Montets Sport", name_pic: "grandmontetsport.jpg", distance: "150", phone: "+33 4 50 54 20 30", web: "grands-montets-sports.com", real_web: "www.grands-montets-sports.com/?lang=en", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978270, 6.926172") %>
+
+				  	<%= render("home/tab", name: "Sportech", name_pic: "sportech.png", distance: "800", phone: "+33 4 50 54 00 56", web: "sportech-argentiere.fr", real_web: "sportech-argentiere.fr/en/ski-shop-sportech.html", address: "352 rue Charlet Straton, 74400 Argentière, France", latlng: "45.984645, 6.927229") %>
 				  </div>
+
+
 				  <div id="tab_restaurant" class="tab-pane fade">
-				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-8">
-				    		<p class="lead">L'Argentero</p>
-				    		<%= link_to(image_tag("argentero.jpg", class: "tab_logo_resto"), "", target: "_blank") %>
-				    		<p>Distance: 100m</p>
-				    	</div>
-				    	<div class="col-md-4">
-				    		<%= link_to((fa_icon "phone") + "&nbsp;&nbsp;&nbsp;&nbsp;".html_safe + "+33 4 50 54 03 77", "tel:+33 4 50 54 03 77") %>
-				    		<br>
-				    		<br>
-				    		<%= link_to((fa_icon "map-marker") + "&nbsp;&nbsp;&nbsp;".html_safe + "180 Chemin Glacière, 74400 Argentière", "http://maps.google.com/?ll=45.978361, 6.927775", target: "_blank") %>
-				    	</div>
-				    </div>
-				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-8">
-				    		<p class="lead">Les Marmottons</p>
-				    		<%= link_to(image_tag("marmotton.jpg", class: "tab_logo_resto"), "", target: "_blank") %>
-				    		<p>Distance: 150m</p>
-				    	</div>
-				    	<div class="col-md-4">
-				    		<p>Phone: </p>
-				    		<p>Website:</p>
-				    		<p>Address:</p>
-				    	</div>
-				    </div>
-				    <div class="col-md-12 tab_horizontal_border">
-				    	<div class="col-md-8">
-				    		<p class="lead">La Crémerie</p>
-				    		<%= link_to(image_tag("cremerie.jpg", class: "tab_logo_resto"), "", target: "_blank") %>
-				    		<p>Distance: 600m</p>
-				    	</div>
-				    	<div class="col-md-4">
-				    		<p>Phone:</p>
-				    		<p>Website:</p>
-				    		<p>Address:</p>
-				    	</div>
-				    </div>
+				    <%= render("home/tab", name: "L'Argentero", name_pic: "argentero.jpg", distance: "100", phone: "+33 4 50 54 03 77", web: "", real_web: "", address: "180 Chemin Glacière, 74400 Argentière", latlng: "45.978361, 6.927775") %>
+
+				    <%= render("home/tab", name: "Les Marmottons", name_pic: "marmotton.jpg", distance: "150", phone: "+33 4 50 54 10 67", web: "brasserielesmarmottons.fr", real_web: "brasserielesmarmottons.fr", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.9781703,6.9242791") %>
+
+				    <%= render("home/tab", name: "La Crèmerie Du Glacier", name_pic: "cremerie.jpg", distance: "600", phone: "+33 4 50 54 07 52", web: "lacremerieduglacier.fr", real_web: "lacremerieduglacier.fr", address: "766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978409,6.935329") %>
 				  </div>
+
+
 				  <div id="tab_transport" class="tab-pane fade">
 				    <h3>Transportation</h3>
 				    <p>Train</p>
