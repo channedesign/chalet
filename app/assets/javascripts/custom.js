@@ -50,7 +50,7 @@ $(document).ready(function(){
 			}
 		} else {
 			nav.addClass("navbar-fixed-top");
-			$('.home_main_content').addClass("margin_home_main_content");
+			
 			
 		}
 	});
@@ -97,7 +97,7 @@ $(document).ready(function(){
 	handlerPandaClub.buildMap({ 
 		provider: {
 			zoom: 18,
-			center: new google.maps.LatLng(45.977618, 6.927604)
+			center: new google.maps.LatLng(45.977974, 6.927758)
 		},
 		internal: {id: 'map' }}, function() {
 			var markers = handlerPandaClub.addMarkers([
