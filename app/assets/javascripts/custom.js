@@ -79,6 +79,8 @@ $(document).ready(function(){
 	var handlerPandaClub = Gmaps.build('Google');
 	var handlerSkiRental = Gmaps.build('Google');
 	var handlerRestaurant = Gmaps.build('Google');
+	var handlerTransport = Gmaps.build('Google');
+	var handlerOther = Gmaps.build('Google');
 
 	function gMap(handler, zoomNum, centerNum, mapID, moreMarkers) {
 		handler.buildMap({ 
@@ -142,20 +144,63 @@ $(document).ready(function(){
 			
 		});
 
-	
-	$("#click_tab_ski_rental").click(function() {
-		$(".map").css({"opacity": 0, "z-index" : -1});
-		$("#map_ski_rental").css({"opacity": 1, "z-index" : 1});
-	});
+	handlerTransport.buildMap({ 
+		provider: {
+			zoom: 9,
+			center: new google.maps.LatLng(46.081597, 6.557132)
+		},
+		internal: {id: 'map_transport' }}, function() {
+			var markers = handlerTransport.addMarkers([
+			{lat: 45.977618, lng: 6.927604, infowindow: "<h1>Chalets Hideaway</h1><p>117 Chemin des Carterons, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=home|000000", width: 40, height: 40} },
+			{lat: 45.982024, lng: 6.926358, infowindow: "<h1>Argentière Train Station</h1><p>84 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=train|F55A51", width: 40, height: 40}},
+			{lat: 46.236924, lng: 6.108985, infowindow: "<h1>Geneva International Airport</h1><p>Route de l'Aéroport 21, 1215 Le Grand-Saconnex, Switzerland</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=airport|F55A51", width: 40, height: 40}},
+			
+			
+			]);
+			
+		});
+
+	handlerOther.buildMap({ 
+		provider: {
+			zoom: 11,
+			center: new google.maps.LatLng(45.958201, 6.906720)
+		},
+		internal: {id: 'map_other' }}, function() {
+			var markers = handlerOther.addMarkers([
+			{lat: 45.977618, lng: 6.927604, infowindow: "<h1>Chalets Hideaway</h1><p>117 Chemin des Carterons, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=home|000000", width: 40, height: 40} },
+			{lat: 45.942802, lng: 6.888795, infowindow: "<h1>Golf de Chamonix</h1><h3>Golf</h3><p>Les Praz de Chamonix, 35 route du golf, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=glyphish_golf|F55A51", width: 40, height: 40}},
+			{lat: 45.968156, lng: 6.913432, infowindow: "<h1>Tennis des Îles</h1><h3>Tennis</h3><p>Les Iles, 74400 Argentiere, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=sport|F55A51", width: 40, height: 40}},
+			
+			
+			]);
+			
+		});
+
 
 	$("#click_tab_panda_club").click(function() {
 		$(".map").css({"opacity": 0, "z-index" : -1});
 		$("#map").css({"opacity": 1, "z-index" : 1});
 	});
 
+	
+	$("#click_tab_ski_rental").click(function() {
+		$(".map").css({"opacity": 0, "z-index" : -1});
+		$("#map_ski_rental").css({"opacity": 1, "z-index" : 1});
+	});
+
 	$("#click_tab_restaurant").click(function() {
 		$(".map").css({"opacity": 0, "z-index" : -1});
 		$("#map_restaurant").css({"opacity": 1, "z-index" : 1});
+	});
+
+	$("#click_tab_transport").click(function() {
+		$(".map").css({"opacity": 0, "z-index" : -1});
+		$("#map_transport").css({"opacity": 1, "z-index" : 1});
+	});
+
+	$("#click_tab_other").click(function() {
+		$(".map").css({"opacity": 0, "z-index" : -1});
+		$("#map_other").css({"opacity": 1, "z-index" : 1});
 	});
 });
 

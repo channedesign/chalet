@@ -195,6 +195,8 @@
   						<div id="map" class="map"></div>
   						<div id="map_ski_rental" class="map"></div>
   						<div id="map_restaurant" class="map"></div>
+  						<div id="map_transport" class="map"></div>
+  						<div id="map_other" class="map"></div>
 					</div>
 				</div>
 			</div>
@@ -205,8 +207,8 @@
 				  <li class="active"><%= link_to("Panda Club", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
 				  <li><%= link_to("Ski Rental", "#tab_ski_rental", data: {toggle: "tab"}, id: "click_tab_ski_rental") %></li>
 				  <li><%= link_to("Restaurant", "#tab_restaurant", data: {toggle: "tab"}, id: "click_tab_restaurant") %></li>
-				  <li><%= link_to("Transport", "#tab_transport", data: {toggle: "tab"}) %></li>
-				  <li><%= link_to("Other cool stuff", "#tab_other", data: {toggle: "tab"}) %></li>
+				  <li><%= link_to("Transport", "#tab_transport", data: {toggle: "tab"}, id: "click_tab_transport") %></li>
+				  <li><%= link_to("Other cool stuff", "#tab_other", data: {toggle: "tab"}, id: "click_tab_other") %></li>
 				</ul>
 				<div class="tab-content">
 				  <div id="tab_panda_club" class="tab-pane fade in active">
@@ -236,33 +238,33 @@
 
 
 				  <div id="tab_ski_rental" class="tab-pane fade">
-				  	<%= render("home/tab", name: "Sanglard", name_pic: "sanglard.png", distance: "150", phone: "+33 4 50 54 05 27", web: "uk.rentski.com", real_web: "uk.rentski.com/shops/argentiere.html", address: "98 chemin de la Glacière, 74400 Argentière, France", latlng: "45.978684, 6.927316") %>
+				  	<%= render("home/tab", name: "Sanglard", name_pic: "sanglard.jpg", distance: "150m", phone: "+33 4 50 54 05 27", web: "uk.rentski.com", real_web: "http://uk.rentski.com/shops/argentiere.html", address: "98 chemin de la Glacière, 74400 Argentière, France", latlng: "45.978684, 6.927316") %>
 
-				  	<%= render("home/tab", name: "Grands Montets Sport", name_pic: "grandmontetsport.jpg", distance: "150", phone: "+33 4 50 54 20 30", web: "grands-montets-sports.com", real_web: "www.grands-montets-sports.com/?lang=en", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978270, 6.926172") %>
+				  	<%= render("home/tab", name: "Grands Montets Sport", name_pic: "grandmontetsport.jpg", distance: "150m", phone: "+33 4 50 54 20 30", web: "grands-montets-sports.com", real_web: "http://www.grands-montets-sports.com/?lang=en", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978270, 6.926172") %>
 
-				  	<%= render("home/tab", name: "Sportech", name_pic: "sportech.png", distance: "800", phone: "+33 4 50 54 00 56", web: "sportech-argentiere.fr", real_web: "sportech-argentiere.fr/en/ski-shop-sportech.html", address: "352 rue Charlet Straton, 74400 Argentière, France", latlng: "45.984645, 6.927229") %>
+				  	<%= render("home/tab", name: "Sportech", name_pic: "sportech.jpg", distance: "800m", phone: "+33 4 50 54 00 56", web: "sportech-argentiere.fr", real_web: "http://sportech-argentiere.fr/en/ski-shop-sportech.html", address: "352 rue Charlet Straton, 74400 Argentière, France", latlng: "45.984645, 6.927229") %>
 				  </div>
 
 
 				  <div id="tab_restaurant" class="tab-pane fade">
-				    <%= render("home/tab", name: "L'Argentero", name_pic: "argentero.jpg", distance: "100", phone: "+33 4 50 54 03 77", web: "", real_web: "", address: "180 Chemin Glacière, 74400 Argentière", latlng: "45.978361, 6.927775") %>
+				    <%= render("home/tab", name: "L'Argentero", name_pic: "argentero.jpg", distance: "100m", phone: "+33 4 50 54 03 77", web: "", real_web: "", address: "180 Chemin Glacière, 74400 Argentière", latlng: "45.978361, 6.927775") %>
 
-				    <%= render("home/tab", name: "Les Marmottons", name_pic: "marmotton.jpg", distance: "150", phone: "+33 4 50 54 10 67", web: "brasserielesmarmottons.fr", real_web: "brasserielesmarmottons.fr", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.9781703,6.9242791") %>
+				    <%= render("home/tab", name: "Les Marmottons", name_pic: "marmotton.jpg", distance: "150m", phone: "+33 4 50 54 10 67", web: "brasserielesmarmottons.fr", real_web: "http://brasserielesmarmottons.fr", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.9781703,6.9242791") %>
 
-				    <%= render("home/tab", name: "La Crèmerie Du Glacier", name_pic: "cremerie.jpg", distance: "600", phone: "+33 4 50 54 07 52", web: "lacremerieduglacier.fr", real_web: "lacremerieduglacier.fr", address: "766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978409,6.935329") %>
+				    <%= render("home/tab", name: "La Crèmerie Du Glacier", name_pic: "cremerie.jpg", distance: "600m", phone: "+33 4 50 54 07 52", web: "lacremerieduglacier.fr", real_web: "http://lacremerieduglacier.fr", address: "766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978409,6.935329") %>
 				  </div>
 
 
 				  <div id="tab_transport" class="tab-pane fade">
-				    <h3>Transportation</h3>
-				    <p>Train</p>
-				    <p>Geneva Airport</p>
+				    <%= render("home/tab", name: "Argentière Train Station", name_pic: "train.jpg", distance: "500m", phone: "", web: "voyage-sncf.com", real_web: "http://www.voyage-sncf.com", address: "84 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France", latlng: "45.982024, 6.926358") %>
+				    
+				    <%= render("home/tab", name: "Geneva International Airport", name_pic: "airport.jpg", distance: "88km", phone: "", web: "gva.ch", real_web: "https://www.gva.ch/en/desktopdefault.aspx", address: "Route de l'Aéroport 21, 1215 Le Grand-Saconnex, Switzerland", latlng: "46.236924, 6.108985") %>
 
 				  </div>
 				  <div id="tab_other" class="tab-pane fade">
-				    <h3>Cool Stuff</h3>
-				    <p>Golf</p>
-				    <p>Tennis</p>
+				    <%= render("home/tab", name: "Golf de Chamonix", name_pic: "golf.jpg", distance: "5km", phone: "+33 4 50 54 09 59", web: "golfdechamonix.com", real_web: "http://www.golfdechamonix.com/index.php/en/", address: "Les Praz de Chamonix, 35 route du golf, 74400 Chamonix-Mont-Blanc, France", latlng: "45.942802, 6.888795") %>
+
+				    <%= render("home/tab", name: "Tennis des Îles", name_pic: "tennis.jpg", distance: "1km", phone: "+33 4 50 53 06 28", web: "chamonix.net", real_web: "http://www.chamonix.net/english/leisure/tennis", address: "Les Iles, 74400 Argentiere, France", latlng: "45.968156, 6.913432") %>
 
 				  </div>
 				</div>
