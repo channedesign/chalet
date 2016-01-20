@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div id="<%= modal_id %>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <%= image_tag("#{modal_pic}", class: "modal_picture") %>
+      </div>
+      <div class="modal-body">
+        <p class="heavy"><%= text1 %></p>
+		    <p class="heavy"><%= text2 %></p>
+		    <p class="heavy"><%= text3 %></p>
+        <% if text4.present? %>
+          <p class="heavy"><%= text4 %></p>
+        <% end %>
+      </div>
+      <div class="modal-footer center">
+        <% if link.present? %>
+      	 <%= link_to("Visit Website", "#{link}", target: "_blank", class: "btn btn-black center") %>
+        <% end %>
+        <button type="button" class="btn btn-black" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

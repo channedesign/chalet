@@ -273,50 +273,11 @@
 	</div>
 </div>
 
-<!-- Modal -->
-<div id="panda_club_winter" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <%= image_tag("panda_club_winter_modal1.jpg", class: "modal_picture") %>
-      </div>
-      <div class="modal-body">
-        <p class="heavy">Whether your child is a complete beginner, needs to improve their skills, or can ski but wants to head onto the big slopes with other children the Panda Base camp really is a SKI COOL for all children, ages 3-12 years!</p>
-		<p class="heavy">We also have our Junior Academy , for those children 8-14 years that already can ski and want to head off and learn new skills, moguls, freestyle and off piste</p>
-		<p class="heavy">The Panda Club is affiliated with Evolution2. They attribute their success to utilising the same philosophy in everything they do – the pursuit of excellence - and providing the best possible service with the highest quality staff.</p>
-      </div>
-      <div class="modal-footer center">
-      	<%= link_to("Visit Website", "http://www.evolution2-chamonix.com/ski-school/children", target: "_blank", class: "btn btn-black center") %>
-        <button type="button" class="btn btn-black" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+<%= render("home/modal", modal_id: "panda_club_winter", modal_pic: "panda_club_winter_modal1.jpg", text1: "Whether your child is a complete beginner, needs to improve their skills, or can ski but wants to head onto the big slopes with other children the Panda Base camp really is a SKI COOL for all children, ages 3-12 years!", text2: "We also have our Junior Academy , for those children 8-14 years that already can ski and want to head off and learn new skills, moguls, freestyle and off piste", text3: "The Panda Club is affiliated with Evolution2. They attribute their success to utilising the same philosophy in everything they do – the pursuit of excellence - and providing the best possible service with the highest quality staff.", text4: "", link: "http://www.evolution2-chamonix.com/ski-school/children") %>
 
-  </div>
-</div>
-<!-- Modal -->
-<div id="panda_club_summer" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+<%= render("home/modal", modal_id: "panda_club_summer", modal_pic: "panda_club_summer_modal1.jpg", text1: "If you are a honeymooner, a climber, a glacier walker, a via ferrater, a paraglider, a sky diver, a hot-air ballooner, a helicopter tourer, a high trailer, a runner, a golfer, a white river descender, a hydro speeder, a pool swimmer, an accrobranches monkey, a bungee jumper, a Summer luger, a paintballer, a biker of some sort, a horse rider, an ice skater, an archer...", text2: "A tennis( wo-)man, a squasher, a bowler, a frisbee contester, a gym/fitness trainee, a yoga adept, a geocatcher, a spa specialist, a 3 800 m elevation cablecar rider, a dancer, a party goer, a fun lover, a movie fan, a museum rubberneck, a window-shopper, a nature reserve lover, a photographer, a fishing rod hand, a stroller, a loafer...", text3: "A music lover, a victim to the beauty of the white peaks striking the sky and the fair daisies staring at you in the meadows, an aesthete of the larch trees forest going up in bright yellow flames every Autumn, if… you are any of these hip civilized dudes, don’t mind neologisms and on top of it are keen on wilderness, then you will take your children to the open woods of the Hideaway chalets,  treat your horse to its high elevation oxygenation...", text4: "Then you will taste glee in the Hideaway Chalets for a memorable Summer.", link: "") %>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
-      </div>
-      <div class="modal-body">
-        <p>horse</p>
-      </div>
-      <div class="modal-footer">
-      	<%= link_to("Visit Website", "", class: "btn btn-black") %>
-        <button type="button" class="btn btn-black" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
 
