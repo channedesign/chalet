@@ -8,9 +8,14 @@
         <%= image_tag("#{modal_pic}", class: "modal_picture") %>
       </div>
       <div class="modal-body">
+        <h1 class="center"><%= title %></h1>
         <p class="heavy"><%= text1 %></p>
-		    <p class="heavy"><%= text2 %></p>
-		    <p class="heavy"><%= text3 %></p>
+        <% if text2.present? %>
+		      <p class="heavy"><%= text2 %></p>
+        <% end %>
+        <% if text3.present? %>
+		      <p class="heavy"><%= text3 %></p>
+        <% end %>
         <% if text4.present? %>
           <p class="heavy"><%= text4 %></p>
         <% end %>
