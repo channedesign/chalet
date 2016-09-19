@@ -98,12 +98,11 @@ img {
 	-moz-border-radius: 0px 0px 0px 0px;
 	-webkit-border-radius: 0px 0px 0px 0px;
 	margin-bottom: 0px;
-	opacity: 0;
 	background-color: white;
 }
 
 .margin_nav {
-	margin-top: 450px;
+	margin-top: 30%;
 }
 
 #my_nav li {
@@ -122,20 +121,18 @@ img {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 600px;
+	height: 80%;
 	z-index: -2;
 	overflow: hidden;
 	color: #f5f5f5;
 }
 
 .photo_background img {
-	position: absolute;
 	width: 100%;
 	z-index: -1;
 	border-radius: 0px 0px 0px 0px;
 	-moz-border-radius: 0px 0px 0px 0px;
 	-webkit-border-radius: 0px 0px 0px 0px;
-
 }
 
 .pic_home_mobile {
@@ -143,24 +140,25 @@ img {
 }
 
 .photo_background .overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: relative;
+	top: -100px;
+	background-color: rgba(0,0,0,0);
+	height: 100px;
 	width: 100%;
-	height: 450px;
+	ul li {
+		position: absolute;
+		top: -50px;
+		right: 30px;
+	}
 }
 
-.home_nav ul li {
-	float: left;
-	padding: 10px;
-}
 
 .home_main_content {
 	background-color: white;
 }
 
 .margin_home_main_content {
-	margin-top: 500px;
+	position: relative;
 }
 
 .home_content {

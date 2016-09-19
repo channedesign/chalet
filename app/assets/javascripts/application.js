@@ -17,4 +17,7 @@
 //= require underscore
 //= require gmaps/google
 //= require turbolinks
+//= require tween_max.min
+//= require scroll_magic.min
+//= require animation.gsap.min
 //= require_tree .
