@@ -116,10 +116,11 @@ img {
 	-webkit-border-radius: 0px 0px 0px 0px;
 	margin-bottom: 0px;
 	background-color: white;
+	opacity: 0;
 }
 
 .margin_nav {
-	margin-top: 35%;
+
 }
 
 #my_nav li {
@@ -163,6 +164,7 @@ img {
 }
 
 #section-1 {
+	margin-top: 33%;
 	background-color: #fff;
 	.pic_main_content_div {
 		max-width: 100%;

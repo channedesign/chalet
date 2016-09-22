@@ -60,6 +60,14 @@ $(document).ready(function(){
 	 										.setTween(iconTween)
 	 										.addTo(homeController);
 
+	$(window).scroll(function() {
+		if ($(window).scrollTop() >= 70 ) {
+			$tm.to($('nav'), 1, {  opacity: 1 });
+		} else {
+			$tm.to($('nav'), 1, {  opacity: 0 });
+		}
+	});
+
 	// var navScene = new ScrollMagic.Scene({triggerElement: ".home_nav", duration: 100})
 	// 									.setTween(navTween)
 	// 									.addTo(homeController);
