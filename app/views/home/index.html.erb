@@ -2,16 +2,15 @@
 	<div class="photo_background">
 		<%= image_tag("chalet2_home.jpg", class: "pic_home") %>
 		<%= image_tag("chalet1_home.jpg", class: "pic_home_mobile") %>		
-		<div class="overlay">
-			<div class="home_nav">
-				<ul>
-					<li><%= link_to("Contact", "#", class: "btn btn-default smooth_scroll") %></li>
-				</ul>
-			</div>
+		<div class="home_nav">
+			<%= link_to("Contact", "#", class: "btn btn-default smooth_scroll") %>
 		</div>
 	</div>
 </div>
-<div class="home_main_content margin_home_main_content_mobile">
+
+
+
+<div id="section-1">
 	<div class="container">
 		<div class="row center">
 			<div class="col-md-12">
@@ -30,19 +29,22 @@
 		</div>
 	</div>
 	<div class="band center">
-		<div class="col-xs-4">	
+		<div class="col-xs-4 anim">	
 			<%= fa_icon "pagelines 4x" %>
 			<p class="lead">Comfort &amp; Nature</p>
 		</div>
-		<div class="col-xs-4">	
+		<div class="col-xs-4 anim">	
 			<%= fa_icon "area-chart 4x" %>
 			<p class="lead">Altitude: 1300m</p>
 		</div>
-		<div class="col-xs-4">	
+		<div class="col-xs-4 anim">	
 			<%= fa_icon "camera-retro 4x" %>
 			<p class="lead">Astonishing Surroundings</p>
 		</div>
 	</div>
+</div>
+
+<div id="section-2">
 	<div class="container" id="about">
 		<div class="row">
 			<div class="col-md-12 center marginTopMin">
@@ -78,11 +80,20 @@
 						<%= image_tag("right_arrow.png", class: "carousel_arrow_pic ") %>
 					</div>
 				</div>
-				<p>Chalet HideAway 1 includes 4 twin / double-bed rooms. There is a large open plan living area with widescreen satellite TV, media centre and wifi. There is a private outdoor hot tub on the sun terrace which enjoys stunning views of the Mont Blanc Massif.</p>
-				<small>For groups of 10 people we can make two of the rooms into triples.</small>
-				<br>
-				<br>
-				<div class="btn btn-black">Book on AirBnB</div>
+				<div class="description">
+					<p>This kind of accommodation is very rare in Chamonix valley!</p>
+					<p>Fully renovated in spring 2016, this cosy chalet is situated, at the bottom of Les Grands-Montets ski-slopes. </p>
+					<p class="show-more">Show More</p>
+					<p class="hidden-description">To go skiing... just go outside! <br>The accommodation is particularly attractive to families and friends looking for a practical and comfortable chalet. During the day, adults can go skiing straight away while the kids are at the Panda-Club, the kids ski school,  which is only 300m from the chalet.</p>
+					<p class="hidden-description">For lunch break, the closest restaurants are at 200m.<br>After ski, you can have a drink in the village of Argentière, a 10 minutes walk or take the bus to Chamonix center, the bus-stop is 500m away.</p>
+					<p class="hidden-description">Enjoy evenings in the hot-tub, the outdoor sauna or a summer barbecue on the terrace facing Les Grands-Montets.</p>
+					<p class="hidden-description">For the children, there is a play-room upstairs which can also be used as an extra-bedroom for 2 kids under 6 years old.</p>
+					<p class="hidden-description">In total, you can enjoy 2 double bedrooms, one bedroom with 2 single beds and a bunk-beds, 1 bedroom with 3 beds. All the beds (except the bunk beds) can be make as simple or double. Each bedroom has its own bathroom.</p>
+					<p class="show-less hidden-description">Show Less</p>
+					<br>
+					<br>
+				</div>
+				<%= link_to 'Book With AirBnB', 'https://www.airbnb.fr/rooms/14441151?guests=1&s=ChDDZsAo&sug=51', target: "_blank", class: 'btn btn-black' %>
 			</div>
 			<div class="col-md-4">
 				<h2 class="heavy">Property Facts</h2>
@@ -105,11 +116,12 @@
 					<li><p class="lead"><%= fa_icon "dollar" %>&nbsp;&nbsp;&nbsp;&nbsp;From £429 per person per week</p></li>
 				</ul>
 			</div>
-			<!--div class="col-md-12 marginTopMin">
-				<p class="lead">For larger groups HideAway 1 &amp; 2 can be rented alongside this chalet as they are interlinked through their garage, this allows groups of up to 22 people.</p>
-			</div-->
 		</div>
 	</div>
+</div>
+<div class="home_main_content margin_home_main_content_mobile ">
+	
+	
 </div>
 <div class="background_image band_height">
 
@@ -117,7 +129,7 @@
 <div class="band_height_mobile">
 	<%= image_tag("background_image_mobile1.jpg", class: "background_image_mobile") %>
 </div>
-<div class="home_content">
+<div id="section-4">
 	<div class="container">
 		<div class="row marginTopMin">
 			<div class="col-md-8 col-md-push-4 center">
@@ -149,11 +161,20 @@
 					</div>
 				</div>
 					
-				<p>Chalet HideAway 2 includes five twin / double bedrooms which each have their own private bathroom facilities.   There is a large open plan living area with widescreen satellite TV, media centre, table football and wifi.  Beneath the chalet there is a private heated indoor swimming pool, swedish sauna and on the sun terrace guests can enjoy the outdoor hot tub which has stunning views of the Mont Blanc Massif.</p>
-				<small>For groups of 12 people we can make two of the rooms into triples.</small>
-				<br>
-				<br>
-				<div class="btn btn-black">Book on AirBnB</div>
+				<div class="description">
+					<p>An amazing chalet, unique in the Chamonix valley!</p>
+					<p>Fully renovated in spring 2016, this accommodation is situated, at the bottom of Les Grands-Montets ski-slopes with a private indoor swimming pool, hot-tub and sauna.</p>
+					<p class="show-more">Show More</p>
+					<p class="hidden-description">To go skiing... just go outside! <br>The accommodation is particularly attractive to families and friends looking for a very comfortable chalet. During the day, adults can go skiing straight away while the kids are at the Panda-Club, the kids ski school,  which is at 300m from the chalet.</p>
+					<p class="hidden-description">For lunch break, the closest restaurants are at 200m.<br>After ski, you can have a drink in the village of Argentière, a 10 minutes walk or take the bus to Chamonix center, the bus-stop is 500m away.</p>
+					<p class="hidden-description">Enjoy cosy evenings in the swimming pool, the hot-tub, the outdoor sauna or a summer barbecue on the terrace facing Les Grands-Montets.</p>
+					<p class="hidden-description">In total, you can enjoy 3 bedrooms for 2 people and two bedrooms with 4 bunk-beds. All the beds (except the 2 bunk beds) can be make as simple or double.</p>
+					<p class="hidden-description">Each bedroom has its own bathroom.</p>
+					<p class="show-less hidden-description">Show Less</p>
+					<br>
+					<br>
+				</div>
+				<%= link_to 'Book With AirBnB', 'https://www.airbnb.fr/rooms/14103051?guests=1&s=ChDDZsAo&sug=51', target: "_blank", class: 'btn btn-black' %>
 			</div>
 			<div class="col-md-4 col-md-pull-8">
 				<h2 class="heavy">Property Facts</h2>

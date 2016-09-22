@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 
-
 	//Owl-Carousel init
 	var owl = $('.owl-carousel');
 	owl.owlCarousel({
@@ -27,21 +26,51 @@ $(document).ready(function(){
 			$(".carousel_arrow_div").hide();
 		});
 	}
-	
+	$(".hidden-description").hide();
+	$("#section-2 .show-more").click(function(e) {
+		e.preventDefault;
+		$(this).hide();
+		$("#section-2 .hidden-description").show();
+	});
+	$("#section-2 .show-less").click(function(e) {
+		e.preventDefault;
+		$(this).hide();
+		$("#section-2 .hidden-description").hide();
+		$("#section-2 .show-more").show();
+	});
+	$("#section-4 .show-more").click(function(e) {
+		e.preventDefault;
+		$(this).hide();
+		$("#section-4 .hidden-description").show();
+	});
+	$("#section-4 .show-less").click(function(e) {
+		e.preventDefault;
+		$(this).hide();
+		$("#section-4 .hidden-description").hide();
+		$("#section-4 .show-more").show();
+	});
+
 	var $tm = TweenMax
-	var navTween = $tm.from($(".navbar"), 0.5, { opacity: 0 });
+	var iconTween = $tm.staggerFrom($(".band .col-xs-4"), 1, { left: -300, opacity: 0 }, 0.5)
+	// var navTween = $tm.from($(".navbar"), 0.5, { opacity: 0 });
 
-	var homeController = new ScrollMagic.Controller();
+	 var homeController = new ScrollMagic.Controller();
 
-	var navScene = new ScrollMagic.Scene({triggerElement: ".home_main_content", duration: 100})
-										.setTween(navTween)
-										.addTo(homeController);
+	 var iconScene = new ScrollMagic.Scene({triggerElement: '.band', offset: -100})
+	 										.setTween(iconTween)
+	 										.addTo(homeController);
+
+	// var navScene = new ScrollMagic.Scene({triggerElement: ".home_nav", duration: 100})
+	// 									.setTween(navTween)
+	// 									.addTo(homeController);
 	// $(window).scroll(function() {
-	// 	console.log($(window).offset().top)
-	// 	// if ($('.navbar').scrollTop(0)) {
-	// 	// 	$('.navbar').addClass("navbar-fixed-top");
-	// 	// 	$('.navbar').removeClass("margin_nav");
-	// 	// }
+	// 	if ($(window).scrollTop() > $(".photo_background").height() - 200) {
+	// 		$('.navbar').addClass("navbar-fixed-top");
+	// 		$('.navbar').removeClass("margin_nav");
+	// 	} else {
+	// 		$('.navbar').removeClass("navbar-fixed-top");
+	// 		$('.navbar').addClass("margin_nav");
+	// 	}
 	// });
 	// if ($(".navbar").scrollTo(0,0)) {
 	// 	alert("o")
