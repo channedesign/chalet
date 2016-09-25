@@ -48,13 +48,13 @@
 	<div class="container" id="about">
 		<div class="row">
 			<div class="col-md-12 center marginTopMin">
-				<h1>About Chalets HideAway</h1>
+				<h1>ABOUT CHALETS HIDEAWAY</h1>
 				<p class="lead">The awesome HideAway Chalets have an un-rivalled ski in ski out location at the bottom of the Grands Montets ski area.  Lively apres ski bars are within skipping distance of the chalets and the centre of Argentière is just a short stroll away.</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-8 center">
-				<h1>Chalet Hideaway 1</h1>
+				<h1>CHALET HIDEAWAY I</h1>
 				<div class="owl_carousel_anchor">
 					<div class="owl-carousel owl-theme">
 						<div><%= image_tag("hideaway1-1.jpg", class: "pic_carou") %></div>
@@ -80,7 +80,7 @@
 						<%= image_tag("right_arrow.png", class: "carousel_arrow_pic ") %>
 					</div>
 				</div>
-				<div class="description">
+				<div class="description marginTopMinMin">
 					<p>This kind of accommodation is very rare in Chamonix valley!</p>
 					<p>Fully renovated in spring 2016, this cosy chalet is situated, at the bottom of Les Grands-Montets ski-slopes. </p>
 					<p class="show-more">Show More</p>
@@ -94,6 +94,24 @@
 					<br>
 				</div>
 				<%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" %>
+				<div id="chalet-pricing-1" class="modal fade" role="dialog">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Pricing - Chalet Hideaway 1</h4>
+				      </div>
+				      <div class="modal-body">
+				        <p>Some text in the modal.</p>
+				      </div>
+				      <div class="modal-footer">
+				        <%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+				        <%= link_to 'Download Brochure', '', class: 'btn btn-black' %>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 			<div class="col-md-4">
 				<h2 class="heavy">Property Facts</h2>
@@ -101,37 +119,35 @@
 					<li><p class="lead"><%= fa_icon "bed" %>&nbsp;&nbsp;&nbsp;&nbsp;Sleep 12 Max</p></li>
 					<li><p class="lead"><%= fa_icon "bus" %>&nbsp;&nbsp;&nbsp;&nbsp;Bus stop 130m</p></li>
 					<li><p class="lead"><%= fa_icon "cutlery" %>&nbsp;&nbsp;&nbsp;&nbsp;Argentiere village centre 500m</p></li>
-					<li><p class="lead"><%= image_tag("cablecaricon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Grands Montets cable car 130m</p></li>
+					<li><p class="lead"><%= image_tag("cablecaricon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Grands Montets cable car 130m</p></li>
 					<li><p class="lead"><%= fa_icon "wifi" %>&nbsp;&nbsp;&nbsp;&nbsp;Free WIFI</p></li>
 					<li><p class="lead"><%= fa_icon "car" %>&nbsp;&nbsp;&nbsp;&nbsp;Private parking</p></li>
 					<li><p class="lead"><%= fa_icon "paw" %>&nbsp;&nbsp;&nbsp;&nbsp;Pet Friendly</p></li>
 				</ul>
 				<h2 class="heavy">Property Features</h2>
 				<ul>
-					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
+					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
 					<li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-					<li><p class="lead"><%= fa_icon "dollar" %>&nbsp;&nbsp;&nbsp;&nbsp;From 429 per person per week</p></li>
+					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 505 per night*</p><span class="small">*Please refer to our price listing</span></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="home_main_content margin_home_main_content_mobile ">
-	
-	
-</div>
-<div class="background_image band_height">
 
+<div id="section-3">
+	<div class="background_image band_height"></div>
+	<div class="band_height_mobile">
+		<%= image_tag("background_image_mobile1.jpg", class: "background_image_mobile") %>
+	</div>
 </div>
-<div class="band_height_mobile">
-	<%= image_tag("background_image_mobile1.jpg", class: "background_image_mobile") %>
-</div>
+
 <div id="section-4">
 	<div class="container">
 		<div class="row marginTopMin">
 			<div class="col-md-8 col-md-push-4 center">
-				<h1>Chalet Hideaway 2</h1>
+				<h1>CHALET HIDEAWAY II</h1>
 				<div class="owl_carousel_anchor">
 					<div class="owl-carousel owl-theme">
 						<div><%= image_tag("hideaway2-1.jpg", class: "pic_carou") %></div>
@@ -159,7 +175,7 @@
 					</div>
 				</div>
 					
-				<div class="description">
+				<div class="description marginTopMinMin">
 					<p>An amazing chalet, unique in the Chamonix valley!</p>
 					<p>Fully renovated in spring 2016, this accommodation is situated, at the bottom of Les Grands-Montets ski-slopes with a private indoor swimming pool, hot-tub and sauna.</p>
 					<p class="show-more">Show More</p>
@@ -173,6 +189,7 @@
 					<br>
 				</div>
 				<%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
+				<%= link_to 'Pricing and Brochure', '', class: "btn btn-black" %>
 			</div>
 			<div class="col-md-4 col-md-pull-8">
 				<h2 class="heavy">Property Facts</h2>
@@ -180,36 +197,38 @@
 					<li><p class="lead"><%= fa_icon "bed" %>&nbsp;&nbsp;&nbsp;&nbsp;Sleep 13 Max</p></li>
 					<li><p class="lead"><%= fa_icon "bus" %>&nbsp;&nbsp;&nbsp;&nbsp;Bus stop 130m</p></li>
 					<li><p class="lead"><%= fa_icon "cutlery" %>&nbsp;&nbsp;&nbsp;&nbsp;Argentiere village centre 500m</p></li>
-					<li><p class="lead"><%= image_tag("cablecaricon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Grands Montets cable car 130m</p></li>
+					<li><p class="lead"><%= image_tag("cablecaricon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Grands Montets cable car 130m</p></li>
 					<li><p class="lead"><%= fa_icon "wifi" %>&nbsp;&nbsp;&nbsp;&nbsp;Free WIFI</p></li>
 					<li><p class="lead"><%= fa_icon "car" %>&nbsp;&nbsp;&nbsp;&nbsp;Private parking</p></li>
 					<li><p class="lead"><%= fa_icon "paw" %>&nbsp;&nbsp;&nbsp;&nbsp;Pet Friendly</p></li>
 				</ul>
 				<h2 class="heavy">Property Features</h2>
 				<ul>
-					<li><p class="lead"><%= image_tag("poolicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Heated indoor swimming pool</p></li>
+					<li><p class="lead"><%= image_tag("poolicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Heated indoor swimming pool</p></li>
 					<li><p class="lead"><%= fa_icon "sun-o" %>&nbsp;&nbsp;&nbsp;&nbsp;Sauna</p></li>
 					<li><p class="lead"><%= fa_icon "fire" %>&nbsp;&nbsp;&nbsp;&nbsp;Wood burning stove</p></li>
-					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
+					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
 					<li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-					<li><p class="lead"><%= fa_icon "dollar" %>&nbsp;&nbsp;&nbsp;&nbsp;From 429 per person per week</p></li>
+					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 490 per night*</p><span class="small">*Please refer to our price listing</span></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="background_image2 band_height">
 
+<div id="section-5">
+	<div class="background_image2 band_height"></div>
+	<div class="band_height_mobile">
+		<%= image_tag("background_image_mobile2.jpg", class: "background_image_mobile") %>
+	</div>
 </div>
-<div class="band_height_mobile">
-	<%= image_tag("background_image_mobile2.jpg", class: "background_image_mobile") %>
-</div>
-<div class="home_content">
+	
+<div id="section-6">
 	<div class="container">
 		<div class="row marginTopMin">
 			<div class="col-md-6 center">
-				<h1>Location</h1>
+				<h1>LOCATION</h1>
 				<div class="marginTopMinMin">
 					<div class="map_wrapper">
   						<div id="map" class="map"></div>
@@ -221,19 +240,19 @@
 				</div>
 			</div>
 			<div class="col-md-6 center">
-				<h1>What's around</h1>
+				<h1>WHAT'S AROUND</h1>
 			
 				<ul class="nav nav-tabs">
-				  <li class="active"><%= link_to("Panda Club", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
-				  <li><%= link_to("Ski Rental", "#tab_ski_rental", data: {toggle: "tab"}, id: "click_tab_ski_rental") %></li>
-				  <li><%= link_to("Restaurant", "#tab_restaurant", data: {toggle: "tab"}, id: "click_tab_restaurant") %></li>
-				  <li><%= link_to("Transport", "#tab_transport", data: {toggle: "tab"}, id: "click_tab_transport") %></li>
-				  <li><%= link_to("Other cool stuff", "#tab_other", data: {toggle: "tab"}, id: "click_tab_other") %></li>
+				  <li class="active"><%= link_to("PANDA CLUB", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
+				  <li><%= link_to("SKI RENTALS", "#tab_ski_rental", data: {toggle: "tab"}, id: "click_tab_ski_rental") %></li>
+				  <li><%= link_to("RESTAURANTS", "#tab_restaurant", data: {toggle: "tab"}, id: "click_tab_restaurant") %></li>
+				  <li><%= link_to("TRANSPORTS", "#tab_transport", data: {toggle: "tab"}, id: "click_tab_transport") %></li>
+				  <li><%= link_to("OTHER", "#tab_other", data: {toggle: "tab"}, id: "click_tab_other") %></li>
 				</ul>
 				<div class="tab-content">
 				  <div id="tab_panda_club" class="tab-pane fade in active">
 				    <div class="col-md-6 panda_winter">
-				    	<h4>Winter</h4>
+				    	<h4>WINTER</h4>
 				    	<%= image_tag("pandaclubhiver.jpg", class: "tab_logo_panda") %>
 				    	<p class="lead">Come with your family</p>
 				    	<p>Set in the heart of the forest, at the foot of Grand Montet, is our Panda Club, which is home to our Children's Ski School.</p>
@@ -243,7 +262,7 @@
 				    	
 				    </div>
 				    <div class="col-md-6 panda_summer">
-				    	<h4>Summer</h4>
+				    	<h4>SUMMER</h4>
 				    	<%= image_tag("chaletsummerhorse.jpg", class: "tab_logo_panda") %>
 				    	<p class="lead">Come with your horse</p>
 				    	

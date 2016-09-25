@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,900';
 
 
 /*---------------    General    ------------------*/
@@ -8,6 +9,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -27,16 +29,15 @@ a:hover {
 	text-align: left;
 }
 
-h1, h2, h3, p {
-	font-weight: 100;
-}
-
-.heavy {
+h1, h2, h3 {
 	font-weight: 400;
 }
 
+.heavy {
+	font-weight: 900;
+}
 
-.lead {
+.lead, p {
 	font-weight: 300;
 }
 
@@ -103,8 +104,16 @@ img {
 	cursor: pointer;
 	color: #0000cc;
 }
+
 .anim {
 	position: relative;
+}
+
+.small {
+	position: relative;
+	top: -20px;
+	font-size: 0.8em;
+	color: rgba(0, 0, 0, 0.7);
 }
 
 /*---------------    Nav    ------------------*/
@@ -152,6 +161,9 @@ img {
 		-moz-border-radius: 0px 0px 0px 0px;
 		-webkit-border-radius: 0px 0px 0px 0px;
 	}
+	.pic_home_mobile {
+		display: none;
+	}
 	.home_nav {
 		position: relative;
 		top: 0;
@@ -188,126 +200,109 @@ img {
 	.description {
 		text-align: left;
 		p {
-		font-weight: 400;
-	}
-	}
-	
-}
-
-
-.pic_home_mobile {
-	display: none;
-}
-
-
-
-
-.home_main_content {
-	background-color: white;
-}
-
-.margin_home_main_content {
-	position: relative;
-}
-
-.home_content {
-	background-color: white;
-}
-
-
-
-
-
-
-
-
-.owl_carousel_anchor {
-	position: relative;
-	.pic_carou {
-		width: 100%;
-		margin: 20px 0 20px 0;
-	}
-	.carousel_arrow_div {
-		z-index: 999;
-		position: absolute;
-		width: 50px;
-		display: none;
-		.carousel_arrow_pic {
-			width: 100%;
+			font-weight: 400;
 		}
 	}
-	.carousel_arrow_div:hover {
-		background-color: rgba(0,0,0,0.4);
+	.icon {
+		width: 22px;
+		height: 25px;
+		padding-bottom: 5px;
 	}
-	.carousel_arrow_div_pic_left {
-		top: 200px;
-		left: 0px;
-	}
-	.carousel_arrow_div_pic_right {
-		top: 200px;
-		right: 0px;
+	.owl_carousel_anchor {
+		position: relative;
+		.pic_carou {
+			width: 100%;
+		}
+		.carousel_arrow_div {
+			z-index: 999;
+			position: absolute;
+			width: 50px;
+			display: none;
+			.carousel_arrow_pic {
+				width: 100%;
+			}
+		}
+		.carousel_arrow_div:hover {
+			background-color: rgba(0,0,0,0.4);
+		}
+		.carousel_arrow_div_pic_left {
+			top: 200px;
+			left: 0px;
+		}
+		.carousel_arrow_div_pic_right {
+			top: 200px;
+			right: 0px;
+		}
 	}
 }
 
+#section-3, #section-5 {
+	.background_image {
+		background-image: image-url("background_image.jpg");
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+	}
+	.background_image2 {
+		background-image: image-url("background_image2.jpg");
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+	}
+	.band_height_mobile {
+		display: none;
+	}
+	.background_image_mobile {
+		width: 100%;
+		border-radius: 0px 0px 0px 0px;
+		-moz-border-radius: 0px 0px 0px 0px;
+		-webkit-border-radius: 0px 0px 0px 0px;
+	}
+}
 
+#section-6 {
+	background-color: #fff;
+	.nav-tabs {
+		a {
+			font-size: 0.9em;
+		}
+	}
+	.map_wrapper {
+		width: 100%;
+		height: 400px;
+		position: relative;
+	}
+	.map {
+		position: absolute;
+		width: 100%;
+		height: 400px;
+		border-radius: 10px 10px 10px 10px;
+		-moz-border-radius: 10px 10px 10px 10px;
+		-webkit-border-radius: 10px 10px 10px 10px;
+		border: 0px solid #000000;
+		z-index: 1;
+	}
+	#map_ski_rental, #map_restaurant, #map_transport, #map_other {
+		opacity: 0;
+		z-index: -1;
+	}
+}
 
 
 
 	
 
-.background_image {
-	background-image: image-url("background_image.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
-}
 
-.background_image2 {
-	background-image: image-url("background_image2.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
-}
 
-.band_height_mobile {
-	display: none;
-}
+	
 
-.background_image_mobile {
-	width: 100%;
-	border-radius: 0px 0px 0px 0px;
-	-moz-border-radius: 0px 0px 0px 0px;
-	-webkit-border-radius: 0px 0px 0px 0px;
 
-}
 
-.icon {
-	width: 22px;
-	height: 25px;
-	padding-bottom: 5px;
-}
+	
 
-.map_wrapper {
-	width: 100%;
-	height: 400px;
-	position: relative;
-}
 
-.map {
-	position: absolute;
-	width: 100%;
-	height: 400px;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 0px solid #000000;
-	z-index: 1;
-}
 
-#map_ski_rental, #map_restaurant, #map_transport, #map_other {
-	opacity: 0;
-	z-index: -1;
-}
+	
 
 /*---------------    Tab    ------------------*/
 
@@ -380,33 +375,19 @@ img {
 footer {
 	text-align: center;
 	background-color: black;
-	height: 300px;
-	color: #f5f5f5;
-	position:relative;
-	font-size: 0.8em;
+	padding-top: 50px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	color: #fff;
+	a {
+		color: #fff;
+	}
+	a:hover {
+		color: rgba(255, 255, 255, 0.5);
+	}
 }
 
-footer p {
-	font-size: 1.3em;
-	font-weight: 300;
-}
 
-.copy {
-	position: absolute;
-	bottom: 5px;
-	left: 10px;
-}
-
-.terms {
-	position: absolute;
-	bottom: 5px;
-	right: 10px;
-}
-
-.terms ul li {
-	float: left;
-	margin-left: 30px;
-}
 
 
 
@@ -427,6 +408,17 @@ footer p {
 
 /*---------------    1950    ------------------*/
 
+@media (min-width: 1951px) {
+	.home_nav {
+		position: absolute;
+		top: 85%;
+		right: 20%;
+	}
+	.band_height{
+		height: 500px;
+	}
+}
+
 @media (max-width: 1950px) {
 	.home_nav {
 		position: absolute;
@@ -434,7 +426,7 @@ footer p {
 		right: 20%;
 	}
 	.band_height{
-		height: 400px;
+		height: 500px;
 	}
 }
 
@@ -447,7 +439,7 @@ footer p {
 		right: 10%;
 	}
 	.band_height{
-		height: 300px;
+		height: 400px;
 	}
 }
 
