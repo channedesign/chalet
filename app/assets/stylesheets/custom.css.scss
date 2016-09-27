@@ -173,17 +173,24 @@ img {
 			right: 30px;
 		}
 	}
+	@media (max-width: 991px) {
+		/*.pic_home_mobile {
+			display: inline-block;
+		}
+		.pic_home {
+			display: none;
+		}*/
+	}
 }
 
 #section-1 {
 	margin-top: 33%;
 	background-color: #fff;
 	.pic_main_content_div {
-		max-width: 100%;
 		margin-bottom: 10px;
 		.pic_main_content {
 			width: 100%;
-			height: 250px;
+			
 		}
 	}
 	.band {
@@ -235,12 +242,15 @@ img {
 		}
 	}
 	.modal-header {
-		padding: 10px;
+		padding: 20px;
 	}
 	.tab-content {
 		.table-col-1 {
 			text-align: left;
 		}
+	}
+	.nav-pills li.active a {
+		background-color: #000;
 	}
 }
 
@@ -387,6 +397,9 @@ footer {
 	padding-bottom: 0;
 	margin-bottom: 0;
 	color: #fff;
+	p.lead {
+		font-size: 0.9em;
+	}
 	.container, .row {
 		margin-bottom: 0;
 		padding-bottom: 0;
@@ -421,22 +434,22 @@ footer {
 /*---------------    1950    ------------------*/
 
 @media (min-width: 1951px) {
-	.home_nav {
+	/*.home_nav {
 		position: absolute;
 		top: 85%;
 		right: 20%;
-	}
+	}*/
 	.band_height{
 		height: 500px;
 	}
 }
 
 @media (max-width: 1950px) {
-	.home_nav {
+	/*.home_nav {
 		position: absolute;
 		top: 85%;
 		right: 20%;
-	}
+	}*/
 	.band_height{
 		height: 500px;
 	}
@@ -445,11 +458,11 @@ footer {
 /*---------------    1500    ------------------*/
 
 @media (max-width: 1500px) {
-	.home_nav {
+	/*.home_nav {
 		position: absolute;
 		top: 85%;
 		right: 10%;
-	}
+	}*/
 	.band_height{
 		height: 400px;
 	}
@@ -464,7 +477,7 @@ footer {
 	.band_height_mobile {
 		display: block;
 	}
-	.pic_home_mobile {
+	/*.pic_home_mobile {
 		display: block;
 		width: 100%;
 		border-radius: 0px 0px 0px 0px;
@@ -474,7 +487,7 @@ footer {
 	}
 	.pic_home {
 		display: none;
-	}
+	}*/
 	.navbar {
 		opacity: 1;
 	}
