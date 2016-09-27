@@ -100,10 +100,51 @@
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				        <h4 class="modal-title">Pricing - Chalet Hideaway 1</h4>
+				        <h4 class="modal-title">Pricing - Chalet Hideaway I - 2016/2017</h4>
 				      </div>
 				      <div class="modal-body">
-				        <p>Some text in the modal.</p>
+							  <ul class="nav nav-pills nav-justified">
+							  	<% @prices.each_with_index do |price, i| %>
+							  		<li class="<%= 'active' if i == 0 %>"><a data-toggle="pill" href="#chalet-1-<%= price.id %>"><%= price.month %></a></li>
+							  	<% end %>
+							   
+							  </ul>
+							  
+							  <div class="tab-content">
+							  	<% @prices.each_with_index do |price, i| %>
+							  		<div id="chalet-1-<%= price.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
+								      <table class="table">
+										    <thead>
+										      <tr>
+										        <th>PRICING</th>
+										        <th><%= price.week1 %></th>
+										        <th><%= price.week2 %></th>
+										        <th><%= price.week3 %></th>
+										        <th><%= price.week4 %></th>
+										      </tr>
+										    </thead>
+										    <tbody>
+										      <tr>
+										        <td class="table-col-1"><strong>SELF-CATERED</strong></td>
+										        <td><%= '€' if price.price1week1 != "-" %><%= price.price1week1 %></td>
+										        <td><%= '€' if price.price1week2 != "-" %><%= price.price1week2 %></td>
+										        <td><%= '€' if price.price1week3 != "-" %><%= price.price1week3 %></td>
+										        <td><%= '€' if price.price1week4 != "-" %><%= price.price1week4 %></td>
+										      </tr>
+										      <tr>
+										        <td class="table-col-1"><strong>PRICE PER WEEKEND</strong></td>
+										        <td><%= '€' if price.price2week1 != "-" %><%= price.price2week1 %></td>
+										        <td><%= '€' if price.price2week2 != "-" %><%= price.price2week2 %></td>
+										        <td><%= '€' if price.price2week3 != "-" %><%= price.price2week3 %></td>
+										        <td><%= '€' if price.price2week4!= "-" %><%= price.price2week4 %></td>
+										      </tr>
+										    </tbody>
+										  </table>
+								    </div>
+							  	<% end %>
+								    
+							    
+							  </div>
 				      </div>
 				      <div class="modal-footer">
 				        <%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
@@ -129,7 +170,7 @@
 					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
 					<li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 505 per night*</p><span class="small">*Please refer to our price listing</span></li>
+					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 300€ per night*</p><span class="small">*Please refer to our price listing</span></li>
 				</ul>
 			</div>
 		</div>
@@ -189,7 +230,61 @@
 					<br>
 				</div>
 				<%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
-				<%= link_to 'Pricing and Brochure', '', class: "btn btn-black" %>
+				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" %>
+				<div id="chalet-pricing-2" class="modal fade" role="dialog">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Pricing - Chalet Hideaway II - 2016/2017</h4>
+				      </div>
+				      <div class="modal-body">
+							  <ul class="nav nav-pills nav-justified">
+							  	<% @prices2.each_with_index do |price, i| %>
+							  		<li class="<%= 'active' if i == 0 %>"><a data-toggle="pill" href="#chalet-2-<%= price.id %>"><%= price.month %></a></li>
+							  	<% end %>
+							  </ul>
+							  <div class="tab-content">
+							  	<% @prices2.each_with_index do |price, i| %>
+							  		<div id="chalet-2-<%= price.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
+								      <table class="table">
+										    <thead>
+										      <tr>
+										        <th>PRICING</th>
+										        <th><%= price.week1 %></th>
+										        <th><%= price.week2 %></th>
+										        <th><%= price.week3 %></th>
+										        <th><%= price.week4 %></th>
+										      </tr>
+										    </thead>
+										    <tbody>
+										      <tr>
+										        <td class="table-col-1"><strong>SELF-CATERED</strong></td>
+										        <td><%= '€' if price.price1week1 != "-" %><%= price.price1week1 %></td>
+										        <td><%= '€' if price.price1week2 != "-" %><%= price.price1week2 %></td>
+										        <td><%= '€' if price.price1week3 != "-" %><%= price.price1week3 %></td>
+										        <td><%= '€' if price.price1week4 != "-" %><%= price.price1week4 %></td>
+										      </tr>
+										      <tr>
+										        <td class="table-col-1"><strong>PRICE PER WEEKEND</strong></td>
+										        <td><%= '€' if price.price2week1 != "-" %><%= price.price2week1 %></td>
+										        <td><%= '€' if price.price2week2 != "-" %><%= price.price2week2 %></td>
+										        <td><%= '€' if price.price2week3 != "-" %><%= price.price2week3 %></td>
+										        <td><%= '€' if price.price2week4!= "-" %><%= price.price2week4 %></td>
+										      </tr>
+										    </tbody>
+										  </table>
+								    </div>
+							  	<% end %>
+							  </div>
+				      </div>
+				      <div class="modal-footer">
+				        <%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+				        <%= link_to 'Download Brochure', '', class: 'btn btn-black' %>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 			<div class="col-md-4 col-md-pull-8">
 				<h2 class="heavy">Property Facts</h2>
@@ -210,7 +305,7 @@
 					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
 					<li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 490 per night*</p><span class="small">*Please refer to our price listing</span></li>
+					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 490€ per night*</p><span class="small">*Please refer to our price listing</span></li>
 				</ul>
 			</div>
 		</div>
@@ -241,7 +336,6 @@
 			</div>
 			<div class="col-md-6 center">
 				<h1>WHAT'S AROUND</h1>
-			
 				<ul class="nav nav-tabs">
 				  <li class="active"><%= link_to("PANDA CLUB", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
 				  <li><%= link_to("SKI RENTALS", "#tab_ski_rental", data: {toggle: "tab"}, id: "click_tab_ski_rental") %></li>

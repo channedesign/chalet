@@ -234,6 +234,14 @@ img {
 			right: 0px;
 		}
 	}
+	.modal-header {
+		padding: 10px;
+	}
+	.tab-content {
+		.table-col-1 {
+			text-align: left;
+		}
+	}
 }
 
 #section-3, #section-5 {
@@ -379,6 +387,10 @@ footer {
 	padding-bottom: 0;
 	margin-bottom: 0;
 	color: #fff;
+	.container, .row {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
 	a {
 		color: #fff;
 	}

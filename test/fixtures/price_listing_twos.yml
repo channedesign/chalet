@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  month: MyString
+  week1: MyString
+  week2: MyString
+  week3: MyString
+  week4: MyString
+  price1week1: MyString
+  price2week1: MyString
+  price1week2: MyString
+  price2week2: MyString
+  price1week3: MyString
+  price2week3: MyString
+  price1week4: MyString
+  price2week4: MyString
+
+two:
+  month: MyString
+  week1: MyString
+  week2: MyString
+  week3: MyString
+  week4: MyString
+  price1week1: MyString
+  price2week1: MyString
+  price1week2: MyString
+  price2week2: MyString
+  price1week3: MyString
+  price2week3: MyString
+  price1week4: MyString
+  price2week4: MyString
