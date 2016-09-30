@@ -96,7 +96,7 @@
 				<%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
 				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" %>
 				<div id="chalet-pricing-1" class="modal fade" role="dialog">
-				  <div class="modal-dialog">
+				  <div class="modal-dialog modal-lg">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -116,11 +116,12 @@
 								      <table class="table">
 										    <thead>
 										      <tr>
-										        <th>PRICING<span class="small">*min 4 nights. **cleaning €250.</span></th>
-										        <th><%= price.week1 %></th>
-										        <th><%= price.week2 %></th>
-										        <th><%= price.week3 %></th>
-										        <th><%= price.week4 %></th>
+										        <th>PRICING<span class="small">*cleaning €250.</span></th>
+										        <th class="text-center"><%= price.week1 %></th>
+										        <th class="text-center"><%= price.week2 %></th>
+										        <th class="text-center"><%= price.week3 %></th>
+										        <th class="text-center"><%= price.week4 %></th>
+										        <th class="text-center"><%= price.week5 %></th>
 										      </tr>
 										    </thead>
 										    <tbody>
@@ -130,13 +131,15 @@
 										        <td><%= '€' if price.price1week2 != "-" %><%= price.price1week2 %></td>
 										        <td><%= '€' if price.price1week3 != "-" %><%= price.price1week3 %></td>
 										        <td><%= '€' if price.price1week4 != "-" %><%= price.price1week4 %></td>
+										        <td><%= '€' if price.price1week5 != "-" && price.price2week5 != nil %><%= price.price1week5 %></td>
 										      </tr>
 										      <tr>
 										        <td class="table-col-1"><strong>PRICE PER WEEKEND</strong></td>
 										        <td><%= '€' if price.price2week1 != "-" %><%= price.price2week1 %></td>
 										        <td><%= '€' if price.price2week2 != "-" %><%= price.price2week2 %></td>
 										        <td><%= '€' if price.price2week3 != "-" %><%= price.price2week3 %></td>
-										        <td><%= '€' if price.price2week4!= "-" %><%= price.price2week4 %></td>
+										        <td><%= '€' if price.price2week4 != "-" %><%= price.price2week4 %></td>
+										        <td><%= '€' if price.price2week5 != "-" && price.price2week5 != nil %><%= price.price2week5 %></td>
 										      </tr>
 										    </tbody>
 										  </table>
@@ -234,7 +237,7 @@
 				<%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
 				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" %>
 				<div id="chalet-pricing-2" class="modal fade" role="dialog">
-				  <div class="modal-dialog">
+				  <div class="modal-dialog modal-lg">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -252,11 +255,12 @@
 								      <table class="table">
 										    <thead>
 										      <tr>
-										        <th>PRICING<span class="small">*min 4 nights. **cleaning €250.</span></th>
-										        <th><%= price.week1 %></th>
-										        <th><%= price.week2 %></th>
-										        <th><%= price.week3 %></th>
-										        <th><%= price.week4 %></th>
+										        <th>PRICING<span class="small">*cleaning €250.</span></th>
+										        <th class="text-center"><%= price.week1 %></th>
+										        <th class="text-center"><%= price.week2 %></th>
+										        <th class="text-center"><%= price.week3 %></th>
+										        <th class="text-center"><%= price.week4 %></th>
+										        <th class="text-center"><%= price.week5 %></th>
 										      </tr>
 										    </thead>
 										    <tbody>
@@ -266,13 +270,15 @@
 										        <td><%= '€' if price.price1week2 != "-" %><%= price.price1week2 %></td>
 										        <td><%= '€' if price.price1week3 != "-" %><%= price.price1week3 %></td>
 										        <td><%= '€' if price.price1week4 != "-" %><%= price.price1week4 %></td>
+										        <td><%= '€' if price.price1week5 != "-" && price.price2week5 != nil %><%= price.price1week5 %></td>
 										      </tr>
 										      <tr>
 										        <td class="table-col-1"><strong>PRICE PER WEEKEND</strong></td>
 										        <td><%= '€' if price.price2week1 != "-" %><%= price.price2week1 %></td>
 										        <td><%= '€' if price.price2week2 != "-" %><%= price.price2week2 %></td>
 										        <td><%= '€' if price.price2week3 != "-" %><%= price.price2week3 %></td>
-										        <td><%= '€' if price.price2week4!= "-" %><%= price.price2week4 %></td>
+										        <td><%= '€' if price.price2week4 != "-" %><%= price.price2week4 %></td>
+										        <td><%= '€' if price.price2week5 != "-" && price.price2week5 != nil %><%= price.price2week5 %></td>
 										      </tr>
 										    </tbody>
 										  </table>

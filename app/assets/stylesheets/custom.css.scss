@@ -128,17 +128,14 @@ img {
 	opacity: 0;
 }
 
-.margin_nav {
-
-}
-
 #my_nav li {
 	margin-left: 20px;
+	margin-top: 15px;
 }
 
 .navbar_brand {
-	padding-top: 12px;
-	width: 300px;
+	padding-top: 6px;
+	width: 250px;
 }
 
 /*---------------    Home    ------------------*/
@@ -415,6 +412,11 @@ footer {
 	}
 	a:hover {
 		color: rgba(255, 255, 255, 0.5);
+	}
+	img {
+		margin-top: 0;
+		padding-top: 0;
+		width: 20%;
 	}
 }
 
