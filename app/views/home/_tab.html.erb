@@ -2,7 +2,9 @@
 	<div class="col-md-6">
 		<p class="lead"><%= name %></p>
 		<%= image_tag("#{name_pic}", class: "tab_logo") %>
-		<p>Distance: <%= distance %></p>
+		<% if distance.present? %>
+			<p>Distance: <%= distance %></p>
+		<% end %>
 	</div>
 	<div class="col-md-6 paddingTopTab">
 		<% if phone.present? %>
@@ -25,12 +27,14 @@
 			<br>
 			<br>
 		<% end %>
-		<div class="col-xs-2">
-			<%= fa_icon "map-marker" %>
-		</div>
-		<div class="col-xs-10 left">
-			<%= link_to("#{address}", "http://maps.google.com/?ll=#{latlng}", target: "_blank") %>
-		</div>
+		<% if address.present? %>
+			<div class="col-xs-2">
+				<%= fa_icon "map-marker" %>
+			</div>
+			<div class="col-xs-10 left">
+				<%= link_to("#{address}", "http://maps.google.com/?ll=#{latlng}", target: "_blank") %>
+			</div>
+		<% end %>	
 	</div>
 </div>
 
