@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :pricings
+  resources :weeks
   resources :months
   resources :months
   resources :appartments

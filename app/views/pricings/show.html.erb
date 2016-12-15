@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @pricing.price %>
+</p>
+
+<p>
+  <strong>Week:</strong>
+  <%= @pricing.week %>
+</p>
+
+<%= link_to 'Edit', edit_pricing_path(@pricing) %> |
+<%= link_to 'Back', pricings_path %>

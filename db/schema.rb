@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215174028) do
+ActiveRecord::Schema.define(version: 20161215180824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,27 @@ ActiveRecord::Schema.define(version: 20161215174028) do
     t.string   "price2week5"
   end
 
+  create_table "pricings", force: :cascade do |t|
+    t.decimal  "price"
+    t.integer  "week_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pricings", ["week_id"], name: "index_pricings_on_week_id", using: :btree
+
+  create_table "weeks", force: :cascade do |t|
+    t.integer  "from"
+    t.integer  "to"
+    t.integer  "month_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "weeks", ["month_id"], name: "index_weeks_on_month_id", using: :btree
+
   add_foreign_key "appartments", "houses"
   add_foreign_key "months", "appartments"
+  add_foreign_key "pricings", "weeks"
+  add_foreign_key "weeks", "months"
 end
