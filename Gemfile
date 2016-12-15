@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.2.1"
+ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -40,12 +40,17 @@ gem "font-awesome-rails"
 gem 'gmaps4rails'
 
 
+
 gem 'heroku-deflater', :group => :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'foreman'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'guard'
+  gem 'rb-readline'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -55,4 +60,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
