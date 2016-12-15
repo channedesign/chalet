@@ -104,7 +104,7 @@ RSpec.describe AppartmentsController, type: :controller do
         appartment = Appartment.create! valid_attributes
         put :update,  {id: appartment.to_param, appartment: new_attributes}, session: valid_session
         appartment.reload
-        skip("Add assertions for updated state")
+        expect(appartment.name).to eq('Hiboux')
       end
 
       it "assigns the requested appartment as @appartment" do

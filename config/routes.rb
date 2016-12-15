@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :months
+  resources :months
   resources :appartments
   resources :houses
   root "home#index"

@@ -104,7 +104,7 @@ RSpec.describe HousesController, type: :controller do
         house = House.create! valid_attributes
         put :update,  {id: house.to_param, house: new_attributes}, session: valid_session
         house.reload
-        skip("Add assertions for updated state")
+        expect(house.name).to eq('Chalet 2')
       end
 
       it "assigns the requested house as @house" do

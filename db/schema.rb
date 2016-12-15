@@ -11,28 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215171408) do
+ActiveRecord::Schema.define(version: 20161215174028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "appartments", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +30,15 @@ ActiveRecord::Schema.define(version: 20161215171408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "months", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "appartment_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "months", ["appartment_id"], name: "index_months_on_appartment_id", using: :btree
 
   create_table "price_listing_twos", force: :cascade do |t|
     t.string   "month"
@@ -92,4 +83,5 @@ ActiveRecord::Schema.define(version: 20161215171408) do
   end
 
   add_foreign_key "appartments", "houses"
+  add_foreign_key "months", "appartments"
 end
