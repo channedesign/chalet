@@ -48,9 +48,9 @@ group :development, :test do
   gem 'byebug'
   gem 'foreman'
   gem 'rspec-rails', '~> 3.5'
-  gem 'guard'
-  gem 'rb-readline'
+  gem 'guard-rspec', require: false
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
