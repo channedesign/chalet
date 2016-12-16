@@ -25,3 +25,13 @@
 <br>
 
 <%= link_to 'New House', new_house_path %>
+
+<div class="container">
+  <div class="row">
+    <% @houses.each do |house| %>
+      <div class="col-md-6">
+        <%= image_tag house.image.url %>
+      </div>
+    <% end %>
+  </div>
+</div>
