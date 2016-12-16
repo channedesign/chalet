@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # get 'admins/index'
+
+  get 'admin', to: 'admins#index'
   devise_for :admins
   resources :pricings
   resources :weeks

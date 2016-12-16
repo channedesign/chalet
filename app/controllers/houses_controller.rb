@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  layout 'admin'
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
   # GET /houses

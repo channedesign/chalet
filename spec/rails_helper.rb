@@ -8,6 +8,9 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'support/factory_girl'
 require 'database_cleaner'
+require 'devise'
+require 'support/controller_macros'
+require 'capybara/rspec'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -67,17 +70,21 @@ RSpec.configure do |config|
   end
 
   Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    # Choose a test framework:
-    with.test_framework :rspec
+    config.integrate do |with|
+      # Choose a test framework:
+      with.test_framework :rspec
 
 
-    # Choose one or more libraries:
-    # with.library :active_record
-    # with.library :active_model
-    # with.library :action_controller
-    # Or, choose the following (which implies all of the above):
-    with.library :rails
+      # Choose one or more libraries:
+      # with.library :active_record
+      # with.library :active_model
+      # with.library :action_controller
+      # Or, choose the following (which implies all of the above):
+      with.library :rails
+    end
   end
-end
+  RSpec.configure do |config|
+    config.include Devise::Test::ControllerHelpers, :type => :controller
+    config.extend ControllerMacros, :type => :controller
+  end
 end

@@ -116,6 +116,26 @@ img {
 	color: rgba(0, 0, 0, 0.7);
 }
 
+/*---------------    Admin    ------------------*/
+
+#admin-layout {
+	nav {
+		opacity: 1
+	}
+	#admin-left-panel {
+		height: 100%;
+		width: 10%;
+		padding-top: 10%;
+		background-color: black;
+		position: fixed;
+	}
+	#admin-main {
+		margin-left: 10%;
+		padding: 5%;
+		background-color: orange
+	}
+}
+
 /*---------------    Nav    ------------------*/
 
 .navbar {
@@ -187,7 +207,7 @@ img {
 		margin-bottom: 10px;
 		.pic_main_content {
 			width: 100%;
-			
+
 		}
 	}
 	.band {
@@ -311,19 +331,19 @@ img {
 
 
 
-	
 
 
 
-	
 
 
 
-	
 
 
 
-	
+
+
+
+
 
 /*---------------    Tab    ------------------*/
 
@@ -526,4 +546,3 @@ footer {
 		height: 300px;
 	}
 }
-

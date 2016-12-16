@@ -39,7 +39,8 @@ gem "passenger"
 gem "font-awesome-rails"
 gem 'gmaps4rails'
 gem 'devise'
-
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk'
 
 
 gem 'heroku-deflater', :group => :production
@@ -53,6 +54,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'capybara'
 end
 
 group :development do
