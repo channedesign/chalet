@@ -30,12 +30,13 @@ RSpec.describe HousesController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # HousesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+
+  login_admin
 
   describe "GET #index" do
     it "assigns all houses as @houses" do
       house = House.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}
       expect(assigns(:houses)).to eq([house])
     end
   end
@@ -43,14 +44,14 @@ RSpec.describe HousesController, type: :controller do
   describe "GET #show" do
     it "assigns the requested house as @house" do
       house = House.create! valid_attributes
-      get :show, id: house.to_param, session: valid_session
+      get :show, id: house.to_param
       expect(assigns(:house)).to eq(house)
     end
   end
 
   describe "GET #new" do
     it "assigns a new house as @house" do
-      get :new, params: {}, session: valid_session
+      get :new, params: {}
       expect(assigns(:house)).to be_a_new(House)
     end
   end
@@ -58,7 +59,7 @@ RSpec.describe HousesController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested house as @house" do
       house = House.create! valid_attributes
-      get :edit, id: house.to_param, session: valid_session
+      get :edit, id: house.to_param
       expect(assigns(:house)).to eq(house)
     end
   end
@@ -67,30 +68,30 @@ RSpec.describe HousesController, type: :controller do
     context "with valid params" do
       it "creates a new House" do
         expect {
-          post :create, house: valid_attributes, session: valid_session
+          post :create, house: valid_attributes
         }.to change(House, :count).by(1)
       end
 
       it "assigns a newly created house as @house" do
-        post :create, house: valid_attributes, session: valid_session
+        post :create, house: valid_attributes
         expect(assigns(:house)).to be_a(House)
         expect(assigns(:house)).to be_persisted
       end
 
       it "redirects to the created house" do
-        post :create,  {house: valid_attributes}, session: valid_session
+        post :create,  {house: valid_attributes}
         expect(response).to redirect_to(House.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved house as @house" do
-        post :create, {house: invalid_attributes}, session: valid_session
+        post :create, {house: invalid_attributes}
         expect(assigns(:house)).to be_a_new(House)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {house: invalid_attributes}, session: valid_session
+        post :create, {house: invalid_attributes}
         expect(response).to render_template("new")
       end
     end
@@ -102,20 +103,20 @@ RSpec.describe HousesController, type: :controller do
 
       it "updates the requested house" do
         house = House.create! valid_attributes
-        put :update,  {id: house.to_param, house: new_attributes}, session: valid_session
+        put :update,  {id: house.to_param, house: new_attributes}
         house.reload
         expect(house.name).to eq('Chalet 2')
       end
 
       it "assigns the requested house as @house" do
         house = House.create! valid_attributes
-        put :update,  {id: house.to_param, house: valid_attributes}, session: valid_session
+        put :update,  {id: house.to_param, house: valid_attributes}
         expect(assigns(:house)).to eq(house)
       end
 
       it "redirects to the house" do
         house = House.create! valid_attributes
-        put :update, {id: house.to_param, house: valid_attributes}, session: valid_session
+        put :update, {id: house.to_param, house: valid_attributes}
         expect(response).to redirect_to(house)
       end
     end
@@ -123,13 +124,13 @@ RSpec.describe HousesController, type: :controller do
     context "with invalid params" do
       it "assigns the house as @house" do
         house = House.create! valid_attributes
-        put :update,  {id: house.to_param, house: invalid_attributes}, session: valid_session
+        put :update,  {id: house.to_param, house: invalid_attributes}
         expect(assigns(:house)).to eq(house)
       end
 
       it "re-renders the 'edit' template" do
         house = House.create! valid_attributes
-        put :update,  {id: house.to_param, house: invalid_attributes}, session: valid_session
+        put :update,  {id: house.to_param, house: invalid_attributes}
         expect(response).to render_template("edit")
       end
     end
@@ -139,13 +140,13 @@ RSpec.describe HousesController, type: :controller do
     it "destroys the requested house" do
       house = House.create! valid_attributes
       expect {
-        delete :destroy,  {id: house.to_param}, session: valid_session
+        delete :destroy,  {id: house.to_param}
       }.to change(House, :count).by(-1)
     end
 
     it "redirects to the houses list" do
       house = House.create! valid_attributes
-      delete :destroy, {id: house.to_param}, session: valid_session
+      delete :destroy, {id: house.to_param}
       expect(response).to redirect_to(houses_url)
     end
   end

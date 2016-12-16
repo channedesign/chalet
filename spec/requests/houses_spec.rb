@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Houses", type: :request do
+  # post_via_redirect admin_session_path, 'admin[email]' => 'bob@sample.com', 'admin[password]' => 'Password'
   describe "GET /houses" do
+
     it "works! (now write some real specs)" do
       get houses_path
       expect(response).to have_http_status(200)

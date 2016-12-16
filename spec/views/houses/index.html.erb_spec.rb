@@ -4,10 +4,16 @@ RSpec.describe "houses/index", type: :view do
   before(:each) do
     assign(:houses, [
       House.create!(
-        :name => "Name"
+        :name => "Name",
+        image_file_name:  'image.jpg',
+        image_file_size:  1024,
+        image_content_type:  'image/jpeg'
       ),
       House.create!(
-        :name => "Name"
+        :name => "Name",
+        image_file_name:  'image2.jpg',
+        image_file_size:  1024,
+        image_content_type:  'image/jpeg'
       )
     ])
   end
