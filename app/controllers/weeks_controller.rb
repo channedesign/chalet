@@ -1,4 +1,6 @@
 class WeeksController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_admin!
   before_action :set_week, only: [:show, :edit, :update, :destroy]
 
   # GET /weeks
@@ -15,6 +17,7 @@ class WeeksController < ApplicationController
   # GET /weeks/new
   def new
     @week = Week.new
+    @week.month_id = params[:month_id]
   end
 
   # GET /weeks/1/edit
@@ -28,7 +31,7 @@ class WeeksController < ApplicationController
 
     respond_to do |format|
       if @week.save
-        format.html { redirect_to @week, notice: 'Week was successfully created.' }
+        format.html { redirect_to house_path(@week.month.appartment.house.id), notice: 'Week was successfully created.' }
         format.json { render :show, status: :created, location: @week }
       else
         format.html { render :new }

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "pricings/show", type: :view do
   before(:each) do
     @pricing = assign(:pricing, Pricing.create!(
-      :price => "9.99",
+      :self_catered => "9.99",
       :week => nil
     ))
   end

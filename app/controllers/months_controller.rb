@@ -1,4 +1,6 @@
 class MonthsController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_admin!
   before_action :set_month, only: [:show, :edit, :update, :destroy]
 
   # GET /months
@@ -15,6 +17,7 @@ class MonthsController < ApplicationController
   # GET /months/new
   def new
     @month = Month.new
+    @month.appartment_id = params[:appartment_id]
   end
 
   # GET /months/1/edit
@@ -28,7 +31,7 @@ class MonthsController < ApplicationController
 
     respond_to do |format|
       if @month.save
-        format.html { redirect_to @month, notice: 'Month was successfully created.' }
+        format.html { redirect_to house_path(@month.appartment.house.id), notice: 'Month was successfully created.' }
         format.json { render :show, status: :created, location: @month }
       else
         format.html { render :new }

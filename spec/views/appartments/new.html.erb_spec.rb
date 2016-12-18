@@ -15,7 +15,7 @@ RSpec.describe "appartments/new", type: :view do
 
       assert_select "input#appartment_name[name=?]", "appartment[name]"
 
-      assert_select "input#appartment_house_id[name=?]", "appartment[house_id]"
+      
     end
   end
 end

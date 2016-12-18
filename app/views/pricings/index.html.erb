@@ -14,7 +14,8 @@
   <tbody>
     <% @pricings.each do |pricing| %>
       <tr>
-        <td><%= pricing.price %></td>
+        <td><%= pricing.self_catered %></td>
+        <td><%= pricing.weekend %></td>
         <td><%= pricing.week %></td>
         <td><%= link_to 'Show', pricing %></td>
         <td><%= link_to 'Edit', edit_pricing_path(pricing) %></td>

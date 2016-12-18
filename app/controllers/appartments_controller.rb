@@ -1,4 +1,6 @@
 class AppartmentsController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_admin!
   before_action :set_appartment, only: [:show, :edit, :update, :destroy]
 
   # GET /appartments
@@ -15,6 +17,7 @@ class AppartmentsController < ApplicationController
   # GET /appartments/new
   def new
     @appartment = Appartment.new
+    @appartment.house_id = params[:house_id]
   end
 
   # GET /appartments/1/edit
@@ -25,10 +28,9 @@ class AppartmentsController < ApplicationController
   # POST /appartments.json
   def create
     @appartment = Appartment.new(appartment_params)
-
     respond_to do |format|
       if @appartment.save
-        format.html { redirect_to @appartment, notice: 'Appartment was successfully created.' }
+        format.html { redirect_to house_path(@appartment.house.id), notice: 'Appartment was successfully created.' }
         format.json { render :show, status: :created, location: @appartment }
       else
         format.html { render :new }

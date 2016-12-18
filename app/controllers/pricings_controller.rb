@@ -69,6 +69,6 @@ class PricingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pricing_params
-      params.require(:pricing).permit(:price, :week_id)
+      params.require(:pricing).permit(:self_catered, :weekend, :week_id)
     end
 end

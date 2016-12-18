@@ -14,9 +14,11 @@
   <%= render 'shared/admin_nav' %>
   <%= render 'shared/admin_side_bar' %>
   <div id='admin-main'>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>

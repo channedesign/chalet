@@ -1,9 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2><%= @house.name %></h2>
+  </div>
+</div>
+<div class="row">
+  <% @house.appartments.each do |appartment| %>
+    <div class="col-md-<%= column(@house.appartments.size) %> text-center">
+      <%= appartment.name %> | <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id) %>
+      <ul class="nav nav-pills nav-justified">
+        <% appartment.months.each_with_index do |month, i| %>
+          <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
+        <% end %>
+      </ul>
+      <div class="tab-content">
+        <% appartment.months.each_with_index do |month, i| %>
+          <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
 
-<p>
-  <strong>Name:</strong>
-  <%= @house.name %>
-</p>
+            <%= link_to "Add Week to #{month.name}", new_week_path(month_id: month.id) %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>PRICING</th>
+                  <% month.weeks.each do |week| %>
+                    <th class="text-center"><%= "#{week.from}-#{week.to}" %></th>
+                  <% end %>
+                  <th><%= link_to "+", new_week_path(month_id: month.id) %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left"><strong>SELF-CATERED</strong></td>
+                  <% month.weeks.each do |week| %>
+                    <% week.pricings.each do |pricing| %>
+                      <td>pricing.price</td>
+                    <% end %>
+                  <% end %>
+                </tr>
+                <tr>
+                  <td class="text-left"><strong>PRICE PER WEEKEND</strong></td>
 
-<%= link_to 'Edit', edit_house_path(@house) %> |
-<%= link_to 'Back', houses_path %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+
+
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <%= link_to 'Add Appartment', new_appartment_path(house_id: @house.id) %>
+  </div>
+</div>

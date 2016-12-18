@@ -11,5 +11,32 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe AdminsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#active_tab?' do
+    context 'i == 0' do
+      it 'is active' do
+        i = 0
+        expect(active_tab?(i)).to eq('active')
+      end
+    end
+
+    context 'i != 0' do
+      it 'is not active' do
+        i = 1
+        expect(active_tab?(i)).to eq(nil)
+      end
+    end
+  end
+
+  describe '#column' do
+    it 'calculates the number of columns' do
+      num1 = 1
+      num2 = 2
+      num3 = 3
+
+      expect(column(num1)).to eq(12)
+      expect(column(num2)).to eq(6)
+      expect(column(num3)).to eq(4)
+    end
+  end
+
 end

@@ -20,6 +20,6 @@ RSpec.describe "houses/index", type: :view do
 
   it "renders a list of houses" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select "h2", :text => "Manage Name".to_s, :count => 2
   end
 end

@@ -23,7 +23,12 @@ RSpec.describe WeeksController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Week. As you add validations to Week, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for :week }
+
+  let(:chalet) { create :house }
+  let(:panda) { create :appartment, house_id: chalet.id }
+  let(:december) { create :month, appartment_id: panda.id }
+
+  let(:valid_attributes) { attributes_for :week, month_id: december.id }
 
   let(:invalid_attributes) { attributes_for :week, from: '', to: 'a string' }
 
@@ -31,6 +36,8 @@ RSpec.describe WeeksController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # WeeksController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  login_admin
 
   describe "GET #index" do
     it "assigns all weeks as @weeks" do
@@ -79,7 +86,7 @@ RSpec.describe WeeksController, type: :controller do
 
       it "redirects to the created week" do
         post :create,  {week: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Week.last)
+        expect(response).to redirect_to(house_path(Week.last.month.appartment.house.id))
       end
     end
 

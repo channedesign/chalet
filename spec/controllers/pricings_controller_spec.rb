@@ -25,7 +25,7 @@ RSpec.describe PricingsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) { attributes_for :pricing }
 
-  let(:invalid_attributes) { attributes_for :pricing, price: '' }
+  let(:invalid_attributes) { attributes_for :pricing, self_catered: '' }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -98,13 +98,13 @@ RSpec.describe PricingsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) { attributes_for :pricing, price: 999.50 }
+      let(:new_attributes) { attributes_for :pricing, self_catered: 999.50 }
 
       it "updates the requested pricing" do
         pricing = Pricing.create! valid_attributes
         put :update,  {id: pricing.to_param, pricing: new_attributes}, session: valid_session
         pricing.reload
-        expect(pricing.price).to eq(999.50)
+        expect(pricing.self_catered).to eq(999.50)
       end
 
       it "assigns the requested pricing as @pricing" do

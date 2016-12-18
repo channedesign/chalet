@@ -23,7 +23,10 @@ RSpec.describe AppartmentsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Appartment. As you add validations to Appartment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for :appartment }
+
+  let(:chalet) { create :house }
+
+  let(:valid_attributes) { attributes_for :appartment, house_id: chalet.id }
 
   let(:invalid_attributes) { attributes_for :appartment, name: '' }
 
@@ -31,7 +34,7 @@ RSpec.describe AppartmentsController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # AppartmentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-
+  login_admin
   describe "GET #index" do
     it "assigns all appartments as @appartments" do
       appartment = Appartment.create! valid_attributes
@@ -79,7 +82,7 @@ RSpec.describe AppartmentsController, type: :controller do
 
       it "redirects to the created appartment" do
         post :create,  {appartment: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Appartment.last)
+        expect(response).to redirect_to(house_path(Appartment.last.house.id))
       end
     end
 
