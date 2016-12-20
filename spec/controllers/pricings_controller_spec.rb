@@ -104,13 +104,13 @@ RSpec.describe PricingsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) { attributes_for :pricing, self_catered: 999.50 }
+      let(:new_attributes) { attributes_for :pricing, self_catered: '999.50' }
 
       it "updates the requested pricing" do
         pricing = Pricing.create! valid_attributes
         put :update,  {id: pricing.to_param, pricing: new_attributes}, session: valid_session
         pricing.reload
-        expect(pricing.self_catered).to eq(999.50)
+        expect(pricing.self_catered).to eq('999.50')
       end
 
       it "assigns the requested pricing as @pricing" do
@@ -152,7 +152,7 @@ RSpec.describe PricingsController, type: :controller do
     it "redirects to the pricings list" do
       pricing = Pricing.create! valid_attributes
       delete :destroy,  {id: pricing.to_param}, session: valid_session
-      expect(response).to redirect_to(pricings_url)
+      expect(response).to redirect_to(house_path(pricing.week.month.appartment.house.id))
     end
   end
 

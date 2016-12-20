@@ -1,6 +1,6 @@
 class House < ActiveRecord::Base
   has_many :appartments, dependent: :destroy
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 1, maximum: 50 }, uniqueness: true
 
   has_attached_file :image, styles: {
      thumb: '100x100>',

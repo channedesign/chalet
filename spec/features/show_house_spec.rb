@@ -42,7 +42,7 @@ feature 'show house' do
     visit "/houses/#{chalet.id}"
 
     expect(page).to have_link('Add Pricings')
-    expect(page).not_to have_link('Edit Pricings')
+    expect(page).not_to have_link('Delete Pricings')
     expect(page).not_to have_content(week1.pricings)
   end
 
@@ -53,7 +53,7 @@ feature 'show house' do
 
     visit "/houses/#{chalet.id}"
 
-    expect(page).to have_link('Edit Pricings')
+    expect(page).to have_link('Delete Pricings')
     expect(page).not_to have_link('Add Pricings')
     expect(page).to have_content(price.self_catered)
     expect(page).to have_content(price.weekend)
