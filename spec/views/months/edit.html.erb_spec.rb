@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "months/edit", type: :view do
+  let!(:chalet) { create :house }
+  let!(:panda) { create :appartment, house_id: chalet.id }
   before(:each) do
     @month = assign(:month, Month.create!(
       :name => "MyString",
-      :appartment => nil
+      :appartment => panda
     ))
   end
 

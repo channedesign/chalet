@@ -1,0 +1,49 @@
+<% chalet.each do |appartment| %>
+  <% if appartment.visible? %>
+    <h3><%= appartment.name %></h3>
+    <ul class="nav nav-pills nav-justified">
+      <% appartment.months.each_with_index do |month, i| %>
+        <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
+      <% end %>
+    </ul>
+
+
+    <div class="tab-content">
+      <% appartment.months.each_with_index do |month, i| %>
+        <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>PRICING</th>
+                <% month.weeks.each do |week| %>
+                  <th class="text-center"><%= "#{week.from}-#{week.to} #{month.name[0, 3]}" %></th>
+                <% end %>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left"><strong>SELF-CATERED</strong></td>
+                <% month.weeks.each do |week| %>
+                  <% week.pricings.each do |pricing| %>
+                    <td><%= "€#{pricing.self_catered}" %></td>
+                  <% end %>
+                <% end %>
+              </tr>
+              <tr>
+                <td class="text-left"><strong>PRICE PER WEEKEND</strong></td>
+                <% month.weeks.each do |week| %>
+                  <% week.pricings.each do |pricing| %>
+                    <td><%= "€#{pricing.weekend}" %></td>
+                  <% end %>
+                <% end %>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Sign Admin Out' do
   let!(:bob) { create :admin }
+  let!(:chalet) { create :house }
   scenario 'successfully' do
 
     visit '/admin'

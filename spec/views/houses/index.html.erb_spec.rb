@@ -10,7 +10,7 @@ RSpec.describe "houses/index", type: :view do
         image_content_type:  'image/jpeg'
       ),
       House.create!(
-        :name => "Name",
+        :name => "Name2",
         image_file_name:  'image2.jpg',
         image_file_size:  1024,
         image_content_type:  'image/jpeg'
@@ -20,6 +20,7 @@ RSpec.describe "houses/index", type: :view do
 
   it "renders a list of houses" do
     render
-    assert_select "h2", :text => "Manage Name".to_s, :count => 2
+    assert_select "h2", :text => "Manage Name".to_s, :count => 1
+    assert_select "h2", :text => "Manage Name2".to_s, :count => 1
   end
 end

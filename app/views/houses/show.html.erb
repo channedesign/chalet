@@ -10,8 +10,15 @@
 </div>
 <div class="row">
   <% @house.appartments.each do |appartment| %>
+
     <div class="col-md-12 text-center dashed-box">
-      <h3><%= link_to(appartment.name, edit_appartment_path(appartment.id), class: 'btn btn-warning btn-lg') %></h3><br><hr><br>
+      <h3><%= link_to(appartment.name, edit_appartment_path(appartment.id), class: 'btn btn-warning btn-lg') %></h3>
+      <% if appartment.visible? %>
+        <p>( <%= appartment.name %> is currently <span class="green">VISIBLE</span> for the world to see! )</p>
+      <% else %>
+        <p>( <%= appartment.name %> is currently <span class="red">NOT VISIBLE</span> for the world to see! )</p>
+      <% end %>
+      <br><hr><br>
        <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id), class: 'btn btn-success' %>
       <ul class="nav nav-pills nav-justified">
         <% appartment.months.each_with_index do |month, i| %>

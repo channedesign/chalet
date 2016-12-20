@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220133846) do
+ActiveRecord::Schema.define(version: 20161220201027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(version: 20161220133846) do
   create_table "appartments", force: :cascade do |t|
     t.string   "name"
     t.integer  "house_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "visible",    default: false
   end
 
   add_index "appartments", ["house_id"], name: "index_appartments_on_house_id", using: :btree

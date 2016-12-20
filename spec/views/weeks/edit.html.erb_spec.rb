@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "weeks/edit", type: :view do
+  let!(:chalet) { create :house }
+  let!(:panda) { create :appartment, house_id: chalet.id }
+  let!(:december) { create :month, appartment_id: panda.id }
   before(:each) do
     @week = assign(:week, Week.create!(
       :from => 1,
       :to => 1,
-      :month => nil
+      :month => december
     ))
   end
 

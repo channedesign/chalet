@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @month %> |
-<%= link_to 'Back', months_path %>
+
+<%= link_to 'Back', house_path(@month.appartment.house.id) %>
