@@ -1,4 +1,6 @@
 class PricingsController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_admin!
   before_action :set_pricing, only: [:show, :edit, :update, :destroy]
 
   # GET /pricings
@@ -15,6 +17,7 @@ class PricingsController < ApplicationController
   # GET /pricings/new
   def new
     @pricing = Pricing.new
+    @pricing.week_id = params[:week_id]
   end
 
   # GET /pricings/1/edit
@@ -28,7 +31,7 @@ class PricingsController < ApplicationController
 
     respond_to do |format|
       if @pricing.save
-        format.html { redirect_to @pricing, notice: 'Pricing was successfully created.' }
+        format.html { redirect_to house_path(@pricing.week.month.appartment.house.id), notice: 'Pricing was successfully created.' }
         format.json { render :show, status: :created, location: @pricing }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class PricingsController < ApplicationController
   def update
     respond_to do |format|
       if @pricing.update(pricing_params)
-        format.html { redirect_to @pricing, notice: 'Pricing was successfully updated.' }
+        format.html { redirect_to house_path(@pricing.week.month.appartment.house.id), notice: 'Pricing was successfully updated.' }
         format.json { render :show, status: :ok, location: @pricing }
       else
         format.html { render :edit }

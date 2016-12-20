@@ -4,9 +4,15 @@
   </div>
 </div>
 <div class="row">
+  <div class="col-md-12 text-center">
+    <%= link_to 'Add Appartment', new_appartment_path(house_id: @house.id), class: 'btn btn-success' %>
+  </div>
+</div>
+<div class="row">
   <% @house.appartments.each do |appartment| %>
-    <div class="col-md-<%= column(@house.appartments.size) %> text-center">
-      <%= appartment.name %> | <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id) %>
+    <div class="col-md-12 text-center dashed-box">
+      <h3><%= link_to(appartment.name, edit_appartment_path(appartment.id)) %></h3><br><hr><br>
+       <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id), class: 'btn btn-success' %>
       <ul class="nav nav-pills nav-justified">
         <% appartment.months.each_with_index do |month, i| %>
           <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
@@ -15,16 +21,17 @@
       <div class="tab-content">
         <% appartment.months.each_with_index do |month, i| %>
           <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
-
-            <%= link_to "Add Week to #{month.name}", new_week_path(month_id: month.id) %>
+            <%= link_to "Edit #{month.name}", edit_month_path(month.id), class: "btn btn-warning" %> |
+            <%= link_to "Delete #{month.name}", month_path(month.id), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %> <br><br><br><hr>
+            <%= link_to "Add Week to #{month.name}", new_week_path(month_id: month.id), class: "btn btn-success" %>
             <table class="table">
               <thead>
                 <tr>
                   <th>PRICING</th>
                   <% month.weeks.each do |week| %>
-                    <th class="text-center"><%= "#{week.from}-#{week.to}" %></th>
+                    <th class="text-center"><%= "#{week.from}-#{week.to} #{month.name[0, 3]}" %></th>
                   <% end %>
-                  <th><%= link_to "+", new_week_path(month_id: month.id) %></th>
+
                 </tr>
               </thead>
               <tbody>
@@ -32,13 +39,30 @@
                   <td class="text-left"><strong>SELF-CATERED</strong></td>
                   <% month.weeks.each do |week| %>
                     <% week.pricings.each do |pricing| %>
-                      <td>pricing.price</td>
+                      <td><%= pricing.self_catered %></td>
                     <% end %>
                   <% end %>
                 </tr>
                 <tr>
                   <td class="text-left"><strong>PRICE PER WEEKEND</strong></td>
-
+                  <% month.weeks.each do |week| %>
+                    <% week.pricings.each do |pricing| %>
+                      <td><%= pricing.weekend %></td>
+                    <% end %>
+                  <% end %>
+                </tr>
+                <tr>
+                  <td class="text-left"></td>
+                  <% month.weeks.each do |week| %>
+                    <% if week.pricings.empty? %>
+                      <td><%= link_to 'Add Pricings', new_pricing_path(week_id: week.id), class: "btn btn-success" %></td>
+                    <% end %>
+                    <% week.pricings.each do |pricing| %>
+                      <% if pricing.self_catered && pricing.weekend  %>
+                        <td><%= link_to 'Edit Pricings', edit_pricing_path(pricing), class: "btn btn-warning" %></td>
+                      <% end %>
+                    <% end %>
+                  <% end %>
                 </tr>
               </tbody>
             </table>
@@ -47,11 +71,9 @@
 
 
       </div>
+      <hr>
+      <%= link_to "Delete #{appartment.name}", appartment_path(appartment.id), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+      <br><br>
     </div>
   <% end %>
-</div>
-<div class="row">
-  <div class="col-md-12 text-center">
-    <%= link_to 'Add Appartment', new_appartment_path(house_id: @house.id) %>
-  </div>
 </div>

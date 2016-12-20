@@ -44,7 +44,7 @@ class AppartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appartment.update(appartment_params)
-        format.html { redirect_to @appartment, notice: 'Appartment was successfully updated.' }
+        format.html { redirect_to house_path(@appartment.house.id), notice: 'Appartment was successfully updated.' }
         format.json { render :show, status: :ok, location: @appartment }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class AppartmentsController < ApplicationController
   def destroy
     @appartment.destroy
     respond_to do |format|
-      format.html { redirect_to appartments_url, notice: 'Appartment was successfully destroyed.' }
+      format.html { redirect_to house_path(@appartment.house.id), notice: 'Appartment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

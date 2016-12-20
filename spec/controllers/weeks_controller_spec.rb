@@ -124,7 +124,7 @@ RSpec.describe WeeksController, type: :controller do
       it "redirects to the week" do
         week = Week.create! valid_attributes
         put :update,  {id: week.to_param, week: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(week)
+        expect(response).to redirect_to(house_path(week.month.appartment.house.id))
       end
     end
 

@@ -23,7 +23,13 @@ RSpec.describe PricingsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Pricing. As you add validations to Pricing, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for :pricing }
+  let(:chalet) { create :house }
+  let(:panda) { create :appartment, house_id: chalet.id }
+  let(:december) { create :month, appartment_id: panda.id }
+  let(:week1) { create :week, month_id: december.id }
+
+
+  let(:valid_attributes) { attributes_for :pricing, week_id: week1.id }
 
   let(:invalid_attributes) { attributes_for :pricing, self_catered: '' }
 
@@ -31,7 +37,7 @@ RSpec.describe PricingsController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # PricingsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-
+  login_admin
   describe "GET #index" do
     it "assigns all pricings as @pricings" do
       pricing = Pricing.create! valid_attributes
@@ -79,7 +85,7 @@ RSpec.describe PricingsController, type: :controller do
 
       it "redirects to the created pricing" do
         post :create,  {pricing: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Pricing.last)
+        expect(response).to redirect_to(house_path(Pricing.last.week.month.appartment.house.id))
       end
     end
 
@@ -116,7 +122,7 @@ RSpec.describe PricingsController, type: :controller do
       it "redirects to the pricing" do
         pricing = Pricing.create! valid_attributes
         put :update,  {id: pricing.to_param, pricing: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(pricing)
+        expect(response).to redirect_to(house_path(pricing.week.month.appartment.house.id))
       end
     end
 

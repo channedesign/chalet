@@ -45,7 +45,7 @@ class MonthsController < ApplicationController
   def update
     respond_to do |format|
       if @month.update(month_params)
-        format.html { redirect_to @month, notice: 'Month was successfully updated.' }
+        format.html { redirect_to house_path(@month.appartment.house.id), notice: 'Month was successfully updated.' }
         format.json { render :show, status: :ok, location: @month }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class MonthsController < ApplicationController
   def destroy
     @month.destroy
     respond_to do |format|
-      format.html { redirect_to months_url, notice: 'Month was successfully destroyed.' }
+      format.html { redirect_to house_path(@month.appartment.house.id), notice: 'Month was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

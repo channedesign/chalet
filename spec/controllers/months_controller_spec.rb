@@ -119,7 +119,7 @@ RSpec.describe MonthsController, type: :controller do
       it "redirects to the month" do
         month = Month.create! valid_attributes
         put :update, {id: month.to_param, month: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(month)
+        expect(response).to redirect_to(house_path(month.appartment.house.id))
       end
     end
 
@@ -149,7 +149,7 @@ RSpec.describe MonthsController, type: :controller do
     it "redirects to the months list" do
       month = Month.create! valid_attributes
       delete :destroy, {id: month.to_param}, session: valid_session
-      expect(response).to redirect_to(months_url)
+      expect(response).to redirect_to(house_path(month.appartment.house.id))
     end
   end
 

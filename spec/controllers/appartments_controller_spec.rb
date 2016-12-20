@@ -119,7 +119,7 @@ RSpec.describe AppartmentsController, type: :controller do
       it "redirects to the appartment" do
         appartment = Appartment.create! valid_attributes
         put :update,  {id: appartment.to_param, appartment: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(appartment)
+        expect(response).to redirect_to(house_path(appartment.house.id))
       end
     end
 
@@ -149,7 +149,7 @@ RSpec.describe AppartmentsController, type: :controller do
     it "redirects to the appartments list" do
       appartment = Appartment.create! valid_attributes
       delete :destroy, {id: appartment.to_param}, session: valid_session
-      expect(response).to redirect_to(appartments_url)
+      expect(response).to redirect_to(house_path(appartment.house.id))
     end
   end
 

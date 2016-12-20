@@ -45,7 +45,7 @@ class WeeksController < ApplicationController
   def update
     respond_to do |format|
       if @week.update(week_params)
-        format.html { redirect_to @week, notice: 'Week was successfully updated.' }
+        format.html { redirect_to house_path(@week.month.appartment.house.id), notice: 'Week was successfully updated.' }
         format.json { render :show, status: :ok, location: @week }
       else
         format.html { render :edit }

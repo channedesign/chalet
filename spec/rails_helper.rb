@@ -74,10 +74,19 @@ RSpec.configure do |config|
   # Devise
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
-  # To facilitate Capybara test
+  # To facilitate Capybara test (login_as)
   config.include Warden::Test::Helpers
   # PaperClip
   config.include Paperclip::Shoulda::Matchers
+
+  include ActionDispatch::TestProcess
+
+  config.after(:all) do
+    if Rails.env.test?
+      test_uploads = Dir["#{Rails.root}/test_uploads"]
+      FileUtils.rm_rf(test_uploads)
+    end
+  end
 
 end
 Shoulda::Matchers.configure do |config|
