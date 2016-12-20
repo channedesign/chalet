@@ -23,13 +23,13 @@
           <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
             <%= link_to "Edit #{month.name}", edit_month_path(month.id), class: "btn btn-warning" %> |
             <%= link_to "Delete #{month.name}", month_path(month.id), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %> <br><br><br><hr>
-            <%= link_to "Add Week to #{month.name}", new_week_path(month_id: month.id), class: "btn btn-success" %>
+            <%= link_to "Add Week to #{month.name}", new_week_path(month_id: month.id), class: "btn btn-success" %><br><br>
             <table class="table">
               <thead>
                 <tr>
                   <th>PRICING</th>
                   <% month.weeks.each do |week| %>
-                    <th class="text-center"><%= "#{week.from}-#{week.to} #{month.name[0, 3]}" %></th>
+                    <th class="text-center"><%= link_to "#{week.from}-#{week.to} #{month.name[0, 3]}", edit_week_path(week.id) %> | <%= link_to 'Delete Week', week_path(week.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></th>
                   <% end %>
 
                 </tr>

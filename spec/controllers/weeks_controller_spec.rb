@@ -154,7 +154,7 @@ RSpec.describe WeeksController, type: :controller do
     it "redirects to the weeks list" do
       week = Week.create! valid_attributes
       delete :destroy,  {id: week.to_param}, session: valid_session
-      expect(response).to redirect_to(weeks_url)
+      expect(response).to redirect_to(house_path(week.month.appartment.house.id))
     end
   end
 

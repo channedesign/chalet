@@ -59,7 +59,7 @@ class WeeksController < ApplicationController
   def destroy
     @week.destroy
     respond_to do |format|
-      format.html { redirect_to weeks_url, notice: 'Week was successfully destroyed.' }
+      format.html { redirect_to house_path(@week.month.appartment.house.id), notice: 'Week was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
