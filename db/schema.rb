@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220201027) do
+ActiveRecord::Schema.define(version: 20161223203536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161220201027) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "visible",    default: false
+    t.integer  "position"
   end
 
   add_index "appartments", ["house_id"], name: "index_appartments_on_house_id", using: :btree
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20161220201027) do
     t.integer  "appartment_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "position"
   end
 
   add_index "months", ["appartment_id"], name: "index_months_on_appartment_id", using: :btree
@@ -116,11 +118,12 @@ ActiveRecord::Schema.define(version: 20161220201027) do
   add_index "pricings", ["week_id"], name: "index_pricings_on_week_id", using: :btree
 
   create_table "weeks", force: :cascade do |t|
-    t.integer  "from"
-    t.integer  "to"
     t.integer  "month_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date     "from"
+    t.date     "to"
+    t.integer  "position"
   end
 
   add_index "weeks", ["month_id"], name: "index_weeks_on_month_id", using: :btree

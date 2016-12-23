@@ -1,8 +1,8 @@
-<% chalet.each do |appartment| %>
+<% chalet.order(:position).each do |appartment| %>
   <% if appartment.visible? %>
     <h3><%= appartment.name %></h3>
     <ul class="nav nav-pills nav-justified">
-      <% appartment.months.each_with_index do |month, i| %>
+      <% appartment.months.order(:position).each_with_index do |month, i| %>
         <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
       <% end %>
     </ul>
@@ -16,7 +16,7 @@
             <thead>
               <tr>
                 <th>PRICING</th>
-                <% month.weeks.each do |week| %>
+                <% month.weeks.order(:position).each do |week| %>
                   <th class="text-center"><%= "#{week.from}-#{week.to} #{month.name[0, 3]}" %></th>
                 <% end %>
 

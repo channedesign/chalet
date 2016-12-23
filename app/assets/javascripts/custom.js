@@ -1,5 +1,24 @@
 $(document).ready(function(){
 
+	 $('.datepicker').datepicker({
+		 autoclose: true,
+		 orientation: "bottom auto",
+		 format: 'dd/mm/yyyy'
+	 });
+
+	 $("#sortable_month").sortable({
+		 axis: 'x',
+		 update: function() {
+			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
+		 }
+	 });
+
+	 $("#sortable_week").sortable({
+		 axis: 'x',
+		 update: function() {
+			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
+		 }
+	 });
 
 	//Owl-Carousel init
 	var owl = $('.owl-carousel');

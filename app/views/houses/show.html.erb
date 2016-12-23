@@ -9,7 +9,7 @@
   </div>
 </div>
 <div class="row">
-  <% @house.appartments.each do |appartment| %>
+  <% @house.appartments.order(:position).each do |appartment| %>
 
     <div class="col-md-12 text-center dashed-box">
       <h3><%= link_to(appartment.name, edit_appartment_path(appartment.id), class: 'btn btn-warning btn-lg') %></h3>
@@ -20,9 +20,9 @@
       <% end %>
       <br><hr><br>
        <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id), class: 'btn btn-success' %>
-      <ul class="nav nav-pills nav-justified">
-        <% appartment.months.each_with_index do |month, i| %>
-          <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
+      <ul class="nav nav-pills nav-justified" id="sortable_month" data-update-url="<%= sort_months_path %>">
+        <% appartment.months.order(:position).each_with_index do |month, i| %>
+          <li class="<%= active_tab?(i) %>" id="month_<%= month.id %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
         <% end %>
       </ul>
       <div class="tab-content">
@@ -33,12 +33,13 @@
             <%= link_to "Add Week to #{month.name}", new_week_path(month_id: month.id), class: "btn btn-success" %><br><br>
             <table class="table">
               <thead>
-                <tr>
+                <tr id="sortable_week" data-update-url="<%= sort_weeks_path %>">
                   <th>PRICING</th>
-                  <% month.weeks.each do |week| %>
-                    <th class="text-center"><%= link_to "#{week.from}-#{week.to} #{month.name[0, 3]}", edit_week_path(week.id), class: 'btn btn-warning btn-xs' %> | <%= link_to 'Delete Week', week_path(week.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></th>
-                  <% end %>
-
+                  <span >
+                    <% month.weeks.order(:position).each do |week| %>
+                      <th class="text-center" id="week_<%= week.id %>"><%= link_to "#{week.from.day}-#{week.to.day} #{month.name[0, 3]}", edit_week_path(week.id), class: 'btn btn-warning btn-xs' %> | <%= link_to 'Delete Week', week_path(week.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></th>
+                    <% end %>
+                  </span>
                 </tr>
               </thead>
               <tbody>

@@ -13,12 +13,13 @@
 
   <div class="field">
     <%= f.label :from %><br>
-    <%= f.number_field :from %>
+    <%= f.date_field :from, class: 'datepicker' %>
   </div>
   <div class="field">
     <%= f.label :to %><br>
-    <%= f.number_field :to %>
+    <%= f.date_field :to, class: 'datepicker' %>
   </div>
+  <br><br>
   <div class="field hidden">
     <%= f.label :month_id %><br>
     <%= f.text_field :month_id %>

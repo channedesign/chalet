@@ -64,6 +64,13 @@ class MonthsController < ApplicationController
     end
   end
 
+  def sort
+    params[:month].each_with_index do |id, index|
+     Month.where(id: id).update_all({position: index + 1})
+   end
+    render nothing: true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_month
@@ -72,6 +79,6 @@ class MonthsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def month_params
-      params.require(:month).permit(:name, :appartment_id)
+      params.require(:month).permit(:name, :position, :appartment_id)
     end
 end

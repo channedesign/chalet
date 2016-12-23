@@ -64,6 +64,13 @@ class WeeksController < ApplicationController
     end
   end
 
+  def sort
+    params[:week].each_with_index do |id, index|
+     Week.where(id: id).update_all({position: index + 1})
+   end
+    render nothing: true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_week
@@ -72,6 +79,6 @@ class WeeksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def week_params
-      params.require(:week).permit(:from, :to, :month_id)
+      params.require(:week).permit(:from, :to, :position, :month_id)
     end
 end

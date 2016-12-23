@@ -30,7 +30,7 @@ feature 'show house' do
     expect(page).to have_content(december.name)
 
     expect(page).to have_link('Add Week')
-    expect(page).to have_content("#{week1.from}-#{week1.to}")
+    expect(page).to have_content("#{week1.from.day}-#{week1.to.day}")
 
 
 

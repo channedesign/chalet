@@ -12,13 +12,13 @@ feature 'Edit Week' do
 
     visit "/houses/#{chalet.id}"
 
-    click_link "#{week1.from}-#{week1.to} #{december.name[0,3]}"
+    click_link "#{week1.from.day}-#{week1.to.day} #{december.name[0,3]}"
 
     expect(page.current_path).to eq(edit_week_path(week1.id))
 
     within 'form' do
-      fill_in 'From', with: 10
-      fill_in 'To', with: 17
+      fill_in 'From', with: '10/12/2016'
+      fill_in 'To', with: '17/12/2016'
       click_button 'Update Week'
     end
 

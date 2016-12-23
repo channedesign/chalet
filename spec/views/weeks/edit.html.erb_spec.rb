@@ -6,8 +6,8 @@ RSpec.describe "weeks/edit", type: :view do
   let!(:december) { create :month, appartment_id: panda.id }
   before(:each) do
     @week = assign(:week, Week.create!(
-      :from => 1,
-      :to => 1,
+      :from => '12/1/2016',
+      :to => '12/7/2016',
       :month => december
     ))
   end

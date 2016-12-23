@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   get 'admin', to: 'admins#index'
   devise_for :admins
   resources :pricings
-  resources :weeks
-  resources :months
-  resources :months
+  resources :weeks do
+    collection { post :sort }
+  end
+  resources :months do
+    collection { post :sort }
+  end
   resources :appartments
   resources :houses
   root "home#index"

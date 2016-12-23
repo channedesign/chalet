@@ -128,6 +128,15 @@ img {
 		padding-top: 10%;
 		background-color: black;
 		position: fixed;
+		li {
+			padding: 20px;
+			a {
+				color: #fff
+			}
+			a:hover {
+				color: #d5d5d5;
+			}
+		}
 	}
 	#admin-main {
 		margin-left: 10%;

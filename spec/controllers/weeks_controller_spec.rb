@@ -105,14 +105,14 @@ RSpec.describe WeeksController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) { attributes_for :week, from: 12, to: 20 }
+      let(:new_attributes) { attributes_for :week, from: '10/12/2016', to: '17/12/2016' }
 
       it "updates the requested week" do
         week = Week.create! valid_attributes
         put :update,  {id: week.to_param, week: new_attributes}, session: valid_session
         week.reload
-        expect(week.from).to eq(12)
-        expect(week.to).to eq(20)
+        expect(week.from.strftime('%m/%d/%Y')).to eq('12/10/2016')
+        expect(week.to.strftime('%m/%d/%Y')).to eq('12/17/2016')
       end
 
       it "assigns the requested week as @week" do

@@ -13,8 +13,8 @@ feature 'Add Week to month' do
 
     click_link "Add Week to #{december.name}"
     within 'form' do
-      fill_in 'From', with: 1
-      fill_in 'To', with: 7
+      fill_in 'From', with: '01/12/2016'
+      fill_in 'To', with: '07/12/2016'
       click_button 'Create Week'
     end
 

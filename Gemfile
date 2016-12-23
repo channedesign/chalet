@@ -41,6 +41,8 @@ gem 'gmaps4rails'
 gem 'devise'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
+gem 'bootstrap-datepicker-rails'
+gem 'jquery-ui-rails'
 
 
 gem 'heroku-deflater', :group => :production
