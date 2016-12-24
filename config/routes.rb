@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :months do
     collection { post :sort }
   end
-  resources :appartments
+  resources :appartments do
+    collection { post :sort }
+  end
   resources :houses
   root "home#index"
 

@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :self_catered %><br>
-    <%= f.text_field :self_catered %>
+    <%= f.text_field :self_catered, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label 'Price Per Weekend' %><br>
-    <%= f.text_field :weekend %>
+    <%= f.text_field :weekend, class: 'form-control' %>
   </div>
   <div class="field hidden">
     <%= f.label :week_id %><br>
     <%= f.text_field :week_id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit @pricing.new_record? ? 'Create Pricing' : 'Update Pricing', class: 'btn btn-default' %>
   </div>
 <% end %>

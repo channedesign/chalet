@@ -6,7 +6,7 @@ class AppartmentsController < ApplicationController
   # GET /appartments
   # GET /appartments.json
   def index
-    @appartments = Appartment.all
+    @appartments = Appartment.includes(:house).order(:position)
   end
 
   # GET /appartments/1
@@ -63,6 +63,12 @@ class AppartmentsController < ApplicationController
     end
   end
 
+  def sort
+    params[:appartment].each_with_index do |id, index|
+     Appartment.where(id: id).update_all({position: index + 1})
+   end
+    render nothing: true
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -72,6 +78,6 @@ class AppartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appartment_params
-      params.require(:appartment).permit(:name, :visible, :position, :house_id)
+      params.require(:appartment).permit(:name, :visible, :description, :position, :house_id)
     end
 end

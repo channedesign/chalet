@@ -11,20 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :from %><br>
-    <%= f.date_field :from, class: 'datepicker' %>
+    <%= f.date_field :from, class: 'datepicker form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :to %><br>
-    <%= f.date_field :to, class: 'datepicker' %>
+    <%= f.date_field :to, class: 'datepicker form-control' %>
   </div>
-  <br><br>
+  
   <div class="field hidden">
     <%= f.label :month_id %><br>
     <%= f.text_field :month_id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit @week.new_record? ? 'Create Week' : 'Update Week', class: 'btn btn-default' %>
   </div>
 <% end %>

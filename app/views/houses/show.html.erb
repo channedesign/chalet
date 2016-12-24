@@ -6,18 +6,26 @@
 <div class="row">
   <div class="col-md-12 text-center">
     <%= link_to 'Add Appartment', new_appartment_path(house_id: @house.id), class: 'btn btn-success' %>
+    <div>
+      <br>
+      <small><%= link_to 'Sort Appartments', appartments_path, class: 'btn btn-link btn-xs' %></small>
+    </div>
   </div>
 </div>
 <div class="row">
   <% @house.appartments.order(:position).each do |appartment| %>
-
     <div class="col-md-12 text-center dashed-box">
-      <h3><%= link_to(appartment.name, edit_appartment_path(appartment.id), class: 'btn btn-warning btn-lg') %></h3>
+      <br>
       <% if appartment.visible? %>
         <p>( <%= appartment.name %> is currently <span class="green">VISIBLE</span> for the world to see! )</p>
       <% else %>
         <p>( <%= appartment.name %> is currently <span class="red">NOT VISIBLE</span> for the world to see! )</p>
       <% end %>
+      <h3><%= link_to(appartment.name, edit_appartment_path(appartment.id), class: 'btn btn-warning btn-lg') %></h3>
+      <% if appartment.description? %>
+        <p><%= appartment.description %></p>
+      <% end %>
+
       <br><hr><br>
        <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id), class: 'btn btn-success' %>
       <ul class="nav nav-pills nav-justified" id="sortable_month" data-update-url="<%= sort_months_path %>">
@@ -26,7 +34,7 @@
         <% end %>
       </ul>
       <div class="tab-content">
-        <% appartment.months.each_with_index do |month, i| %>
+        <% appartment.months.includes(:weeks).each_with_index do |month, i| %>
           <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
             <%= link_to "Edit #{month.name}", edit_month_path(month.id), class: "btn btn-warning" %> |
             <%= link_to "Delete #{month.name}", month_path(month.id), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %> <br><br><br><hr>
@@ -45,9 +53,9 @@
               <tbody>
                 <tr>
                   <td class="text-left"><strong>SELF-CATERED</strong></td>
-                  <% month.weeks.each do |week| %>
+                  <% month.weeks.includes(:pricings).each do |week| %>
                     <% week.pricings.each do |pricing| %>
-                      <td><%= link_to "€#{pricing.self_catered}", edit_pricing_path(pricing.id), class: 'btn btn-warning btn-xs' %></td>
+                      <td><%= link_to pricing_format(pricing.self_catered), edit_pricing_path(pricing.id), class: 'btn btn-warning btn-xs' %></td>
                     <% end %>
                   <% end %>
                 </tr>
@@ -55,7 +63,7 @@
                   <td class="text-left"><strong>PRICE PER WEEKEND</strong></td>
                   <% month.weeks.each do |week| %>
                     <% week.pricings.each do |pricing| %>
-                      <td><%= link_to "€#{pricing.weekend}", edit_pricing_path(pricing.id), class: 'btn btn-warning btn-xs' %></td>
+                      <td><%= link_to pricing_format(pricing.weekend), edit_pricing_path(pricing.id), class: 'btn btn-warning btn-xs' %></td>
                     <% end %>
                   <% end %>
                 </tr>

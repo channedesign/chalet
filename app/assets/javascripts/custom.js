@@ -13,6 +13,13 @@ $(document).ready(function(){
 		 }
 	 });
 
+	 $("#sortable_appartment").sortable({
+		 axis: 'y',
+		 update: function() {
+			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
+		 }
+	 });
+
 	 $("#sortable_week").sortable({
 		 axis: 'x',
 		 update: function() {
