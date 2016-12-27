@@ -53,33 +53,21 @@
               <tbody>
                 <tr>
                   <td class="text-left"><strong>SELF-CATERED</strong></td>
-                  <% month.weeks.includes(:pricings).each do |week| %>
-                    <% week.pricings.each do |pricing| %>
-                      <td><%= link_to pricing_format(pricing.self_catered), edit_pricing_path(pricing.id), class: 'btn btn-warning btn-xs' %></td>
-                    <% end %>
+                  <% month.weeks.each do |week| %>
+
+                      <td><%= link_to pricing_format(week.self_catered), edit_week_path(week.id), class: 'btn btn-warning btn-xs' %></td>
+
                   <% end %>
                 </tr>
                 <tr>
                   <td class="text-left"><strong>PRICE PER WEEKEND</strong></td>
                   <% month.weeks.each do |week| %>
-                    <% week.pricings.each do |pricing| %>
-                      <td><%= link_to pricing_format(pricing.weekend), edit_pricing_path(pricing.id), class: 'btn btn-warning btn-xs' %></td>
-                    <% end %>
+
+                      <td><%= link_to pricing_format(week.weekend), edit_week_path(week.id), class: 'btn btn-warning btn-xs' %></td>
+
                   <% end %>
                 </tr>
-                <tr>
-                  <td class="text-left"></td>
-                  <% month.weeks.each do |week| %>
-                    <% if week.pricings.empty? %>
-                      <td><%= link_to 'Add Pricings', new_pricing_path(week_id: week.id), class: "btn btn-success" %></td>
-                    <% end %>
-                    <% week.pricings.each do |pricing| %>
-                      <% if pricing.self_catered && pricing.weekend  %>
-                        <td><%= link_to 'Delete Pricings', pricing_path(pricing), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </tr>
+
               </tbody>
             </table>
           </div>

@@ -28,21 +28,16 @@
             <tbody>
               <tr>
                 <td class="text-left"><strong>SELF-CATERED</strong></td>
-                <% month.weeks.includes(:pricings).each do |week| %>
-                  <% week.pricings.each do |pricing| %>
-                    <td><%= pricing_format(pricing.self_catered) %></td>
-                  <% end %>
+                <% month.weeks.each do |week| %>
+                  <td><%= pricing_format(week.self_catered) %></td>
                 <% end %>
               </tr>
               <tr>
                 <td class="text-left"><strong>PRICE PER WEEKEND</strong></td>
                 <% month.weeks.each do |week| %>
-                  <% week.pricings.each do |pricing| %>
-                    <td><%= pricing_format(pricing.weekend) %></td>
-                  <% end %>
+                  <td><%= pricing_format(week.weekend) %></td>
                 <% end %>
               </tr>
-
             </tbody>
           </table>
         </div>

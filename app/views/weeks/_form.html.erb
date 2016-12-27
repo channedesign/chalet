@@ -19,7 +19,15 @@
     <%= f.label :to %><br>
     <%= f.date_field :to, class: 'datepicker form-control' %>
   </div>
-  
+  <div class="form-group">
+    <%= f.label :self_catered %><br>
+    <%= f.text_field :self_catered, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :weekend %><br>
+    <%= f.text_field :weekend, class: 'form-control' %>
+  </div>
+
   <div class="field hidden">
     <%= f.label :month_id %><br>
     <%= f.text_field :month_id %>

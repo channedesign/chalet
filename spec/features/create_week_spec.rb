@@ -15,13 +15,16 @@ feature 'Add Week to month' do
     within 'form' do
       fill_in 'From', with: '01/12/2016'
       fill_in 'To', with: '07/12/2016'
+      fill_in 'Self catered', with: '1000'
+      fill_in 'Weekend', with: '500'
       click_button 'Create Week'
     end
 
     expect(page.current_path).to eq(house_path(chalet.id))
     expect(page).to have_content('Week was successfully created')
     expect(page).to have_content('1-7 Dec')
-
+    expect(page).to have_content('€1000')
+    expect(page).to have_content('€500')
   end
 
 end
