@@ -1,15 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "appartments/index", type: :view do
+  let!(:chalet) { create :house }
   before(:each) do
     assign(:appartments, [
       Appartment.create!(
         :name => "Name",
-        :house => nil
+        :house => chalet
       ),
       Appartment.create!(
         :name => "Name2",
-        :house => nil
+        :house => chalet
       )
     ])
   end
@@ -18,6 +19,6 @@ RSpec.describe "appartments/index", type: :view do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 1
     assert_select "tr>td", :text => "Name2".to_s, :count => 1
-    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => chalet.name.to_s, :count => 2
   end
 end

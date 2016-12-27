@@ -31,32 +31,12 @@ feature 'show house' do
 
     expect(page).to have_link('Add Week')
     expect(page).to have_content("#{week1.from.day}-#{week1.to.day}")
-
+    expect(page).to have_content("€1000")
+    expect(page).to have_content('€500')
 
 
   end
 
-  scenario 'shows a house with no pricings' do
-    login_as bob
 
-    visit "/houses/#{chalet.id}"
-
-    expect(page).to have_link('Add Pricings')
-    expect(page).not_to have_link('Delete Pricings')
-    expect(page).not_to have_content(week1.pricings)
-  end
-
-  scenario 'shows a house with pricings' do
-
-    price = create :pricing, week_id: week1.id
-    login_as bob
-
-    visit "/houses/#{chalet.id}"
-
-    expect(page).to have_link('Delete Pricings')
-    expect(page).not_to have_link('Add Pricings')
-    expect(page).to have_content(price.self_catered)
-    expect(page).to have_content(price.weekend)
-  end
 
 end

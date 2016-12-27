@@ -5,6 +5,8 @@ RSpec.describe "weeks/new", type: :view do
     assign(:week, Week.new(
       :from => 1,
       :to => 1,
+      self_catered: '1000',
+      weekend: '500',
       :month => nil
     ))
   end

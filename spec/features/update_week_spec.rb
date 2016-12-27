@@ -19,11 +19,15 @@ feature 'Edit Week' do
     within 'form' do
       fill_in 'From', with: '10/12/2016'
       fill_in 'To', with: '17/12/2016'
+      fill_in 'Self catered', with: '5000'
+      fill_in 'Weekend', with: '2000'
       click_button 'Update Week'
     end
 
     expect(page.current_path).to eq(house_path(chalet.id))
     expect(page).to have_content('10-17 Dec')
+    expect(page).to have_content('€5000')
+    expect(page).to have_content('€2000')
     expect(page).to have_content('Week was successfully updated')
 
 

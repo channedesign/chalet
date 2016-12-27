@@ -1,7 +1,8 @@
 class Week < ActiveRecord::Base
   belongs_to :month
-  has_many :pricings, dependent: :destroy
 
   validates :to, presence: true
   validates :from, presence: true
+  validates :self_catered, presence: true
+  validates :weekend, presence: true
 end
