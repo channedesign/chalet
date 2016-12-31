@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pictures
   # get 'admins/index'
 
   get 'admin', to: 'admins#index'

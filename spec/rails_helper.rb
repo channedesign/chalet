@@ -78,9 +78,8 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   # PaperClip
   config.include Paperclip::Shoulda::Matchers
-
+  # Create test_upload folder and rm it for file_attachment
   include ActionDispatch::TestProcess
-
   config.after(:all) do
     if Rails.env.test?
       test_uploads = Dir["#{Rails.root}/test_uploads"]

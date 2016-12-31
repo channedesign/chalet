@@ -43,6 +43,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-ui-rails'
+gem 'dropzonejs-rails'
 
 
 gem 'heroku-deflater', :group => :production

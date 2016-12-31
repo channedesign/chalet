@@ -22,4 +22,5 @@
 //= require tween_max.min
 //= require scroll_magic.min
 //= require animation.gsap.min
+//= require dropzone
 //= require_tree .

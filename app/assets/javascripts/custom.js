@@ -5,27 +5,37 @@ $(document).ready(function(){
 		 orientation: "bottom auto",
 		 format: 'dd/mm/yyyy'
 	 });
-
+	 // jQuery-ui sortable for admin
 	 $("#sortable_month").sortable({
 		 axis: 'x',
 		 update: function() {
 			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
 		 }
 	 });
-
 	 $("#sortable_appartment").sortable({
 		 axis: 'y',
 		 update: function() {
 			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
 		 }
 	 });
-
 	 $("#sortable_week").sortable({
 		 axis: 'x',
 		 update: function() {
 			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
 		 }
 	 });
+
+	 // dropzone
+	 Dropzone.autoDiscover = false;
+	 $(".dropzone").dropzone({
+		maxFilesize: 20,
+		paramName: "picture[chalet_picture]",
+		params: { house_id: location.search.split('house_id=')[1] },
+		addRemoveLinks: false,
+		dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload pictures</p>",
+		// success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
+		// queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
+	});
 
 	//Owl-Carousel init
 	var owl = $('.owl-carousel');

@@ -171,6 +171,18 @@ img {
 		padding-top: 30px;
 		padding-left: 20px
 	}
+	.add_picture_div {
+		padding-top: 25px;
+		.add_picture_button {
+			border: 1px solid #000;
+			border-radius: 10px;
+			padding: 25px 40px;
+		}
+		.add_picture_button:hover {
+			background-color: #c5c5c5;
+			color: #fff
+		}
+	}
 }
 
 /*---------------    Nav    ------------------*/
