@@ -6,4 +6,9 @@ module AdminsHelper
   def column(num)
     12 / num
   end
+
+  def side_bar_active(path)
+    'side_bar_active' if request.path.include?(path)
+  end
+
 end

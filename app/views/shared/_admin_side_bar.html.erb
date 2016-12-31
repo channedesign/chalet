@@ -1,7 +1,19 @@
 <div id='admin-left-panel'>
   <ul class="text-center">
-    <li><%= link_to 'Chalet', houses_path %></li>
-    <li><%= link_to 'Pictures', pictures_path %></li>
+    <%= link_to houses_path do %>
+      <li class="<%= side_bar_active(houses_path) %>">
+        Chalet
+      </li>
+    <% end %>
+    <%= link_to pictures_path do %>
+      <li class="<%= side_bar_active(pictures_path) %>">
+        Pictures
+      </li>
+    <% end %>
+
     <li>What to do</li>
   </ul>
+  <div class="col-md-12">
+    <%= image_tag 'ChaletsHideaway-logo-footer.png' %>
+  </div>
 </div>

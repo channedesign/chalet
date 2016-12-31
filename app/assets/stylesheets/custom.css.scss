@@ -123,18 +123,26 @@ img {
 		opacity: 1
 	}
 	#admin-left-panel {
+		img {
+			margin-top: 200px;
+			width: 100px;
+		}
 		height: 100%;
 		width: 10%;
-		padding-top: 10%;
 		background-color: black;
 		position: fixed;
-		li {
-			padding: 20px;
-			a {
-				color: #fff
+		ul {
+			margin-top: 200px;
+			li {
+				padding: 20px;
 			}
-			a:hover {
-				color: #d5d5d5;
+			li:hover {
+				background-color: #555;
+				color: #fff;
+			}
+			.side_bar_active, .side_bar_active:hover {
+				background-color: #fff;
+				color: #000;
 			}
 		}
 	}
@@ -179,8 +187,7 @@ img {
 			padding: 25px 40px;
 		}
 		.add_picture_button:hover {
-			background-color: #c5c5c5;
-			color: #fff
+			background-color: #e5e5e5;
 		}
 	}
 }

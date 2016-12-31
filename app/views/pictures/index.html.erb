@@ -1,8 +1,9 @@
 <div class="row">
   <% @chalets.each do |chalet| %>
-    <div class="col-md-6" id="chalet_<%= chalet.id %>">
+    <div class="col-md-6 text-center" id="chalet_<%= chalet.id %>">
       <div class="col-md-12">
         <h2><%= chalet.name %></h2>
+        <br><br>
       </div>
       <div class="col-md-3 add_picture_div">
         <%= link_to (fa_icon 'plus'), new_picture_path(house_id: chalet.id), class: 'add_picture_button' %>
@@ -11,7 +12,7 @@
         <div class="col-md-3">
           <%= picture.name %>
           <%= image_tag picture.chalet_picture.url(:thumb) %><br>
-          <%= link_to 'Delete', picture, method: :delete, data: { confirm: 'Are you sure?' }  %>
+          <%= link_to 'Delete', picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
         </div>
       <% end %>
     </div>

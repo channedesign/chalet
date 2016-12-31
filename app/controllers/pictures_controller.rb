@@ -7,7 +7,6 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @chalets = House.includes(:pictures).all
-    @pictures = Picture.includes(:house).all
   end
 
   # GET /pictures/1
@@ -17,7 +16,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    @picture = Picture.new()
+    @picture = Picture.new(house_id: params[:house_id])
   end
 
   # GET /pictures/1/edit
