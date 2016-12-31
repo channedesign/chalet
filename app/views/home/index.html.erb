@@ -53,32 +53,7 @@
 		<div class="row">
 			<div class="col-md-8 center">
 				<h1>CHALET HIDEAWAY I</h1>
-				<div class="owl_carousel_anchor">
-					<div class="owl-carousel owl-theme">
-						<div><%= image_tag("hideaway1-1.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-2.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-3.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-4.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-5.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-6.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-7.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-8.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-9.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-10.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-11.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-12.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-13.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-14.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-15.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway1-16.jpg", class: "pic_carou") %></div>
-					</div>
-					<div class="carousel_arrow_div carousel_arrow_div_pic_left">
-						<%= image_tag("left_arrow.png", class: "carousel_arrow_pic ") %>
-					</div>
-					<div class="carousel_arrow_div carousel_arrow_div_pic_right">
-						<%= image_tag("right_arrow.png", class: "carousel_arrow_pic ") %>
-					</div>
-				</div>
+				<%= render 'carousel', chalet: @chalet1 %>
 				<div class="description marginTopMinMin">
 					<p>This kind of accommodation is very rare in Chamonix valley!</p>
 					<p>Fully renovated in spring 2016, this cosy chalet is situated, at the bottom of Les Grands-Montets ski-slopes. </p>
@@ -103,7 +78,7 @@
 				      </div>
 				      <div class="modal-body">
 
-								<%= render 'pricings_table', chalet: @chalet1_appartments %>
+								<%= render 'pricings_table', chalet: @chalet1 %>
 
 
 								<!-Begin need to delete  >
@@ -199,32 +174,7 @@
 		<div class="row marginTopMin">
 			<div class="col-md-8 col-md-push-4 center">
 				<h1>CHALET HIDEAWAY II</h1>
-				<div class="owl_carousel_anchor">
-					<div class="owl-carousel owl-theme">
-						<div><%= image_tag("hideaway2-1.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-2.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-3.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-4.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-5.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-6.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-7.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-8.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-9.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-10.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-11.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-12.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-13.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-14.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-15.jpg", class: "pic_carou") %></div>
-						<div><%= image_tag("hideaway2-16.jpg", class: "pic_carou") %></div>
-					</div>
-					<div class="carousel_arrow_div carousel_arrow_div_pic_left">
-						<%= image_tag("left_arrow.png", class: "carousel_arrow_pic ") %>
-					</div>
-					<div class="carousel_arrow_div carousel_arrow_div_pic_right">
-						<%= image_tag("right_arrow.png", class: "carousel_arrow_pic ") %>
-					</div>
-				</div>
+				<%= render 'carousel', chalet: @chalet2 %>
 
 				<div class="description marginTopMinMin">
 					<p>An amazing chalet, unique in the Chamonix valley!</p>
@@ -249,7 +199,7 @@
 				        <h4 class="modal-title">Pricing - Chalet Hideaway II - 2016/2017</h4>
 				      </div>
 				      <div class="modal-body">
-								<%= render 'pricings_table', chalet: @chalet2_appartments %>
+								<%= render 'pricings_table', chalet: @chalet2 %>
 
 								<!-Begin need to delete  >
 							  <ul class="nav nav-pills nav-justified">

@@ -1,0 +1,13 @@
+<div class="owl_carousel_anchor">
+  <div class="owl-carousel owl-theme">
+    <% chalet.pictures.each do |picture| %>
+      <div><%= image_tag picture.chalet_picture.url, class: "pic_carou" %></div>
+    <% end %>
+  </div>
+  <div class="carousel_arrow_div carousel_arrow_div_pic_left">
+    <%= image_tag("left_arrow.png", class: "carousel_arrow_pic ") %>
+  </div>
+  <div class="carousel_arrow_div carousel_arrow_div_pic_right">
+    <%= image_tag("right_arrow.png", class: "carousel_arrow_pic ") %>
+  </div>
+</div>

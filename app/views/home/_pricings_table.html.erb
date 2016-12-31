@@ -1,4 +1,4 @@
-<% chalet.order(:position).each do |appartment| %>
+<% chalet.appartments.order(:position).each do |appartment| %>
   <% if appartment.visible? %>
     <h3><%= appartment.name %></h3>
     <% if appartment.description? %>
