@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @chalets = House.includes(:pictures).all
+    @chalets = House.all
   end
 
   # GET /pictures/1
@@ -61,6 +61,18 @@ class PicturesController < ApplicationController
       format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def delete_all # naming confusion if destroy_all
+    Picture.where(house_id: params[:house_id]).destroy_all
+    redirect_to pictures_path
+  end
+
+  def sort
+    params[:picture].each_with_index do |id, index|
+     Picture.where(id: id).update_all({position: index + 1})
+   end
+    render nothing: true
   end
 
   private

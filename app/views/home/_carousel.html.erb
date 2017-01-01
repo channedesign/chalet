@@ -1,6 +1,6 @@
 <div class="owl_carousel_anchor">
   <div class="owl-carousel owl-theme">
-    <% chalet.pictures.each do |picture| %>
+    <% chalet.pictures.order(:position).each do |picture| %>
       <div><%= image_tag picture.chalet_picture.url, class: "pic_carou" %></div>
     <% end %>
   </div>

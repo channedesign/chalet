@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :pictures
-  # get 'admins/index'
+  resources :pictures do
+    collection { delete :delete_all }
+    collection { post :sort }
+  end
+
 
   get 'admin', to: 'admins#index'
   devise_for :admins

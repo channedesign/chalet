@@ -26,12 +26,4 @@ feature 'Delete Pictures' do
 
   end
 
-  scenario 'Allow Admin to delete all pictures' do
-    login_as bob
-
-    visit '/pictures'
-
-    click_link 'Delete All'
-  end
-
 end
