@@ -16,8 +16,7 @@ class AppartmentsController < ApplicationController
 
   # GET /appartments/new
   def new
-    @appartment = Appartment.new
-    @appartment.house_id = params[:house_id]
+    @appartment = Appartment.new(house_id: params[:house_id])
   end
 
   # GET /appartments/1/edit

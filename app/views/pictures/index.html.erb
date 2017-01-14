@@ -8,12 +8,12 @@
       <div class="col-md-3 add_picture_div">
         <%= link_to (fa_icon 'plus'), new_picture_path(house_id: chalet.id), class: 'add_picture_button' %>
       </div>
-      <div id="sortable_picture" data-update-url="<%= sort_pictures_path %>">
+      <div class="sortable_picture" data-update-url="<%= sort_pictures_path %>">
         <% chalet.pictures.order(:position).each do |picture| %>
           <div class="col-md-3" id="picture_<%= picture.id %>">
             <%= picture.name %>
             <%= image_tag picture.chalet_picture.url(:thumb) %><br>
-            <%= link_to 'Delete', picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
+            <%= link_to 'Delete', picture, method: :delete, remote: true,  data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
           </div>
         <% end %>
       </div>

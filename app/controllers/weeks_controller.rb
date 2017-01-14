@@ -16,8 +16,7 @@ class WeeksController < ApplicationController
 
   # GET /weeks/new
   def new
-    @week = Week.new
-    @week.month_id = params[:month_id]
+    @week = Week.new(month_id: params[:month_id])
   end
 
   # GET /weeks/1/edit

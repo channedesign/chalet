@@ -16,8 +16,7 @@ class MonthsController < ApplicationController
 
   # GET /months/new
   def new
-    @month = Month.new
-    @month.appartment_id = params[:appartment_id]
+    @month = Month.new(appartment_id: params[:appartment_id])
   end
 
   # GET /months/1/edit

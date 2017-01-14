@@ -24,7 +24,7 @@ $(document).ready(function(){
 			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
 		 }
 	 });
-	 $("#sortable_picture").sortable({
+	 $(".sortable_picture").sortable({
 		 update: function() {
 			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
 		 }
