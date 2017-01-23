@@ -109,54 +109,7 @@ $(document).ready(function(){
 		}
 	});
 
-	// var navScene = new ScrollMagic.Scene({triggerElement: ".home_nav", duration: 100})
-	// 									.setTween(navTween)
-	// 									.addTo(homeController);
-	// $(window).scroll(function() {
-	// 	if ($(window).scrollTop() > $(".photo_background").height() - 200) {
-	// 		$('.navbar').addClass("navbar-fixed-top");
-	// 		$('.navbar').removeClass("margin_nav");
-	// 	} else {
-	// 		$('.navbar').removeClass("navbar-fixed-top");
-	// 		$('.navbar').addClass("margin_nav");
-	// 	}
-	// });
-	// if ($(".navbar").scrollTo(0,0)) {
-	// 	alert("o")
-	// 	$(this).addClass("navbar-fixed-top");
-	// 	$(this).removeClass("margin_nav");
-	// }
-
-
-  	//Scroll rules
-	// $(window).scroll(function() {
-
-	//     var photoBackground = $('.photo_background').offset().top;
-	//     var homeMainContent = $('.home_main_content').offset().top;
-	//     var nav = $(".navbar");
-	//     //Nav animation
-	//     if ($(window).width() > 992) {
-	// 	    if (homeMainContent < (photoBackground + 450)) {
-	// 	      nav.css({ opacity: 1 });
-	// 	    } else {
-	// 				nav.css({ opacity: 0 });
-	// 		};
-	// 		//Add nav fix
-	// 		if (photoBackground > 450) {
-	// 			$('.home_main_content').addClass("margin_home_main_content");
-	// 			nav.addClass("navbar-fixed-top");
-	// 			nav.removeClass("margin_nav");
-	// 		} else {
-	// 			nav.removeClass("navbar-fixed-top");
-	// 			nav.addClass("margin_nav");
-	// 			$('.home_main_content').removeClass("margin_home_main_content");
-	// 		}
-	// 	} else {
-	// 		nav.addClass("navbar-fixed-top");
-
-
-	// 	}
-	// });
+	
 
 	//SmoothScrolling
 	$(function() {

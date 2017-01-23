@@ -6,7 +6,7 @@ feature 'Add appartment to house' do
   scenario 'allow admin to create appartment'do
     login_as bob
 
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
 
     click_link 'Add Appartment'
     within 'form' do

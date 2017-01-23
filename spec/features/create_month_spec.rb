@@ -8,7 +8,7 @@ feature 'Add month to appartment' do
   scenario 'Allow admin to create appartment' do
     login_as bob
 
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
 
     click_link 'Add Month'
 

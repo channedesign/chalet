@@ -9,7 +9,7 @@ feature 'Delete Pictures' do
   scenario 'Allow Admin to delete a picture' do
     login_as bob
 
-    visit '/pictures'
+    visit '/admin/pictures'
     expect(find("#chalet_#{chalet1.id}")).to have_content(picture1.name)
     expect(find("#chalet_#{chalet1.id}")).to have_link('Delete')
     within "#chalet_#{chalet1.id}" do

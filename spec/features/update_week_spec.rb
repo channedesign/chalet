@@ -10,7 +10,7 @@ feature 'Edit Week' do
 
     login_as bob
 
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
 
     click_link "#{week1.from.day}-#{week1.to.day} #{december.name[0,3]}"
 

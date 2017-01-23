@@ -12,7 +12,7 @@ feature 'Delete All Pictures' do
   scenario 'Allow Admin to delete all pictures' do
     login_as bob
 
-    visit '/pictures'
+    visit '/admin/pictures'
 
     within "#chalet_#{chalet1.id}" do
       expect(page).to have_content('pic1')

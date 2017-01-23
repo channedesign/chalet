@@ -1,25 +1,30 @@
 Rails.application.routes.draw do
+  root "home#index"
 
-  resources :pictures do
-    collection { delete :delete_all }
-    collection { post :sort }
-  end
+
+
 
 
   get 'admin', to: 'admins#index'
   devise_for :admins
-  resources :pricings
-  resources :weeks do
-    collection { post :sort }
+
+  scope 'admin' do
+    resources :houses
+    resources :pictures do
+      collection { delete :delete_all }
+      collection { post :sort }
+    end
+    resources :pricings
+    resources :weeks do
+      collection { post :sort }
+    end
+    resources :months do
+      collection { post :sort }
+    end
+    resources :appartments do
+      collection { post :sort }
+    end
   end
-  resources :months do
-    collection { post :sort }
-  end
-  resources :appartments do
-    collection { post :sort }
-  end
-  resources :houses
-  root "home#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

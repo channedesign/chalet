@@ -6,7 +6,7 @@ RSpec.describe 'Houses listing' do
   let!(:bob) { create :admin }
   scenario 'list all houses' do
     login_as bob
-    visit '/houses'
+    visit '/admin/houses'
 
     expect(page).to have_content(chalet1.name)
     expect(page).to have_content(chalet2.name)

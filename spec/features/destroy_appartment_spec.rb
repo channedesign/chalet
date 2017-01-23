@@ -9,7 +9,7 @@ feature 'Delete Appartment' do
   scenario 'Allow admin to delete appartment' do
     login_as bob
 
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
 
     click_link "Delete #{panda.name}"
 

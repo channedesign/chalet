@@ -7,7 +7,7 @@ feature 'Edit Appartment' do
 
   scenario 'Allow admin to edit appartment' do
     login_as bob
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
 
     click_link panda.name
     expect(page.current_path).to eq(edit_appartment_path(panda.id))

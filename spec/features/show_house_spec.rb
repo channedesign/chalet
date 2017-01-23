@@ -11,7 +11,7 @@ feature 'show house' do
   scenario 'shows a house' do
     login_as bob
 
-    visit '/houses'
+    visit '/admin/houses'
 
     click_link "Manage #{chalet.name}"
     expect(page.current_path).to eq(house_path(chalet))
@@ -24,7 +24,7 @@ feature 'show house' do
   scenario 'shows a house with its month and week' do
     login_as bob
 
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
 
     expect(page).to have_link('Add Month')
     expect(page).to have_content(december.name)

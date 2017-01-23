@@ -12,7 +12,7 @@ feature 'Delete a Week' do
 
     login_as bob
 
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
     expect(page).to have_content("#{week1.from.day}-#{week1.to.day} #{december.name[0, 3]}")
     expect(page).to have_content('€1000')
     expect(page).to have_content('€500')

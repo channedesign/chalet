@@ -8,7 +8,7 @@ feature 'Delete Month' do
 
   scenario 'Allow admin to delete a month' do
     login_as bob
-    visit "/houses/#{chalet.id}"
+    visit "/admin/houses/#{chalet.id}"
     expect(page).to have_content('December')
     click_link "Delete #{december.name}"
 
