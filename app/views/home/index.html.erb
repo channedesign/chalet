@@ -67,7 +67,7 @@
 					<br>
 					<br>
 				</div>
-				<%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+				<%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
 				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" %>
 				<div id="chalet-pricing-1" class="modal fade" role="dialog">
 				  <div class="modal-dialog modal-lg">
@@ -81,55 +81,11 @@
 								<%= render 'pricings_table', chalet: @chalet1 %>
 
 
-								<!-Begin need to delete  >
-							  <ul class="nav nav-pills nav-justified">
-							  	<% @prices.each_with_index do |price, i| %>
-							  		<li class="<%= 'active' if i == 0 %>"><a data-toggle="pill" href="#chalet-1-<%= price.id %>"><%= price.month %></a></li>
-							  	<% end %>
-							  </ul>
-
-							  <div class="tab-content">
-							  	<% @prices.each_with_index do |price, i| %>
-							  		<div id="chalet-1-<%= price.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
-								      <table class="table">
-										    <thead>
-										      <tr>
-										        <th>PRICING<span class="small">*cleaning €250.</span></th>
-										        <th class="text-center"><%= price.week1 %></th>
-										        <th class="text-center"><%= price.week2 %></th>
-										        <th class="text-center"><%= price.week3 %></th>
-										        <th class="text-center"><%= price.week4 %></th>
-										        <th class="text-center"><%= price.week5 %></th>
-										      </tr>
-										    </thead>
-										    <tbody>
-										      <tr>
-										        <td class="table-col-1"><strong>SELF-CATERED</strong></td>
-										        <td><%= '€' if price.price1week1 != "-" %><%= price.price1week1 %></td>
-										        <td><%= '€' if price.price1week2 != "-" %><%= price.price1week2 %></td>
-										        <td><%= '€' if price.price1week3 != "-" %><%= price.price1week3 %></td>
-										        <td><%= '€' if price.price1week4 != "-" %><%= price.price1week4 %></td>
-										        <td><%= '€' if price.price1week5 != "-" && price.price2week5 != nil %><%= price.price1week5 %></td>
-										      </tr>
-										      <tr>
-										        <td class="table-col-1"><strong>PRICE PER WEEKEND</strong></td>
-										        <td><%= '€' if price.price2week1 != "-" %><%= price.price2week1 %></td>
-										        <td><%= '€' if price.price2week2 != "-" %><%= price.price2week2 %></td>
-										        <td><%= '€' if price.price2week3 != "-" %><%= price.price2week3 %></td>
-										        <td><%= '€' if price.price2week4 != "-" %><%= price.price2week4 %></td>
-										        <td><%= '€' if price.price2week5 != "-" && price.price2week5 != nil %><%= price.price2week5 %></td>
-										      </tr>
-										    </tbody>
-										  </table>
-								    </div>
-							  	<% end %>
-								<!-End need to delete  >
-
 							  </div>
 				      </div>
 				      <div class="modal-footer">
 				      	<div class="col-md-6 col-md-offset-3">
-					        <%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+					        <%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
 					        <%= link_to 'Download Brochure', '/brochures/BrochureChaletHideaway1.pdf', class: 'btn btn-black', target: '_blank' %>
 					      </div>
 				      </div>
@@ -189,7 +145,7 @@
 					<br>
 					<br>
 				</div>
-				<%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
+				<%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
 				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" %>
 				<div id="chalet-pricing-2" class="modal fade" role="dialog">
 				  <div class="modal-dialog modal-lg">
@@ -201,56 +157,10 @@
 				      <div class="modal-body">
 								<%= render 'pricings_table', chalet: @chalet2 %>
 
-								<!-Begin need to delete  >
-							  <ul class="nav nav-pills nav-justified">
-							  	<% @prices2.each_with_index do |price, i| %>
-							  		<li class="<%= 'active' if i == 0 %>"><a data-toggle="pill" href="#chalet-2-<%= price.id %>"><%= price.month %></a></li>
-							  	<% end %>
-							  </ul>
-							  <div class="tab-content">
-							  	<% @prices2.each_with_index do |price, i| %>
-							  		<div id="chalet-2-<%= price.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
-								      <table class="table">
-										    <thead>
-										      <tr>
-										        <th>PRICING<span class="small">*cleaning €250.</span></th>
-										        <th class="text-center"><%= price.week1 %></th>
-										        <th class="text-center"><%= price.week2 %></th>
-										        <th class="text-center"><%= price.week3 %></th>
-										        <th class="text-center"><%= price.week4 %></th>
-										        <th class="text-center"><%= price.week5 %></th>
-										      </tr>
-										    </thead>
-										    <tbody>
-										      <tr>
-										        <td class="table-col-1"><strong>SELF-CATERED</strong></td>
-										        <td><%= '€' if price.price1week1 != "-" %><%= price.price1week1 %></td>
-										        <td><%= '€' if price.price1week2 != "-" %><%= price.price1week2 %></td>
-										        <td><%= '€' if price.price1week3 != "-" %><%= price.price1week3 %></td>
-										        <td><%= '€' if price.price1week4 != "-" %><%= price.price1week4 %></td>
-										        <td><%= '€' if price.price1week5 != "-" && price.price2week5 != nil %><%= price.price1week5 %></td>
-										      </tr>
-										      <tr>
-										        <td class="table-col-1"><strong>PRICE PER WEEKEND</strong></td>
-										        <td><%= '€' if price.price2week1 != "-" %><%= price.price2week1 %></td>
-										        <td><%= '€' if price.price2week2 != "-" %><%= price.price2week2 %></td>
-										        <td><%= '€' if price.price2week3 != "-" %><%= price.price2week3 %></td>
-										        <td><%= '€' if price.price2week4 != "-" %><%= price.price2week4 %></td>
-										        <td><%= '€' if price.price2week5 != "-" && price.price2week5 != nil %><%= price.price2week5 %></td>
-										      </tr>
-										    </tbody>
-										  </table>
-								    </div>
-							  	<% end %>
-							  </div>
-								<!-End need to delete  >
-
-
-
 				      </div>
 				      <div class="modal-footer">
 				      	<div class="col-md-6 col-md-offset-3">
-					        <%= link_to 'Book', 'mailto:panda.bertrand@wanadoo.fr?cc=liana.deciu@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+					        <%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
 					        <%= link_to 'Download Brochure', '/brochures/BrochureChaletHideaway2.pdf', class: 'btn btn-black', target: '_blank' %>
 					      </div>
 				      </div>
