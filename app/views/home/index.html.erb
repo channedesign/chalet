@@ -68,7 +68,9 @@
 					<br>
 				</div>
 				<%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
-				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" if @chalet1.appartments.present? %>
+				<% @chalet1.appartments.map do |appartment| %>
+					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" if appartment.visible? %>
+				<% end %>
 				<div id="chalet-pricing-1" class="modal fade" role="dialog">
 				  <div class="modal-dialog modal-lg">
 				    <div class="modal-content">
@@ -144,7 +146,9 @@
 					<br>
 				</div>
 				<%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
-				<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black"  if @chalet2.appartments.present? %>
+				<% @chalet2.appartments.map do |appartment| %>
+					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" if appartment.visible? %>
+				<% end %>
 				<div id="chalet-pricing-2" class="modal fade" role="dialog">
 				  <div class="modal-dialog modal-lg">
 				    <div class="modal-content">
