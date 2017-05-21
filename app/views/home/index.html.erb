@@ -67,7 +67,7 @@
 					<br>
 					<br>
 				</div>
-				<%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+				<%= link_to 'Book', 'mailto:bee.woo@me.com?cc=chaletshideaway@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
 				<% @chalet1.appartments.map do |appartment| %>
 					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" if appartment.visible? %>
 				<% end %>
@@ -85,7 +85,7 @@
 				      </div>
 				      <div class="modal-footer">
 				      	<div class="col-md-6 col-md-offset-3">
-					        <%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+					        <%= link_to 'Book', 'mailto:bee.woo@me.com?cc=chaletshideaway@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
 					        <%= link_to 'Download Brochure', '/brochures/BrochureChaletHideaway1.pdf', class: 'btn btn-black', target: '_blank' %>
 					      </div>
 				      </div>
@@ -111,7 +111,6 @@
 					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
 					<li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 300€ per night*</p><span class="small">*Please refer to our price listing</span></li>
 				</ul>
 			</div>
 		</div>
@@ -145,7 +144,7 @@
 					<br>
 					<br>
 				</div>
-				<%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
+				<%= link_to 'Book', 'mailto:bee.woo@me.com?cc=chaletshideaway@gmail.com&subject=Chalets Hideaway-Hideaway 2', class: 'btn btn-black' %>
 				<% @chalet2.appartments.map do |appartment| %>
 					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" if appartment.visible? %>
 				<% end %>
@@ -161,7 +160,7 @@
 				      </div>
 				      <div class="modal-footer">
 				      	<div class="col-md-6 col-md-offset-3">
-					        <%= link_to 'Book', 'mailto:bee.woo@me.com?subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
+					        <%= link_to 'Book', 'mailto:bee.woo@me.com?cc=chaletshideaway@gmail.com&subject=Chalets Hideaway-Hideaway 1', class: 'btn btn-black' %>
 					        <%= link_to 'Download Brochure', '/brochures/BrochureChaletHideaway2.pdf', class: 'btn btn-black', target: '_blank' %>
 					      </div>
 				      </div>
@@ -188,7 +187,6 @@
 					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
 					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
 					<li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-					<li><p class="lead"><%= fa_icon "eur" %>&nbsp;&nbsp;&nbsp;&nbsp;From 490€ per night*</p><span class="small">*Please refer to our price listing</span></li>
 				</ul>
 			</div>
 		</div>
