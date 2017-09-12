@@ -68,6 +68,7 @@
 					<br>
 				</div>
 				<%= link_to 'Book', chalet_email(1), class: 'btn btn-black' %>
+				<%= link_to 'Download Brochure Hideaway 1', '/brochures/2017 HA1 Brochure - Winter.pdf', class: 'btn btn-black', target: '_blank' %>
 				<%= link_to 'Download Brochure Hiboux', '/brochures/2017 HA1 Brochure - Hiboux.pdf', class: 'btn btn-black', target: '_blank' %>
 				<%= link_to 'Download Brochure Panda', '/brochures/2017 HA1 Brochure - Panda.pdf', class: 'btn btn-black', target: '_blank' %>
 
@@ -148,7 +149,7 @@
 					<br>
 				</div>
 				<%= link_to 'Book', chalet_email(2), class: 'btn btn-black' %>
-				<%= link_to 'Download Brochure', '/brochures/2017 HA2 Brochure Winter.pdf', class: 'btn btn-black', target: '_blank' %>
+				<%= link_to 'Download Brochure Hideaway 2', '/brochures/2017 HA2 Brochure Winter.pdf', class: 'btn btn-black', target: '_blank' %>
 				<% @chalet2.appartments.map do |appartment| %>
 					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" if appartment.visible? %>
 				<% end %>
