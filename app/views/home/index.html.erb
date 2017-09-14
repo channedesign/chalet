@@ -16,10 +16,10 @@
 				<p class="lead">On Chamonix's main mountain, the Grands-Montets piste. You ski-in &amp; ski-out by gravity right to and from your doorstep. <br>Next to the Panda Ski School and the Panda Riding School, open to the woods and the mountain.</p>
 			</div>
 			<div class="col-sm-4 pic_main_content_div">
-				<%= image_tag("chalet_neige1.jpg", class: "pic_main_content") %>
+				<%= image_tag("Chalets-CableCar.jpg", class: "pic_main_content") %>
 			</div>
 			<div class="col-sm-4 pic_main_content_div">
-				<%= image_tag("chalet_neige2.jpg", class: "pic_main_content") %>
+				<%= image_tag("HA-SwimmingPool-1.jpg", class: "pic_main_content") %>
 			</div>
 			<div class="col-sm-4 pic_main_content_div">
 				<%= image_tag("chalet_neige3.jpg", class: "pic_main_content") %>
@@ -68,9 +68,9 @@
 					<br>
 				</div>
 				<%= link_to 'Book', chalet_email(1), class: 'btn btn-black' %>
-				<%= link_to 'Download Brochure Hideaway 1', '/brochures/2017 HA1 Brochure - Winter.pdf', class: 'btn btn-black', target: '_blank' %>
-				<%= link_to 'Download Brochure Hiboux', '/brochures/2017 HA1 Brochure - Hiboux.pdf', class: 'btn btn-black', target: '_blank' %>
-				<%= link_to 'Download Brochure Panda', '/brochures/2017 HA1 Brochure - Panda.pdf', class: 'btn btn-black', target: '_blank' %>
+				<%= link_to 'Brochure Hideaway 1', '/brochures/2017 HA1 Brochure - Winter.pdf', class: 'btn btn-black', target: '_blank' %>
+				<%= link_to 'Brochure Hiboux', '/brochures/2017 HA1 Brochure - Hiboux.pdf', class: 'btn btn-black', target: '_blank' %>
+				<%= link_to 'Brochure Panda', '/brochures/2017 HA1 Brochure - Panda.pdf', class: 'btn btn-black', target: '_blank' %>
 
 				<% @chalet1.appartments.map do |appartment| %>
 					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" if appartment.visible? %>
@@ -149,7 +149,7 @@
 					<br>
 				</div>
 				<%= link_to 'Book', chalet_email(2), class: 'btn btn-black' %>
-				<%= link_to 'Download Brochure Hideaway 2', '/brochures/2017 HA2 Brochure Winter.pdf', class: 'btn btn-black', target: '_blank' %>
+				<%= link_to 'Brochure Hideaway 2', '/brochures/2017 HA2 Brochure Winter.pdf', class: 'btn btn-black', target: '_blank' %>
 				<% @chalet2.appartments.map do |appartment| %>
 					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" if appartment.visible? %>
 				<% end %>
