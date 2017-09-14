@@ -109,7 +109,7 @@ $(document).ready(function(){
 		}
 	});
 
-	
+
 
 	//SmoothScrolling
 	$(function() {
@@ -154,7 +154,7 @@ $(document).ready(function(){
 
 	handlerPandaClub.buildMap({
 		provider: {
-			zoom: 18,
+			zoom: 16,
 			center: new google.maps.LatLng(45.977974, 6.927758)
 		},
 		internal: {id: 'map' }}, function() {
