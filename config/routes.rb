@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "home#index"
-
+  get 'hideawayI', to: 'hideaway1#index'
+  get 'hideawayII', to: 'hideaway2#index'
+  get 'panda', to: 'panda#index'
+  get 'hibou', to: 'hibou#index'
 
 
 
