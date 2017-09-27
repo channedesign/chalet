@@ -47,7 +47,7 @@
                   <th>PRICING</th>
                   <span >
                     <% month.weeks.order(:position).each do |week| %>
-                      <th class="text-center" id="week_<%= week.id %>"><%= link_to "#{week.from.day}-#{week.to.day} #{month.name[0, 3]}", edit_week_path(week.id), class: 'btn btn-warning btn-xs' %> | <%= link_to 'Delete Week', week_path(week.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></th>
+                      <th class="text-center" id="week_<%= week.id %>"><%= link_to "#{week.from.day}-#{week.to.day} #{month_text[week.to.month - 1]}", edit_week_path(week.id), class: 'btn btn-warning btn-xs' %> | <%= link_to 'Delete Week', week_path(week.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></th>
                     <% end %>
                   </span>
                 </tr>

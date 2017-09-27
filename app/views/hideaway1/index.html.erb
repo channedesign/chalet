@@ -25,42 +25,38 @@
         </div>
       </div>
 
-      <!-- <div class="description marginTopMinMin">
-        <p>This kind of accommodation is very rare in Chamonix valley!</p>
-        <p>Fully renovated in spring 2016, this cosy chalet is situated, at the bottom of Les Grands-Montets ski-slopes. </p>
-        <p class="show-more">Show More</p>
-        <p class="hidden-description">To go skiing... just go outside! <br>The accommodation is particularly attractive to families and friends looking for a practical and comfortable chalet. During the day, adults can go skiing straight away while the kids are at the Panda-Club, the kids ski school,  which is only 300m from the chalet.</p>
-        <p class="hidden-description">For lunch break, the closest restaurants are at 200m.<br>After ski, you can have a drink in the village of Argentière, a 10 minutes walk or take the bus to Chamonix center, the bus-stop is 500m away.</p>
-        <p class="hidden-description">Enjoy evenings in the hot-tub, the outdoor sauna or a summer barbecue on the terrace facing Les Grands-Montets.</p>
-        <p class="hidden-description">For the children, there is a play-room upstairs which can also be used as an extra-bedroom for 2 kids under 6 years old.</p>
-        <p class="hidden-description">In total, you can enjoy 2 double bedrooms, one bedroom with 2 single beds and a bunk-beds, 1 bedroom with 3 beds. All the beds (except the bunk beds) can be make as simple or double. Each bedroom has its own bathroom.</p>
-        <p class="show-less hidden-description">Show Less</p>
-        <br>
-        <br>
-      </div> -->
-      <%= link_to 'Book', chalet_email(1), class: 'btn btn-black' %>
-      <%= link_to 'Brochure Hideaway 1', '/brochures/2017 HA1 Brochure - Winter.pdf', class: 'btn btn-black', target: '_blank' %>
-      <%= link_to 'Brochure Hiboux', '/brochures/2017 HA1 Brochure - Hiboux.pdf', class: 'btn btn-black', target: '_blank' %>
-      <%= link_to 'Brochure Panda', '/brochures/2017 HA1 Brochure - Panda.pdf', class: 'btn btn-black', target: '_blank' %>
+
+      <%# link_to 'Book', chalet_email(1), class: 'btn btn-black' %>
 
       <% @chalet1.appartments.map do |appartment| %>
-        <%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" if appartment.visible? %>
+        <div class="col-sm-6 no-padding">
+          <%= link_to 'Pricings & Availability', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" if appartment.visible? %>
+        </div>
       <% end %>
+      <div class="col-sm-6 no-padding">
+        <%= link_to 'Download Brochure', '/brochures/2017 HA1 Brochure - Winter.pdf', class: 'btn btn-black', target: '_blank' %>
+      </div>
+      <%# link_to 'Brochure Hiboux', '/brochures/2017 HA1 Brochure - Hiboux.pdf', class: 'btn btn-black', target: '_blank' %>
+      <%# link_to 'Brochure Panda', '/brochures/2017 HA1 Brochure - Panda.pdf', class: 'btn btn-black', target: '_blank' %>
+
+
       <div id="chalet-pricing-1" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg text-center">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Pricing - Chalet Hideaway I - 2016/2017</h4>
+              <h2 class="modal-title">Pricings &amp; Availabilities - 2017/2018</h2>
             </div>
             <div class="modal-body">
 
-              <%# render 'pricings_table', chalet: @chalet1 %>
+              <%= render 'shared/pricings_table', chalet: @chalet1 %>
 
             </div>
             <div class="modal-footer">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-6 no-padding">
                 <%= link_to 'Book', chalet_email(1), class: 'btn btn-black' %>
+              </div>
+              <div class="col-md-6 no-padding">
                 <%= link_to 'Download Brochure', '/brochures/BrochureChaletHideaway1.pdf', class: 'btn btn-black', target: '_blank' %>
               </div>
             </div>
@@ -88,12 +84,12 @@
         <li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
       </ul>
       <h2 class="heavy">Property Floor Plan</h2>
-      <div class="col-sm-12 marginTop20">
-        <div class="col-sm-6">
-          <%= link_to(image_tag('hideaway1-panda-floorplan.jpg'), '', data: { toggle: 'modal', target: '#picture-modal', img: 'hideaway1-panda-floorplan.jpg' }) %>
+      <div class="marginTop20">
+        <div class="col-sm-6 no-padding">
+          <%= link_to(image_tag('hideaway1-panda-floorplan.jpg'), '', data: { toggle: 'modal', target: '#picture-modal', img: asset_url('hideaway1-panda-floorplan.jpg') }) %>
         </div>
         <div class="col-sm-6">
-          <%= link_to(image_tag('hideaway1-hibou-floorplan.jpg'), '', data: { toggle: 'modal', target: '#picture-modal', img: 'hideaway1-panda-floorplan.jpg' }) %>
+          <%= link_to(image_tag('hideaway1-hibou-floorplan.jpg'), '', data: { toggle: 'modal', target: '#picture-modal', img: asset_url('hideaway1-panda-floorplan.jpg') }) %>
         </div>
       </div>
     </div>
@@ -107,7 +103,6 @@
 
       <div class="modal-body">
         <img src='' class="picture">
-        <%= image_tag '' %>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
       </div>
@@ -115,3 +110,24 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+<!-- <div class="description marginTopMinMin">
+  <p>This kind of accommodation is very rare in Chamonix valley!</p>
+  <p>Fully renovated in spring 2016, this cosy chalet is situated, at the bottom of Les Grands-Montets ski-slopes. </p>
+  <p class="show-more">Show More</p>
+  <p class="hidden-description">To go skiing... just go outside! <br>The accommodation is particularly attractive to families and friends looking for a practical and comfortable chalet. During the day, adults can go skiing straight away while the kids are at the Panda-Club, the kids ski school,  which is only 300m from the chalet.</p>
+  <p class="hidden-description">For lunch break, the closest restaurants are at 200m.<br>After ski, you can have a drink in the village of Argentière, a 10 minutes walk or take the bus to Chamonix center, the bus-stop is 500m away.</p>
+  <p class="hidden-description">Enjoy evenings in the hot-tub, the outdoor sauna or a summer barbecue on the terrace facing Les Grands-Montets.</p>
+  <p class="hidden-description">For the children, there is a play-room upstairs which can also be used as an extra-bedroom for 2 kids under 6 years old.</p>
+  <p class="hidden-description">In total, you can enjoy 2 double bedrooms, one bedroom with 2 single beds and a bunk-beds, 1 bedroom with 3 beds. All the beds (except the bunk beds) can be make as simple or double. Each bedroom has its own bathroom.</p>
+  <p class="show-less hidden-description">Show Less</p>
+  <br>
+  <br>
+</div> -->

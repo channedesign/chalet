@@ -1,12 +1,22 @@
 $(document).ready(function(){
 	(function() {
 		var mySwiper = new Swiper ('.intro-swiper', {
-	    loop: true
+			autoplay: 3000,
+			speed: 1500,
+	    loop: true,
+			spaceBetween: 10,
+			effect: 'fade',
+			fade: {
+				crossFade: true
+			}
 	  });
 		var chaletSwiper = new Swiper ('.chalet-swiper', {
 			spaceBetween: 10,
 			nextButton: '.swiper-button-next',
 			prevButton: '.swiper-button-prev',
+			autoplay: 3000,
+			autoplayDisableOnInteraction: false,
+			speed: 1000,
 	  });
 		var chaletSwiperThumbs = new Swiper ('.chalet-swiper-thumbs', {
 			centeredSlides: true,
@@ -14,6 +24,7 @@ $(document).ready(function(){
 			touchRatio: 0.2,
 			slideToClickedSlide: true,
 			spaceBetween: 10,
+			speed: 1000,
 	  });
 		chaletSwiper.params.control = chaletSwiperThumbs;
 	  chaletSwiperThumbs.params.control = chaletSwiper;
@@ -129,20 +140,48 @@ $(document).ready(function(){
 	(function() {
 
 		var $tm = TweenMax
-		var iconTween = $tm.staggerFrom($(".band .col-xs-4"), 1, { left: -300, opacity: 0 }, 0.5)
-		// var navTween = $tm.from($(".navbar"), 0.5, { opacity: 0 });
+		var iconTween = $tm.staggerFrom($(".band .col-xs-4"), 2, { x: -100, opacity: 0, ease: Power2.easeOut }, 0.2)
+		var parallaxAnim = $tm.to($('.parallax-anim'), 1, { y: '35%', ease: Power1.easeInOut });
+		var logoSvg = new TimelineMax()
+						.to($('#line-mountain'), 2, { strokeDashoffset: 0, delay: 1 })
+						.to($('#line-roof'), 2, { strokeDashoffset: 0 }, "-=1.5")
+						.from($('.white-mountain'), 2, { opacity: 0 }, "-=1.5")
+						.from($('.blue-mountain'), 2, { opacity: 0 }, "-=1.5")
+						.from($('.edelweiss'), 2, { opacity: 0, rotation: 720, transformOrigin: '51% 58%', scale: 0 }, "-=2.5")
+						.from($('.blue-white-mountain'), 2, { opacity: 0 }, "-=2")
+						.to($('#line-mountain, #line-roof, .white-mountain, .blue-mountain'), 1, { opacity: 0 }, "-=1.75")
+						.from($('.logo-text-1'), 2, { opacity: 0, x: -100, ease: Power3.easeOut }, "-=2")
+						.from($('.logo-text-2'), 2, { opacity: 0, x: 100, ease: Power3.easeOut }, "-=1.5")
 
-		 var homeController = new ScrollMagic.Controller();
 
-		 var iconScene = new ScrollMagic.Scene({triggerElement: '.band', offset: -100})
-		 										.setTween(iconTween)
-		 										.addTo(homeController);
+		var parallaxBg = new TimelineMax()
+							.from($(".bg-p1"), 2, { scale: 1.2, top: 200 })
+							.from($(".bg-p2"), 2, { scale: 1.8, top: -200 }, "-=2")
+
+		var animController = new ScrollMagic.Controller();
+
+		var iconScene = new ScrollMagic.Scene({ triggerElement: '.band', offset: -100 })
+							.setTween(iconTween)
+		 					.addTo(animController);
+
+		var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '80%', triggerHook: 0.9 })
+							.setTween(parallaxAnim)
+							.addTo(animController)
+
+		var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.anim-background', duration: '80%', triggerHook: 1 })
+							.setTween(parallaxBg)
+							.addTo(animController)
 
 		$(window).scroll(function() {
-			if ($(window).scrollTop() >= 70 ) {
+			if($(window).scrollTop() >= 70 ) {
 				$tm.to($('.anim-nav'), 1, {  opacity: 1 });
 			} else {
 				$tm.to($('.anim-nav'), 1, {  opacity: 0 });
+			}
+			if($(window).scrollTop() >= 1000) {
+				$tm.to($('#home-section-1'), 0.1, { opacity: 0 });
+			} else {
+				$tm.to($('#home-section-1'), 0.1, { opacity: 1 });
 			}
 		});
 
@@ -172,7 +211,7 @@ $(document).ready(function(){
 	//===================================================//
 
 	(function() {
-		if(window.location.pathname == '/') {
+		if(window.location.pathname === '/') {
 			//Google map Init
 			var handlerPandaClub = Gmaps.build('Google');
 			var handlerSkiRental = Gmaps.build('Google');

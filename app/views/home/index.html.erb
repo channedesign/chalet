@@ -1,9 +1,22 @@
 <div id="home-section-1">
+	<%= image_tag 'logo-white-mountain.png', class: 'logo-fill white-mountain' %>
+	<%= image_tag 'logo-blue-mountain.png', class: 'logo-fill blue-mountain' %>
+	<%= image_tag 'logo-edelweiss.png', class: 'logo-fill edelweiss' %>
+	<%= image_tag 'logo-blue-white-mountain.png', class: 'logo-fill blue-white-mountain' %>
+	<%= image_tag 'logo-text-1.png', class: 'logo-fill logo-text-1' %>
+	<%= image_tag 'logo-text-2.png', class: 'logo-fill logo-text-2' %>
+	<div class="svg-chalet-logo">
+		<svg width="100%" height="100%" viewBox="0 0 186 149" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:1.41421;">
+		  <path id="line-mountain" d="M51.937,108.749l-0.069,39.983l-51.781,-48.258l51.618,-68.449l17.121,22.603l41.154,-54.541l75.716,100.398l-51.821,48.268l-0.05,-39.182" stroke="#000" stroke-width="5" fill="none" style="stroke-dashoffset: 530px; stroke-dasharray: 530px;"/>
+		  <path id="line-roof" d="M37.778,118.098l55.041,-36.373l54.908,36.287" stroke="#000" stroke-width="5" fill="none" style="stroke-dashoffset: 140px; stroke-dasharray: 140px;"/>
+		</svg>
+	</div>
+
 	<div class="intro-swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><%= image_tag("chalet2_home.jpg", class: "pic_home") %></div>
-      <div class="swiper-slide"><%= image_tag("chalet2_home.jpg", class: "pic_home") %></div>
-      <div class="swiper-slide"><%= image_tag("chalet2_home.jpg", class: "pic_home") %></div>
+      <div class="swiper-slide"><%= image_tag("HA-SwimmingPool-1.jpg", class: "pic_home") %></div>
+      <div class="swiper-slide"><%= image_tag("home-hideaway1.jpg", class: "pic_home") %></div>
+      <div class="swiper-slide"><%= image_tag("chalet_neige3.jpg", class: "pic_home") %></div>
     </div>
     <!-- If we need pagination -->
     <!-- <div class="swiper-pagination"></div> -->
@@ -20,8 +33,8 @@
 
 
 <div id="home-section-2">
-	<div class="container text-center">
-		<div class="row">
+	<div class="container">
+		<div class="row parallax-anim set-height">
 			<div class="col-md-12">
 				<h1>HIDE AWAY TODAY IN OUR CHALETS</h1>
 				<p>At the bottom the of the Grand Montet Pierre à Ric ski slope. You Ski-In &amp; Ski-Out from your door step.</p>
@@ -51,10 +64,29 @@
 			<p class="lead">Astonishing Surroundings</p>
 		</div>
 	</div>
+	<!-- <div class="mountain-tags">
+		<svg class="mb-lines" width="100%" height="100%" viewBox="0 0 2 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+			<path d="M0.5,0.5l0.725,53.901" style="fill:none;stroke:#000;stroke-width:1px;"/>
+		</svg>
+	</div> -->
+	<%# image_tag 'home-section-2-AdM-MB-DdG-AdG.png', class: 'img-mountains-name' %>
 </div>
 
 <div id="home-section-3">
-	<div class="background-image background-image-1"></div>
+	<div class="anim-background">
+		<%= image_tag 'home-section-3-background-sky.jpg', class: 'background-image' %>
+	</div>
+	<div class="anim-background bg-p1">
+		<%= image_tag 'home-section-3-background-p1.png', class: 'background-image' %>
+	</div>
+	<div class="anim-background bg-p2">
+		<%= image_tag 'home-section-3-background-p2.png', class: 'background-image' %>
+	</div>
+	<span class="anim-text">Breathtaking View</span>
+	<!-- <div class="parallax-bg parallax-bg-1"></div>
+	<div class="parallax-bg parallax-bg-p2">
+		<%= image_tag 'home-section-3-background-p2.png', class: 'background-image bg-p2' %>
+	</div> -->
 	<!-- <div class="band_height_mobile">
 		<%= image_tag("background_image_mobile1.jpg", class: "background_image_mobile") %>
 	</div> -->
@@ -131,7 +163,7 @@
 				        <h4 class="modal-title">Pricing - Chalet Hideaway II - 2016/2017</h4>
 				      </div>
 				      <div class="modal-body">
-								<%= render 'pricings_table', chalet: @chalet2 %>
+								<%# render 'pricings_table', chalet: @chalet2 %>
 				      </div>
 				      <div class="modal-footer">
 				      	<div class="col-md-6 col-md-offset-3">
