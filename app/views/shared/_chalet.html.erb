@@ -1,0 +1,148 @@
+<div id="chalet-section-1">
+
+</div>
+<div id="chalet-section-2" class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h1 class="caps"><%= chalet.name %></h1>
+    </div>
+    <div class="col-sm-8 marginTop50">
+      <div class="chalet-swiper">
+        <div class="swiper-wrapper">
+          <% chalet.pictures.order(:position).each do |picture| %>
+            <div class="swiper-slide"><a data-toggle="modal" data-target="#picture-modal" data-img="<%= picture.chalet_picture.url %>"><%= image_tag picture.chalet_picture.url %></a></div>
+          <% end %>
+        </div>
+        <div class="swiper-button-prev swiper-button-black"></div>
+        <div class="swiper-button-next swiper-button-black"></div>
+      </div>
+      <div class="chalet-swiper-thumbs">
+        <div class="swiper-wrapper">
+          <% chalet.pictures.order(:position).each do |picture| %>
+            <div class="swiper-slide"><%= image_tag picture.chalet_picture.url %></div>
+          <% end %>
+        </div>
+      </div>
+
+
+
+      <% chalet.appartments.map do |appartment| %>
+        <div class="col-sm-6 no-padding">
+          <%= link_to 'Pricings & Availability', '', data: { toggle: 'modal', target: '#pricings-table' }, class: "btn btn-black" if appartment.visible? %>
+        </div>
+      <% end %>
+      <div class="col-sm-6 no-padding">
+        <%= link_to 'Download Brochure', "/brochures/#{chalet.name} - Brochure - Winter - 2017-2018.pdf", class: 'btn btn-black', target: '_blank' %>
+      </div>
+
+
+    </div>
+    <div class="col-md-4">
+      <h2 class="heavy">Property Facts</h2>
+      <%= chalet.property_fact.html_safe %>
+      <h2 class="heavy">Property Features</h2>
+      <%= chalet.property_feature.html_safe %>
+      <h2 class="heavy">Property Floor Plan</h2>
+      <div class="marginTop20">
+        <% chalet.floor_plans.map do |floor_plan| %>
+          <div class="col-sm-6 no-padding">
+            <%= link_to(image_tag(floor_plan.floor_plan_image.url), '', data: { toggle: 'modal', target: '#picture-modal', img: asset_url('hideaway1-panda-floorplan.jpg') }) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="pricings-table" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg text-center">
+    <div class="modal-content">
+      <div class="modal-header modal-header-background" style="background-image:url(<%= chalet.image.url %>);">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title heavy">
+          <h1><%= chalet.name %></h1>
+          <h2>Winter - 2017/2018</h2>
+        </div>
+      </div>
+      <div class="modal-body">
+        <% chalet.appartments.order(:position).each do |appartment| %>
+          <% if appartment.visible? %>
+
+            <% if appartment.description? %>
+              <br>
+              <p>Pricings &amp; Availabilities</p>
+              <br>
+            <% end %>
+            <ul class="nav nav-pills nav-justified">
+              <% appartment.months.order(:position).each_with_index do |month, i| %>
+                <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
+              <% end %>
+            </ul>
+
+
+            <div class="tab-content ">
+              <% appartment.months.includes(:weeks).each_with_index do |month, i| %>
+                <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <% month.weeks.order(:position).each do |week| %>
+                          <th class="text-center"><%= "#{week.from.day}-#{week.to.day} #{month_text[week.to.month - 1]}" %></th>
+                        <% end %>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-left"><strong>SELF-CATERED</strong></td>
+                        <% month.weeks.each do |week| %>
+                          <td><%= pricing_format(week.self_catered) %></td>
+                        <% end %>
+                      </tr>
+                      <tr>
+                        <td class="text-left"><strong>CATERED</strong></td>
+                        <% month.weeks.each do |week| %>
+                          <td><%= pricing_format(week.weekend) %></td>
+                        <% end %>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="modal-footer">
+        <div class="col-md-6 col-sm-offset-3 no-padding">
+          <%= link_to 'Book', chalet_email(1), class: 'btn btn-black' %>
+        </div>
+        <!-- <div class="col-md-6 no-padding">
+          <%= link_to 'Download Brochure', "/brochures/#{chalet.name} - Brochure - Winter - 2017-2018.pdf", class: 'btn btn-black', target: '_blank' %>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="picture-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src='' class="picture">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    </div>
+  </div>
+</div>

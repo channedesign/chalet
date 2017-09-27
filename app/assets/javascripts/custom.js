@@ -301,15 +301,24 @@ $(document).ready(function(){
 
 		// dropzone
 		Dropzone.autoDiscover = false;
-		$(".dropzone").dropzone({
-		 maxFilesize: 20,
-		 paramName: "picture[chalet_picture]",
-		 params: { house_id: location.search.split('house_id=')[1] },
-		 addRemoveLinks: false,
-		 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload pictures</p>",
-		 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
-		 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
-	 });
+		$(".dropzone-picture").dropzone({
+			 maxFilesize: 20,
+			 paramName: "picture[chalet_picture]",
+			 params: { house_id: location.search.split('house_id=')[1] },
+			 addRemoveLinks: false,
+			 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload pictures</p>",
+			 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
+			 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
+	 	});
+		$(".dropzone-floor-plan").dropzone({
+			 maxFilesize: 20,
+			 paramName: "floor_plan[floor_plan_image]",
+			 params: { house_id: location.search.split('house_id=')[1] },
+			 addRemoveLinks: false,
+			 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload floor plans</p>",
+			 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
+			 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
+	 	});
 	})();
 
 });

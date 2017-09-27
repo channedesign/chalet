@@ -1,27 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Floor Plans</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>House</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @floor_plans.each do |floor_plan| %>
-      <tr>
-        <td><%= floor_plan.house %></td>
-        <td><%= link_to 'Show', floor_plan %></td>
-        <td><%= link_to 'Edit', edit_floor_plan_path(floor_plan) %></td>
-        <td><%= link_to 'Destroy', floor_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Floor plan', new_floor_plan_path %>
+<div class="row">
+  <% @chalets.each do |chalet| %>
+    <div class="col-md-6 text-center" id="chalet_<%= chalet.id %>">
+      <div class="col-md-12">
+        <h2><%= chalet.name %></h2>
+        <br><br>
+      </div>
+      <div class="col-md-3 add_picture_div">
+        <%= link_to (fa_icon 'plus'), new_floor_plan_path(house_id: chalet.id), class: 'add_picture_button' %>
+      </div>
+      <div class="sortable" data-update-url="<%= sort_floor_plans_path %>">
+        <% chalet.floor_plans.order(:position).each do |floor_plan| %>
+          <div class="col-md-3" id="floor_plan_<%= floor_plan.id %>">
+            <%# floor_plan.name %>
+            <%= image_tag floor_plan.floor_plan_image.url(:thumb) %><br>
+            <%= link_to 'Delete', floor_plan, method: :delete, remote: true,  data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-12">
+        <br><br>
+        <%= link_to 'Delete All', delete_all_floor_plans_path(house_id: chalet.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>

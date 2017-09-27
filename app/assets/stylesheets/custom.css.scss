@@ -60,6 +60,10 @@ ul li .lead {
 	position: relative;
 }
 
+.caps {
+	text-transform: uppercase;
+}
+
 .heavy {
 	font-weight: 700;
 }
@@ -162,25 +166,100 @@ ul li .lead {
 /*-------------      Partials      ---------------*/
 /*================================================*/
 
+#chalet-section-1 {
+	background-image: image-url("chalet-intro.jpg");
+	background-position: center 80%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 70vh;
+	margin-top: 75px;
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
+clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
+}
+
+#chalet-section-2 {
+	.chalet-swiper {
+		height: 80%;
+		overflow-x: hidden;
+		width: 100%;
+		.swiper-button-black {
+			opacity: 0;
+			top: 35%;
+		}
+	}
+	.chalet-swiper:hover {
+		.swiper-button-black {
+			opacity: 1;
+		}
+		.swiper-button-prev.swiper-button-disabled,
+		.swiper-button-next.swiper-button-disabled {
+		  opacity: 0.35;
+		}
+	}
+	.chalet-swiper-thumbs {
+		height: 20%;
+		overflow-x: hidden;
+		padding: 10px 0;
+		.swiper-slide {
+			width: 25%;
+		}
+	}
+	.icon {
+		width: 22px;
+		height: 25px;
+		padding-bottom: 5px;
+	}
+}
+
+#picture-modal {
+	.modal-dialog {
+		width: 80%;
+		.modal-body {
+			padding: 0;
+		}
+	}
+}
+
 #pricings-table {
-	.modal-header {
+	.modal-body {
+		padding: 0;
+	}
+	.modal-header-background {
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		height: 250px;
+		.modal-title {
+			background-color: rgba(255, 255, 255, 0.7);
+			margin-top: 35px;
 			padding: 20px;
 		}
-		.tab-content {
-			// .table-col-1 {
-			// 	text-align: left;
-			// }
-			.small {
-				top: 10px;
-				left: -55px;
-				font-size: 0.7em;
-				color: rgba(0, 0, 0, 0.4);
-			}
+	}
+	.nav-pills {
+		li {
+			border-left: 1px solid rgba(0, 0, 0, 0.3);
 		}
-		.nav-pills li.active a {
+		li:first-child {
+			border-left: none;
+		}
+		li.active a {
 			background-color: #000;
+			border-radius: 0;
 		}
+		li:hover a {
+			border-radius: 0;
+		}
+	}
+	.tab-content {
+		.small {
+			top: 10px;
+			left: -55px;
+			font-size: 0.7em;
+			color: rgba(0, 0, 0, 0.4);
+		}
+	}
 }
+
 
 
 /*================================================*/
@@ -354,49 +433,12 @@ ul li .lead {
 /*-------------     Hideaway I      --------------*/
 /*================================================*/
 
-#hideaway-1-section-1 {
-	.chalet-swiper {
-		height: 80%;
-		overflow-x: hidden;
-		width: 100%;
-		.swiper-button-black {
-			opacity: 0;
-			top: 35%;
-		}
-	}
-	.chalet-swiper:hover {
-		.swiper-button-black {
-			opacity: 1;
-		}
-		.swiper-button-prev.swiper-button-disabled,
-		.swiper-button-next.swiper-button-disabled {
-		  opacity: 0.35;
-		}
-	}
-	.chalet-swiper-thumbs {
-		height: 20%;
-		overflow-x: hidden;
-		padding: 10px 0;
-		.swiper-slide {
-			width: 25%;
-		}
-	}
-	.icon {
-		width: 22px;
-		height: 25px;
-		padding-bottom: 5px;
-	}
-}
 
 
-#picture-modal {
-	.modal-dialog {
-		width: 80%;
-		.modal-body {
-			padding: 0;
-		}
-	}
-}
+
+
+
+
 
 
 

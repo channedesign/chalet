@@ -1,10 +1,9 @@
 <div id="pricings-table">
-  <%= image_tag chalet.image.url %>
   <% chalet.appartments.order(:position).each do |appartment| %>
     <% if appartment.visible? %>
-      <h3><%= appartment.name %></h3>
+
       <% if appartment.description? %>
-        <p><%= appartment.description %></p>
+        <p>Pricings &amp; Availabilities</p>
       <% end %>
       <ul class="nav nav-pills nav-justified">
         <% appartment.months.order(:position).each_with_index do |month, i| %>
@@ -13,7 +12,7 @@
       </ul>
 
 
-      <div class="tab-content">
+      <div class="tab-content ">
         <% appartment.months.includes(:weeks).each_with_index do |month, i| %>
           <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
 

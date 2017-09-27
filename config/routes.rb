@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :floor_plans
   root "home#index"
   get 'hideawayI', to: 'hideaway1#index'
   get 'hideawayII', to: 'hideaway2#index'
@@ -20,6 +19,11 @@ Rails.application.routes.draw do
       collection { delete :delete_all }
       collection { post :sort }
     end
+    resources :floor_plans do
+      collection { delete :delete_all }
+      collection { post :sort }
+    end
+
     resources :pricings
     resources :weeks do
       collection { post :sort }

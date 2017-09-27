@@ -1,10 +1,13 @@
 class FloorPlansController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_admin!
   before_action :set_floor_plan, only: [:show, :edit, :update, :destroy]
 
   # GET /floor_plans
   # GET /floor_plans.json
   def index
-    @floor_plans = FloorPlan.all
+    @chalets = House.order(:position)
+    # @floor_plans = FloorPlan.all
   end
 
   # GET /floor_plans/1
@@ -14,7 +17,7 @@ class FloorPlansController < ApplicationController
 
   # GET /floor_plans/new
   def new
-    @floor_plan = FloorPlan.new
+    @floor_plan = FloorPlan.new(house_id: params[:house_id])
   end
 
   # GET /floor_plans/1/edit
@@ -25,7 +28,7 @@ class FloorPlansController < ApplicationController
   # POST /floor_plans.json
   def create
     @floor_plan = FloorPlan.new(floor_plan_params)
-
+    @floor_plan.house_id = params[:house_id] if params[:house_id]
     respond_to do |format|
       if @floor_plan.save
         format.html { redirect_to @floor_plan, notice: 'Floor plan was successfully created.' }
@@ -60,6 +63,19 @@ class FloorPlansController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def delete_all # naming confusion if destroy_all
+    FloorPlan.where(house_id: params[:house_id]).destroy_all
+    redirect_to floor_plans_path, notice: 'Floor Plans were successfully destroyed.'
+  end
+
+  def sort
+    params[:image].each_with_index do |id, index|
+     FloorPlan.where(id: id).update_all({position: index + 1})
+   end
+    render nothing: true
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

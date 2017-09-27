@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927093025) do
+ActiveRecord::Schema.define(version: 20170927103150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170927093025) do
     t.string   "floor_plan_image_content_type"
     t.integer  "floor_plan_image_file_size"
     t.datetime "floor_plan_image_updated_at"
+    t.integer  "position"
   end
 
   add_index "floor_plans", ["house_id"], name: "index_floor_plans_on_house_id", using: :btree
