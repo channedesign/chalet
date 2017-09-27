@@ -1,6 +1,7 @@
 class House < ActiveRecord::Base
   has_many :appartments, dependent: :destroy
   has_many :pictures, dependent: :destroy
+  has_many :floor_plans, dependent: :destroy
   validates :name, presence: true, length: { minimum: 1, maximum: 50 }, uniqueness: true
 
   has_attached_file :image, styles: {

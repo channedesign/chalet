@@ -6,7 +6,7 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index
-    @houses = House.all
+    @houses = House.order(:position)
   end
 
   # GET /houses/1
@@ -63,6 +63,13 @@ class HousesController < ApplicationController
     end
   end
 
+  def sort
+    params[:house].each_with_index do |id, index|
+     House.where(id: id).update_all({position: index + 1})
+   end
+    render nothing: true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_house
@@ -71,6 +78,6 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:name, :image)
+      params.require(:house).permit(:name, :url, :image, :property_fact, :property_feature)
     end
 end

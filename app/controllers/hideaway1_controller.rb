@@ -1,5 +1,5 @@
 class Hideaway1Controller < ApplicationController
   def index
-    @chalet1 = House.first
+    @chalet = House.where(name: 'Chalet Hideaway I').take
   end
 end

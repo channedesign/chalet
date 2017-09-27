@@ -30,7 +30,7 @@
       <% unless appartment.months.size > 4 %>
        <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id), class: 'btn btn-success' %>
       <% end %>
-      <ul class="nav nav-pills nav-justified" id="sortable_month" data-update-url="<%= sort_months_path %>">
+      <ul class="nav nav-pills nav-justified" id="sortable_horizontal" data-update-url="<%= sort_months_path %>">
         <% appartment.months.order(:position).each_with_index do |month, i| %>
           <li class="<%= active_tab?(i) %>" id="month_<%= month.id %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
         <% end %>

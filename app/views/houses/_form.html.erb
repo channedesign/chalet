@@ -1,26 +1,44 @@
-<%= form_for @house, html: { multipart: true } do |f| %>
-  <% if @house.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
+<div id="house-edit" class="row">
+  <div class="col-sm-12">
+    <%= form_for @house, html: { multipart: true } do |f| %>
+      <% if @house.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
 
-      <ul>
-      <% @house.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @house.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
+      <div class="form-group">
+        <%= f.label :url %><br>
+        <%= f.text_field :url, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-sm-6">
+        <%= f.label :property_fact %><br>
+        <%= f.text_area :property_fact, rows: 20, class: 'form-control' %>
+      </div>
+      <div class="form-group col-sm-6">
+        <%= f.label :property_feature %><br>
+        <%= f.text_area :property_feature, rows: 20, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image %><br>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-black' %>
+      </div>
+    <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

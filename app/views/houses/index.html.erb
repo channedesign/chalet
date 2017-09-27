@@ -1,10 +1,13 @@
 <div id="admin_house_index" class="row">
-  <% @houses.each do |house| %>
-    <div class="col-md-6">
-      <%= link_to(house_path(house)) do %>
-        <h2> Manage <%= house.name %></h2>
-        <%= image_tag house.image.url %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="sortable" data-update-url="<%= sort_houses_path %>">
+    <% @houses.each do |house| %>
+      <div id="house_<%= house.id %>" class="col-md-6">
+        <%= link_to(house_path(house)) do %>
+          <h2> Manage <%= house.name %></h2>
+          <%= image_tag house.image.url %>
+          <%= link_to 'Edit', edit_house_path(house) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -6,7 +6,7 @@
     <div class="col-sm-8 marginTop50">
       <div class="chalet-swiper">
         <div class="swiper-wrapper">
-          <% @chalet1.pictures.order(:position).each do |picture| %>
+          <% @chalet.pictures.order(:position).each do |picture| %>
             <div class="swiper-slide"><a data-toggle="modal" data-target="#picture-modal" data-img="<%= picture.chalet_picture.url %>"><%= image_tag picture.chalet_picture.url %></a></div>
           <% end %>
         </div>
@@ -19,7 +19,7 @@
       </div>
       <div class="chalet-swiper-thumbs">
         <div class="swiper-wrapper">
-          <% @chalet1.pictures.order(:position).each do |picture| %>
+          <% @chalet.pictures.order(:position).each do |picture| %>
             <div class="swiper-slide"><%= image_tag picture.chalet_picture.url %></div>
           <% end %>
         </div>
@@ -28,7 +28,7 @@
 
       <%# link_to 'Book', chalet_email(1), class: 'btn btn-black' %>
 
-      <% @chalet1.appartments.map do |appartment| %>
+      <% @chalet.appartments.map do |appartment| %>
         <div class="col-sm-6 no-padding">
           <%= link_to 'Pricings & Availability', '', data: { toggle: 'modal', target: '#chalet-pricing-1' }, class: "btn btn-black" if appartment.visible? %>
         </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="modal-body">
 
-              <%= render 'shared/pricings_table', chalet: @chalet1 %>
+              <%= render 'shared/pricings_table', chalet: @chalet %>
 
             </div>
             <div class="modal-footer">
@@ -66,23 +66,9 @@
     </div>
     <div class="col-md-4">
       <h2 class="heavy">Property Facts</h2>
-      <ul>
-        <li><p class="lead"><%= fa_icon "bed" %>&nbsp;&nbsp;&nbsp;&nbsp;Sleep 12 Max</p></li>
-        <li><p class="lead"><%= fa_icon "bus" %>&nbsp;&nbsp;&nbsp;&nbsp;Bus stop 50m</p></li>
-        <li><p class="lead"><%= fa_icon "cutlery" %>&nbsp;&nbsp;&nbsp;&nbsp;Argentiere village centre 500m</p></li>
-        <li><p class="lead"><%= image_tag("cablecaricon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Grands Montets cable car 50m</p></li>
-        <li><p class="lead"><%= fa_icon "wifi" %>&nbsp;&nbsp;&nbsp;&nbsp;Free WIFI</p></li>
-        <li><p class="lead"><%= fa_icon "car" %>&nbsp;&nbsp;&nbsp;&nbsp;Private parking</p></li>
-        <li><p class="lead"><%= fa_icon "paw" %>&nbsp;&nbsp;&nbsp;&nbsp;Pet Friendly</p></li>
-      </ul>
+      <%= @chalet.property_fact.html_safe %>
       <h2 class="heavy">Property Features</h2>
-      <ul>
-        <li><p class="lead"><%= image_tag("poolicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Heated indoor swimming pool</p></li>
-        <li><p class="lead"><%= fa_icon "sun-o" %>&nbsp;&nbsp;&nbsp;&nbsp;Sauna</p></li>
-        <li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
-        <li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
-        <li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-      </ul>
+      <%= @chalet.property_feature.html_safe %>
       <h2 class="heavy">Property Floor Plan</h2>
       <div class="marginTop20">
         <div class="col-sm-6 no-padding">

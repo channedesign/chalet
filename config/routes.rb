@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :floor_plans
   root "home#index"
   get 'hideawayI', to: 'hideaway1#index'
   get 'hideawayII', to: 'hideaway2#index'
@@ -12,7 +13,9 @@ Rails.application.routes.draw do
   devise_for :admins
 
   scope 'admin' do
-    resources :houses
+    resources :houses do
+      collection { post :sort }
+    end
     resources :pictures do
       collection { delete :delete_all }
       collection { post :sort }

@@ -1,4 +1,10 @@
 $(document).ready(function(){
+
+
+	//===================================================//
+	//================   Swiper Init   ==================//
+	//===================================================//
+
 	(function() {
 		var mySwiper = new Swiper ('.intro-swiper', {
 			autoplay: 3000,
@@ -30,6 +36,8 @@ $(document).ready(function(){
 	  chaletSwiperThumbs.params.control = chaletSwiper;
 	})();
 
+
+
 	(function() {
 		$('#picture-modal').on('show.bs.modal', function (event) {
 		  var link = $(event.relatedTarget)
@@ -42,96 +50,8 @@ $(document).ready(function(){
 		})
 	})();
 
-	 $('.datepicker').datepicker({
-		 autoclose: true,
-		 orientation: "bottom auto",
-		 format: 'dd/mm/yyyy'
-	 });
-	 // jQuery-ui sortable for admin
-	 $("#sortable_month").sortable({
-		 axis: 'x',
-		 update: function() {
-			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
-		 }
-	 });
-	 $("#sortable_appartment").sortable({
-		 axis: 'y',
-		 update: function() {
-			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
-		 }
-	 });
-	 $("#sortable_week").sortable({
-		 axis: 'x',
-		 update: function() {
-			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
-		 }
-	 });
-	 $(".sortable_picture").sortable({
-		 update: function() {
-			 $.post($(this).data("update-url"), $(this).sortable('serialize'))
-		 }
-	 });
 
-	 // dropzone
-	 Dropzone.autoDiscover = false;
-	 $(".dropzone").dropzone({
-		maxFilesize: 20,
-		paramName: "picture[chalet_picture]",
-		params: { house_id: location.search.split('house_id=')[1] },
-		addRemoveLinks: false,
-		dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload pictures</p>",
-		// success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
-		// queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
-	});
 
-	//Owl-Carousel init
-	// var owl = $('.owl-carousel');
-	// owl.owlCarousel({
-	//   	items: 1,
-	//   	loop: true,
-	//   	autoplay: true,
-	//   	autoplayTimeout: 3000,
-	//   	autoplayHoverPause: true,
-	//   	margin:10
-	// });
-	// //Owl-Carousel custom buttons
-	// $('.carousel_arrow_div_pic_left').click(function() {
-  //   	owl.trigger('prev.owl.carousel');
-	// })
-	// $('.carousel_arrow_div_pic_right').click(function() {
-  //   	owl.trigger('next.owl.carousel');
-	// })
-	// //Only show owl-carousel buttons on hover
-	// if ($(window).width() > 992) {
-	// 	$(".owl_carousel_anchor").hover(function() {
-	// 		$(".carousel_arrow_div").show();
-	// 	}, function() {
-	// 		$(".carousel_arrow_div").hide();
-	// 	});
-	// }
-	// $(".hidden-description").hide();
-	// $("#section-2 .show-more").click(function(e) {
-	// 	e.preventDefault;
-	// 	$(this).hide();
-	// 	$("#section-2 .hidden-description").show();
-	// });
-	// $("#section-2 .show-less").click(function(e) {
-	// 	e.preventDefault;
-	// 	$(this).hide();
-	// 	$("#section-2 .hidden-description").hide();
-	// 	$("#section-2 .show-more").show();
-	// });
-	// $("#section-4 .show-more").click(function(e) {
-	// 	e.preventDefault;
-	// 	$(this).hide();
-	// 	$("#section-4 .hidden-description").show();
-	// });
-	// $("#section-4 .show-less").click(function(e) {
-	// 	e.preventDefault;
-	// 	$(this).hide();
-	// 	$("#section-4 .hidden-description").hide();
-	// 	$("#section-4 .show-more").show();
-	// });
 
 	//===================================================//
 	//================   Animations   ===================//
@@ -155,8 +75,8 @@ $(document).ready(function(){
 
 
 		var parallaxBg = new TimelineMax()
-							.from($(".bg-p1"), 2, { scale: 1.2, top: 200 })
-							.from($(".bg-p2"), 2, { scale: 1.8, top: -200 }, "-=2")
+							.from($(".bg-p1"), 2, { scale: 1.2, y: 200 })
+							.from($(".bg-p2"), 2, { scale: 1.8, y: -200 }, "-=2")
 
 		var animController = new ScrollMagic.Controller();
 
@@ -164,11 +84,11 @@ $(document).ready(function(){
 							.setTween(iconTween)
 		 					.addTo(animController);
 
-		var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '80%', triggerHook: 0.9 })
+		var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '80%', triggerHook: 1 })
 							.setTween(parallaxAnim)
 							.addTo(animController)
 
-		var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.anim-background', duration: '80%', triggerHook: 1 })
+		var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.anim-background', duration: '80%', triggerHook: 0.5 })
 							.setTween(parallaxBg)
 							.addTo(animController)
 
@@ -341,4 +261,55 @@ $(document).ready(function(){
 			});
 		}
 	})();
+
+	//===================================================//
+	//===================   Admin   =====================//
+	//===================================================//
+
+	(function() {
+		// Date Picker Init
+		$('.datepicker').datepicker({
+			autoclose: true,
+			orientation: "bottom auto",
+			format: 'dd/mm/yyyy'
+		});
+
+		// jQuery-ui sortable for admin
+		$("#sortable_horizontal").sortable({
+			axis: 'x',
+			update: function() {
+				$.post($(this).data("update-url"), $(this).sortable('serialize'))
+			}
+		});
+		// $("#sortable_appartment").sortable({
+		// 	axis: 'y',
+		// 	update: function() {
+		// 		$.post($(this).data("update-url"), $(this).sortable('serialize'))
+		// 	}
+		// });
+		// $("#sortable_week").sortable({
+		// 	axis: 'x',
+		// 	update: function() {
+		// 		$.post($(this).data("update-url"), $(this).sortable('serialize'))
+		// 	}
+		// });
+		$(".sortable").sortable({
+			update: function() {
+				$.post($(this).data("update-url"), $(this).sortable('serialize'))
+			}
+		});
+
+		// dropzone
+		Dropzone.autoDiscover = false;
+		$(".dropzone").dropzone({
+		 maxFilesize: 20,
+		 paramName: "picture[chalet_picture]",
+		 params: { house_id: location.search.split('house_id=')[1] },
+		 addRemoveLinks: false,
+		 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload pictures</p>",
+		 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
+		 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
+	 });
+	})();
+
 });

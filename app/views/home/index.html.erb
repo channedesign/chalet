@@ -69,7 +69,7 @@
 			<path d="M0.5,0.5l0.725,53.901" style="fill:none;stroke:#000;stroke-width:1px;"/>
 		</svg>
 	</div> -->
-	<%# image_tag 'home-section-2-AdM-MB-DdG-AdG.png', class: 'img-mountains-name' %>
+	<%= image_tag 'home-section-2-AdM-MB-DdG-AdG.png', class: 'img-mountains-name' %>
 </div>
 
 <div id="home-section-3">
@@ -97,30 +97,15 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<h1 class="text-center">Meet Our Chalets</h1>
-				<%= link_to hideawayI_path do %>
-					<div class="col-sm-6">
-						<h2>Hideaway I (Panda + Hibou)</h2>
-						<%= image_tag 'home-hideaway1.jpg' %>
-					</div>
+				<% @chalets.map do |chalet| %>
+					<%= link_to "#{chalet.url}" do %>
+						<div class="col-sm-6">
+							<h2><%= chalet.name %></h2>
+							<%= image_tag chalet.image.url %>
+						</div>
+					<% end %>
 				<% end %>
-				<%= link_to hideawayII_path do %>
-					<div class="col-sm-6">
-						<h2>Hideaway II</h2>
-						<%= image_tag 'home-hideaway2.jpg' %>
-					</div>
-				<% end %>
-				<%= link_to panda_path do %>
-					<div class="col-sm-6">
-						<h2>Panda</h2>
-						<%= image_tag 'home-panda.jpg' %>
-					</div>
-				<% end %>
-				<%= link_to hibou_path do %>
-					<div class="col-sm-6">
-						<h2>Hibou</h2>
-						<%= image_tag 'home-hibou.jpg' %>
-					</div>
-				<% end %>
+
 				<!-- <p class="lead">The awesome HideAway Chalets have an un-rivalled ski in ski out location at the bottom of the Grands Montets ski area.  Lively apres ski bars are within skipping distance of the chalets and the centre of Argentière is just a short stroll away.</p> -->
 			</div>
 		</div>

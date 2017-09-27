@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227182619) do
+ActiveRecord::Schema.define(version: 20170927093025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20161227182619) do
 
   add_index "appartments", ["house_id"], name: "index_appartments_on_house_id", using: :btree
 
+  create_table "floor_plans", force: :cascade do |t|
+    t.integer  "house_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "floor_plan_image_file_name"
+    t.string   "floor_plan_image_content_type"
+    t.integer  "floor_plan_image_file_size"
+    t.datetime "floor_plan_image_updated_at"
+  end
+
+  add_index "floor_plans", ["house_id"], name: "index_floor_plans_on_house_id", using: :btree
+
   create_table "houses", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",         null: false
@@ -54,6 +66,10 @@ ActiveRecord::Schema.define(version: 20161227182619) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "position"
+    t.string   "url"
+    t.text     "property_fact"
+    t.text     "property_feature"
   end
 
   create_table "months", force: :cascade do |t|
@@ -136,6 +152,7 @@ ActiveRecord::Schema.define(version: 20161227182619) do
   add_index "weeks", ["month_id"], name: "index_weeks_on_month_id", using: :btree
 
   add_foreign_key "appartments", "houses"
+  add_foreign_key "floor_plans", "houses"
   add_foreign_key "months", "appartments"
   add_foreign_key "pictures", "houses"
   add_foreign_key "weeks", "months"
