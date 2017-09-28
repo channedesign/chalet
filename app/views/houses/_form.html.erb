@@ -23,11 +23,16 @@
         <%= f.text_field :url, class: 'form-control' %>
       </div>
 
-      <div class="form-group col-sm-6">
+      <div class="form-group">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, rows: 10, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-sm-6 no-padding-left">
         <%= f.label :property_fact %><br>
         <%= f.text_area :property_fact, rows: 20, class: 'form-control' %>
       </div>
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-6 no-padding-right">
         <%= f.label :property_feature %><br>
         <%= f.text_area :property_feature, rows: 20, class: 'form-control' %>
       </div>

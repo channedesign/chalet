@@ -1,4 +1,4 @@
-<div class="col-md-12 tab_horizontal_border">
+<div class="col-md-12 <%= 'tab_horizontal_border' if border %>">
 	<div class="col-md-6">
 		<p class="lead"><%= name %></p>
 		<%= image_tag("#{name_pic}", class: "tab_logo") %>
@@ -34,7 +34,6 @@
 			<div class="col-xs-10 left">
 				<%= link_to("#{address}", "http://maps.google.com/?ll=#{latlng}", target: "_blank") %>
 			</div>
-		<% end %>	
+		<% end %>
 	</div>
 </div>
-

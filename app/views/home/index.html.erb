@@ -18,95 +18,92 @@
       <div class="swiper-slide"><%= image_tag("home-hideaway1.jpg", class: "pic_home") %></div>
       <div class="swiper-slide"><%= image_tag("chalet_neige3.jpg", class: "pic_home") %></div>
     </div>
-    <!-- If we need pagination -->
-    <!-- <div class="swiper-pagination"></div> -->
-
-    <!-- If we need navigation buttons -->
-    <!-- <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div> -->
-
-    <!-- If we need scrollbar -->
-    <!-- <div class="swiper-scrollbar"></div> -->
 	</div>
 </div>
 
 
 
 <div id="home-section-2">
-	<div class="container">
-		<div class="row parallax-anim set-height">
-			<div class="col-md-12">
-				<h1>HIDE AWAY TODAY IN OUR CHALETS</h1>
-				<p>At the bottom the of the Grand Montet Pierre à Ric ski slope. You Ski-In &amp; Ski-Out from your door step.</p>
-			</div>
-			<div class="col-sm-4">
-				<%= image_tag("Chalets-CableCar.jpg", class: "") %>
-			</div>
-			<div class="col-sm-4">
-				<%= image_tag("HA-SwimmingPool-1.jpg", class: "") %>
-			</div>
-			<div class="col-sm-4">
-				<%= image_tag("chalet_neige3.jpg", class: "") %>
+	<div class="set-white-bg">
+		<div class="container">
+			<div class="row parallax-anim set-height">
+				<div class="col-md-12">
+					<h1>HIDE AWAY TODAY IN OUR CHALETS</h1>
+					<p class="sub-title">At the bottom the of the Grand Montet Pierre à Ric ski slope. You Ski-In &amp; Ski-Out from your door step.</p>
+				</div>
+				<div class="col-sm-4">
+					<%= image_tag("Chalets-CableCar.jpg", class: "") %>
+				</div>
+				<div class="col-sm-4">
+					<%= image_tag("HA-SwimmingPool-1.jpg", class: "") %>
+				</div>
+				<div class="col-sm-4">
+					<%= image_tag("chalet_neige3.jpg", class: "") %>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="band text-center">
-		<div class="col-xs-4 anim">
-			<%= fa_icon "pagelines 4x" %>
-			<p class="lead">Comfort &amp; Nature</p>
+		<div class="band text-center">
+			<div class="col-xs-4 anim">
+				<%= fa_icon "pagelines 4x" %>
+				<p class="lead">Comfort &amp; Nature</p>
+			</div>
+			<div class="col-xs-4 anim">
+				<%= fa_icon "area-chart 4x" %>
+				<p class="lead">Altitude: 1300m</p>
+			</div>
+			<div class="col-xs-4 anim">
+				<%= fa_icon "camera-retro 4x" %>
+				<p class="lead">Astonishing Surroundings</p>
+			</div>
 		</div>
-		<div class="col-xs-4 anim">
-			<%= fa_icon "area-chart 4x" %>
-			<p class="lead">Altitude: 1300m</p>
-		</div>
-		<div class="col-xs-4 anim">
-			<%= fa_icon "camera-retro 4x" %>
-			<p class="lead">Astonishing Surroundings</p>
-		</div>
-	</div>
-	<!-- <div class="mountain-tags">
-		<svg class="mb-lines" width="100%" height="100%" viewBox="0 0 2 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
-			<path d="M0.5,0.5l0.725,53.901" style="fill:none;stroke:#000;stroke-width:1px;"/>
+		<svg class="img-mountains-line" width="100%" height="100%" viewBox="0 0 2954 1139" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+		  <path class="line-3" d="M2074.34,162.36l-18.45,163.247" style="fill:none;stroke:#000;stroke-width:1px; stroke-dashoffset: 170px; stroke-dasharray: 170px;"/>
+		  <path class="line-1" d="M561.444,117.373l72.772,161.437" style="fill:#141414;stroke:#000;stroke-width:1px; stroke-dashoffset: 180px; stroke-dasharray: 180px;"/>
+		  <path class="line-2" d="M1415.6,7.015l1.81,177.625" style="fill:none;stroke:#000;stroke-width:1px; stroke-dashoffset: 180px; stroke-dasharray: 180px;"/>
+		  <path class="line-4" d="M2568.87,307.863l-2.401,187.024" style="fill:none;stroke:#000;stroke-width:1px; stroke-dashoffset: 190px; stroke-dasharray: 190px;"/>
 		</svg>
-	</div> -->
-	<%= image_tag 'home-section-2-AdM-MB-DdG-AdG.png', class: 'img-mountains-name' %>
+		<%= image_tag 'home-section-2-AdM-MB-DdG-AdG.png', class: 'img-mountains-name' %>
+	</div>
 </div>
 
-<div id="home-section-3">
+<div id="home-section-3" class="parallax-bg-detected">
 	<div class="anim-background">
-		<%= image_tag 'home-section-3-background-sky.jpg', class: 'background-image' %>
+		<%= image_tag 'home-section-3-background-sky.jpg' %>
 	</div>
 	<div class="anim-background bg-p1">
-		<%= image_tag 'home-section-3-background-p1.png', class: 'background-image' %>
+		<%= image_tag 'home-section-3-background-p1.png' %>
 	</div>
 	<div class="anim-background bg-p2">
-		<%= image_tag 'home-section-3-background-p2.png', class: 'background-image' %>
+		<%= image_tag 'home-section-3-background-p2.png' %>
 	</div>
 	<span class="anim-text">Breathtaking View</span>
-	<!-- <div class="parallax-bg parallax-bg-1"></div>
-	<div class="parallax-bg parallax-bg-p2">
-		<%= image_tag 'home-section-3-background-p2.png', class: 'background-image bg-p2' %>
-	</div> -->
-	<!-- <div class="band_height_mobile">
-		<%= image_tag("background_image_mobile1.jpg", class: "background_image_mobile") %>
-	</div> -->
 </div>
 
 <div id="home-section-4">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h1 class="text-center">Meet Our Chalets</h1>
-				<% @chalets.map do |chalet| %>
-					<%= link_to "#{chalet.url}" do %>
-						<div class="col-sm-6">
-							<h2><%= chalet.name %></h2>
-							<%= image_tag chalet.image.url %>
+				<h1 class="text-center heavy">Meet Our Chalets</h1>
+				<p class="text-center sub-title">
+					The awesome HideAway Chalets have an un-rivalled ski in ski out location at the bottom of the Grands Montets ski area.  Lively apres ski bars are within skipping distance of the chalets and the centre of Argentière is just a short stroll away.
+				</p>
+
+				<% @chalets.each_with_index do |chalet, index| %>
+					<%= link_to chalet.url do %>
+						<div class="col-sm-12">
+							<div class="col-sm-6  pull-normal <%= 'pull-right' if index.odd? %>">
+								<h2><%= chalet.name %><span class="sleep-text"> - Sleep 12</span></h2>
+								<%= image_tag chalet.image.url %>
+							</div>
+							<div class="col-sm-6 <%= 'pull-left' if index.odd? %>">
+								<p class="chalet-description"><%= chalet.description.truncate(250).html_safe %></p>
+								<%= link_to 'Learn More', chalet.url, class: 'text-center btn btn-black' %>
+							</div>
 						</div>
 					<% end %>
 				<% end %>
 
-				<!-- <p class="lead">The awesome HideAway Chalets have an un-rivalled ski in ski out location at the bottom of the Grands Montets ski area.  Lively apres ski bars are within skipping distance of the chalets and the centre of Argentière is just a short stroll away.</p> -->
+
 			</div>
 		</div>
 
@@ -115,89 +112,26 @@
 
 
 
-<!-- <div id="section-4">
-	<div class="container">
-		<div class="row marginTopMin">
-			<div class="col-md-8 col-md-push-4 center">
-				<h1>CHALET HIDEAWAY II</h1>
-				<%= render 'carousel', chalet: @chalet2 %>
 
-				<div class="description marginTopMinMin">
-					<p>An amazing chalet, unique in the Chamonix valley!</p>
-					<p>Fully renovated in spring 2016, this accommodation is situated, at the bottom of Les Grands-Montets ski-slopes with a private indoor swimming pool, hot-tub and sauna.</p>
-					<p class="show-more">Show More</p>
-					<p class="hidden-description">To go skiing... just go outside! <br>The accommodation is particularly attractive to families and friends looking for a very comfortable chalet. During the day, adults can go skiing straight away while the kids are at the Panda-Club, the kids ski school,  which is at 300m from the chalet.</p>
-					<p class="hidden-description">For lunch break, the closest restaurants are at 200m.<br>After ski, you can have a drink in the village of Argentière, a 10 minutes walk or take the bus to Chamonix center, the bus-stop is 500m away.</p>
-					<p class="hidden-description">Enjoy cosy evenings in the swimming pool, the hot-tub, the outdoor sauna or a summer barbecue on the terrace facing Les Grands-Montets.</p>
-					<p class="hidden-description">In total, you can enjoy 3 bedrooms for 2 people and two bedrooms with 4 bunk-beds. All the beds (except the 2 bunk beds) can be make as simple or double.</p>
-					<p class="hidden-description">Each bedroom has its own bathroom.</p>
-					<p class="show-less hidden-description">Show Less</p>
-					<br>
-					<br>
-				</div>
-				<%= link_to 'Book', chalet_email(2), class: 'btn btn-black' %>
-				<%= link_to 'Brochure Hideaway 2', '/brochures/2017 HA2 Brochure Winter.pdf', class: 'btn btn-black', target: '_blank' %>
-				<% @chalet2.appartments.map do |appartment| %>
-					<%= link_to 'Pricing', '', data: { toggle: 'modal', target: '#chalet-pricing-2' }, class: "btn btn-black" if appartment.visible? %>
-				<% end %>
-				<div id="chalet-pricing-2" class="modal fade" role="dialog">
-				  <div class="modal-dialog modal-lg">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				        <h4 class="modal-title">Pricing - Chalet Hideaway II - 2016/2017</h4>
-				      </div>
-				      <div class="modal-body">
-								<%# render 'pricings_table', chalet: @chalet2 %>
-				      </div>
-				      <div class="modal-footer">
-				      	<div class="col-md-6 col-md-offset-3">
-					        <%= link_to 'Book', chalet_email(2), class: 'btn btn-black' %>
-					        <%= link_to 'Download Brochure', '/brochures/BrochureChaletHideaway2.pdf', class: 'btn btn-black', target: '_blank' %>
-					      </div>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			</div>
-			<div class="col-md-4 col-md-pull-8">
-				<h2 class="heavy">Property Facts</h2>
-				<ul>
-					<li><p class="lead"><%= fa_icon "bed" %>&nbsp;&nbsp;&nbsp;&nbsp;Sleep 14 Max</p></li>
-					<li><p class="lead"><%= fa_icon "bus" %>&nbsp;&nbsp;&nbsp;&nbsp;Bus stop 50m</p></li>
-					<li><p class="lead"><%= fa_icon "cutlery" %>&nbsp;&nbsp;&nbsp;&nbsp;Argentiere village centre 500m</p></li>
-					<li><p class="lead"><%= image_tag("cablecaricon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Grands Montets cable car 50m</p></li>
-					<li><p class="lead"><%= fa_icon "wifi" %>&nbsp;&nbsp;&nbsp;&nbsp;Free WIFI</p></li>
-					<li><p class="lead"><%= fa_icon "car" %>&nbsp;&nbsp;&nbsp;&nbsp;Private parking</p></li>
-					<li><p class="lead"><%= fa_icon "paw" %>&nbsp;&nbsp;&nbsp;&nbsp;Pet Friendly</p></li>
-				</ul>
-				<h2 class="heavy">Property Features</h2>
-				<ul>
-					<li><p class="lead"><%= image_tag("poolicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Heated indoor swimming pool</p></li>
-					<li><p class="lead"><%= fa_icon "sun-o" %>&nbsp;&nbsp;&nbsp;&nbsp;Sauna</p></li>
-					<li><p class="lead"><%= fa_icon "fire" %>&nbsp;&nbsp;&nbsp;&nbsp;Wood burning stove</p></li>
-					<li><p class="lead"><%= image_tag("jacuzziicon.jpg", class: "icon") %>&nbsp;&nbsp;&nbsp;Hot-tub jacuzzi</p></li>
-					<li><p class="lead"><%= fa_icon "image" %>&nbsp;&nbsp;&nbsp;&nbsp;Balcony, terrace and garden</p></li>
-					<li><p class="lead"><%= fa_icon "tree" %>&nbsp;&nbsp;&nbsp;&nbsp;Instant access to the open forest and the towering peaks </p></li>
-				</ul>
-			</div>
-		</div>
+<div id="home-section-5" class="parallax-bg-detected">
+	<div class="anim-background bg-sky">
+		<%= image_tag 'home-section-5-background-sky.jpg' %>
 	</div>
-</div> -->
+	<div class="anim-background bg-p1">
+		<%= image_tag 'home-section-5-background-p1.png' %>
 
-<div id="home-section-5">
-	<div class="background-image background-image-2"></div>
-	<!-- <div class="band_height_mobile">
-		<%= image_tag("background_image_mobile2.jpg", class: "background_image_mobile") %>
-	</div> -->
+	</div>
+	<div class="anim-background bg-p2">
+		<%= image_tag 'home-section-5-background-p2.png' %>
+	</div>
 </div>
 
 <div id="home-section-6">
-	<div class="container text-center">
-		<div class="row marginTop50">
-			<div class="col-md-6">
-				<h1>LOCATION</h1>
-				<div class="marginTopMinMin">
+	<div class=" text-center">
+		<div class="row ">
+			<div class="col-sm-6 no-padding">
+				<!-- <h1>LOCATION</h1> -->
+				<!-- <div class="marginTopMinMin"> -->
 					<div class="map_wrapper">
   						<div id="map" class="map"></div>
   						<div id="map_ski_rental" class="map"></div>
@@ -205,11 +139,11 @@
   						<div id="map_transport" class="map"></div>
   						<div id="map_other" class="map"></div>
 					</div>
-				</div>
+				<!-- </div> -->
 			</div>
-			<div class="col-md-6 center">
-				<h1>WHAT'S AROUND</h1>
-				<ul class="nav nav-tabs">
+			<div class="col-sm-6 no-padding whats-around-wrapper">
+				<h1 class="text-angled text-right">WHAT'S AROUND</h1>
+				<ul class="nav nav-tabs nav-justified">
 				  <li class="active"><%= link_to("PANDA CLUB", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
 				  <li><%= link_to("SKI RENTALS", "#tab_ski_rental", data: {toggle: "tab"}, id: "click_tab_ski_rental") %></li>
 				  <li><%= link_to("RESTAURANTS", "#tab_restaurant", data: {toggle: "tab"}, id: "click_tab_restaurant") %></li>
@@ -240,33 +174,33 @@
 
 
 				  <div id="tab_ski_rental" class="tab-pane fade">
-				  	<%= render("home/tab", name: "Sanglard", name_pic: "sanglard.jpg", distance: "50m", phone: "+33 4 50 54 05 27", web: "uk.rentski.com", real_web: "http://uk.rentski.com/shops/argentiere.html", address: "98 chemin de la Glacière, 74400 Argentière, France", latlng: "45.978684, 6.927316") %>
+				  	<%= render("home/tab", name: "Sanglard", name_pic: "sanglard.jpg", distance: "50m", phone: "+33 4 50 54 05 27", web: "uk.rentski.com", real_web: "http://uk.rentski.com/shops/argentiere.html", address: "98 chemin de la Glacière, 74400 Argentière, France", latlng: "45.978684, 6.927316", border: true) %>
 
-				  	<%= render("home/tab", name: "Grands Montets Sport", name_pic: "grandmontetsport.jpg", distance: "50m", phone: "+33 4 50 54 20 30", web: "grands-montets-sports.com", real_web: "http://www.grands-montets-sports.com/?lang=en", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978270, 6.926172") %>
+				  	<%= render("home/tab", name: "Grands Montets Sport", name_pic: "grandmontetsport.jpg", distance: "50m", phone: "+33 4 50 54 20 30", web: "grands-montets-sports.com", real_web: "http://www.grands-montets-sports.com/?lang=en", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978270, 6.926172", border: true) %>
 
-				  	<%= render("home/tab", name: "Sportech", name_pic: "sportech.jpg", distance: "500m", phone: "+33 4 50 54 00 56", web: "sportech-argentiere.fr", real_web: "http://sportech-argentiere.fr/en/ski-shop-sportech.html", address: "352 rue Charlet Straton, 74400 Argentière, France", latlng: "45.984645, 6.927229") %>
+				  	<%= render("home/tab", name: "Sportech", name_pic: "sportech.jpg", distance: "500m", phone: "+33 4 50 54 00 56", web: "sportech-argentiere.fr", real_web: "http://sportech-argentiere.fr/en/ski-shop-sportech.html", address: "352 rue Charlet Straton, 74400 Argentière, France", latlng: "45.984645, 6.927229", border: false) %>
 				  </div>
 
 
 				  <div id="tab_restaurant" class="tab-pane fade">
-				    <%= render("home/tab", name: "L'Argentero", name_pic: "argentero.jpg", distance: "50m", phone: "+33 4 50 54 03 77", web: "", real_web: "", address: "180 Chemin Glacière, 74400 Argentière", latlng: "45.978361, 6.927775") %>
+				    <%= render("home/tab", name: "L'Argentero", name_pic: "argentero.jpg", distance: "50m", phone: "+33 4 50 54 03 77", web: "", real_web: "", address: "180 Chemin Glacière, 74400 Argentière", latlng: "45.978361, 6.927775", border: true) %>
 
-				    <%= render("home/tab", name: "Les Marmottons", name_pic: "marmotton.jpg", distance: "50m", phone: "+33 4 50 54 10 67", web: "brasserielesmarmottons.fr", real_web: "http://brasserielesmarmottons.fr", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.9781703,6.9242791") %>
+				    <%= render("home/tab", name: "Les Marmottons", name_pic: "marmotton.jpg", distance: "50m", phone: "+33 4 50 54 10 67", web: "brasserielesmarmottons.fr", real_web: "http://brasserielesmarmottons.fr", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.9781703,6.9242791", border: true) %>
 
-				    <%= render("home/tab", name: "La Crèmerie Du Glacier", name_pic: "cremerie.jpg", distance: "500m", phone: "+33 4 50 54 07 52", web: "lacremerieduglacier.fr", real_web: "http://lacremerieduglacier.fr", address: "766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978409,6.935329") %>
+				    <%= render("home/tab", name: "La Crèmerie Du Glacier", name_pic: "cremerie.jpg", distance: "500m", phone: "+33 4 50 54 07 52", web: "lacremerieduglacier.fr", real_web: "http://lacremerieduglacier.fr", address: "766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978409,6.935329", border: false) %>
 				  </div>
 
 
 				  <div id="tab_transport" class="tab-pane fade">
-				    <%= render("home/tab", name: "Argentière Train Station", name_pic: "train.jpg", distance: "500m", phone: "", web: "voyage-sncf.com", real_web: "http://www.voyage-sncf.com", address: "84 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France", latlng: "45.982024, 6.926358") %>
+				    <%= render("home/tab", name: "Argentière Train Station", name_pic: "train.jpg", distance: "500m", phone: "", web: "voyage-sncf.com", real_web: "http://www.voyage-sncf.com", address: "84 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France", latlng: "45.982024, 6.926358", border: true) %>
 
-				    <%= render("home/tab", name: "Geneva International Airport", name_pic: "airport.jpg", distance: "88km", phone: "", web: "gva.ch", real_web: "https://www.gva.ch/en/desktopdefault.aspx", address: "Route de l'Aéroport 21, 1215 Le Grand-Saconnex, Switzerland", latlng: "46.236924, 6.108985") %>
+				    <%= render("home/tab", name: "Geneva International Airport", name_pic: "airport.jpg", distance: "88km", phone: "", web: "gva.ch", real_web: "https://www.gva.ch/en/desktopdefault.aspx", address: "Route de l'Aéroport 21, 1215 Le Grand-Saconnex, Switzerland", latlng: "46.236924, 6.108985", border: false) %>
 
 				  </div>
 				  <div id="tab_other" class="tab-pane fade">
-				    <%= render("home/tab", name: "Golf de Chamonix", name_pic: "golf.jpg", distance: "5km", phone: "+33 4 50 54 09 59", web: "golfdechamonix.com", real_web: "http://www.golfdechamonix.com/index.php/en/", address: "Les Praz de Chamonix, 35 route du golf, 74400 Chamonix-Mont-Blanc, France", latlng: "45.942802, 6.888795") %>
+				    <%= render("home/tab", name: "Golf de Chamonix", name_pic: "golf.jpg", distance: "5km", phone: "+33 4 50 54 09 59", web: "golfdechamonix.com", real_web: "http://www.golfdechamonix.com/index.php/en/", address: "Les Praz de Chamonix, 35 route du golf, 74400 Chamonix-Mont-Blanc, France", latlng: "45.942802, 6.888795", border: true) %>
 
-				    <%= render("home/tab", name: "Tennis des Îles", name_pic: "tennis.jpg", distance: "1km", phone: "+33 4 50 53 06 28", web: "chamonix.net", real_web: "http://www.chamonix.net/english/leisure/tennis", address: "Les Iles, 74400 Argentiere, France", latlng: "45.968156, 6.913432") %>
+				    <%= render("home/tab", name: "Tennis des Îles", name_pic: "tennis.jpg", distance: "1km", phone: "+33 4 50 53 06 28", web: "chamonix.net", real_web: "http://www.chamonix.net/english/leisure/tennis", address: "Les Iles, 74400 Argentiere, France", latlng: "45.968156, 6.913432", border: false) %>
 
 				  </div>
 				</div>

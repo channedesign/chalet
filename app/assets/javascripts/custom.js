@@ -56,10 +56,9 @@ $(document).ready(function(){
 	//===================================================//
 	//================   Animations   ===================//
 	//===================================================//
-
+	var $tm = TweenMax;
+	var animController = new ScrollMagic.Controller();
 	(function() {
-
-		var $tm = TweenMax
 		var iconTween = $tm.staggerFrom($(".band .col-xs-4"), 2, { x: -100, opacity: 0, ease: Power2.easeOut }, 0.2)
 		var parallaxAnim = $tm.to($('.parallax-anim'), 1, { y: '35%', ease: Power1.easeInOut });
 		var logoSvg = new TimelineMax()
@@ -74,11 +73,9 @@ $(document).ready(function(){
 						.from($('.logo-text-2'), 2, { opacity: 0, x: 100, ease: Power3.easeOut }, "-=1.5")
 
 
-		var parallaxBg = new TimelineMax()
-							.from($(".bg-p1"), 2, { scale: 1.2, y: 200 })
-							.from($(".bg-p2"), 2, { scale: 1.8, y: -200 }, "-=2")
 
-		var animController = new ScrollMagic.Controller();
+
+
 
 		var iconScene = new ScrollMagic.Scene({ triggerElement: '.band', offset: -100 })
 							.setTween(iconTween)
@@ -86,11 +83,9 @@ $(document).ready(function(){
 
 		var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '80%', triggerHook: 1 })
 							.setTween(parallaxAnim)
-							.addTo(animController)
+							.addTo(animController);
 
-		var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.anim-background', duration: '80%', triggerHook: 0.5 })
-							.setTween(parallaxBg)
-							.addTo(animController)
+
 
 		$(window).scroll(function() {
 			if($(window).scrollTop() >= 70 ) {
@@ -107,7 +102,60 @@ $(document).ready(function(){
 
 	})();
 
+	// Background Parallax Animation
+	(function() {
+		var parallaxBg = $.find('.parallax-bg-detected');
+		parallaxBg.forEach(function(el, index) {
+			var num = index + 1;
+			$(el).addClass('p-bg-' + num);
+			var parallaxBg = new TimelineMax()
+								.from($(el).find(".bg-p1"), 2, { scale: 1.2, y: 200 })
+								.from($(el).find(".bg-p2"), 2, { scale: 1.8, y: -200 }, "-=2");
 
+			var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.p-bg-' + num, duration: '80%', triggerHook: 0.5 })
+								.setTween(parallaxBg)
+								.addTo(animController);
+		});
+
+	})();
+
+	// SVG Mountain lines/Arrow
+	(function() {
+
+		var svgMountainLines = new TimelineMax()
+							.to($(".img-mountains-line .line-1"), 2, { strokeDashoffset: 0 })
+							.to($(".img-mountains-line .line-2"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".img-mountains-line .line-3"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".img-mountains-line .line-4"), 2, { strokeDashoffset: 0 }, "-=2")
+							.from($(".img-mountains-name"), 2, { opacity: 0 }, "-=1.5");
+
+		var svgMountainLinesScene = new ScrollMagic.Scene({ triggerElement: '#home-section-2', duration: '50%', triggerHook: 0.5 })
+							.setTween(svgMountainLines)
+							.addTo(animController);
+	})();
+
+	(function() {
+
+		var svgChaletNameLines = new TimelineMax()
+						.to($(".svg-chalet-name .chalet-name-line-1"), 1, { strokeDashoffset: 0, delay: 1 })
+						.to($(".svg-chalet-name .chalet-name-line-2"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-4"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-5"), 0.5, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-6"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-7"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-8"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-9"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-10"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-11"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-12"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-15"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-16"), 1, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-17"), 1, { strokeDashoffset: 0 }, "-=1")
+
+	})();
 
 
 	//SmoothScrolling
