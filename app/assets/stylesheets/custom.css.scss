@@ -9,8 +9,6 @@
 /*================================================*/
 
 html, body {
-	// margin: 0;
-	// padding: 0;
 	font-family: 'Lato', sans-serif;
 	overflow-x: hidden;
 }
@@ -60,6 +58,14 @@ ul li .lead {
 	position: relative;
 }
 
+.anim-absolute-text {
+	color: #fff;
+	font-size: 100px;
+	position: absolute;
+	text-shadow: 2px 2px 5px #000;
+	z-index: 2;
+}
+
 .btn-black {
 	background-color: rgba(10,10,10,0);
 	border: 1px solid black;
@@ -106,6 +112,10 @@ ul li .lead {
 	padding-right: 0;
 }
 
+.regular {
+	font-weight: 400
+}
+
 .row {
 	margin-bottom: 50px;
 	margin-top: 50px;
@@ -114,14 +124,6 @@ ul li .lead {
 .sub-title {
 	font-size: 25px;
 }
-
-
-// .small {
-// 	position: relative;
-// 	top: -20px;
-// 	font-size: 0.8em;
-// 	color: rgba(0, 0, 0, 0.7);
-// }
 
 /*================================================*/
 /*-------------      Partials      ---------------*/
@@ -133,23 +135,26 @@ ul li .lead {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 80vh;
-	// margin-top: 75px;
 	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
 	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
-	.svg-chalet-name {
-		background-color: rgba(255, 255, 255, 0.5);
-		// width: 10%;
-	}
-	.testy {
+	.svg-wrapper {
 		background-color: rgba(255, 255, 255, 0.5);
 		height: 100%;
-		width: 100%;
-		span {
-			font-size: 130px;
-			position: relative;
-			top: 27%;
+		.svg-chalet-name {
+			margin-top: -50px;
 		}
 	}
+
+	// .testy {
+	// 	background-color: rgba(255, 255, 255, 0.5);
+	// 	height: 100%;
+	// 	width: 100%;
+	// 	span {
+	// 		font-size: 130px;
+	// 		position: relative;
+	// 		top: 27%;
+	// 	}
+	// }
 }
 
 #chalet-section-2 {
@@ -184,6 +189,41 @@ ul li .lead {
 		width: 22px;
 		height: 25px;
 		padding-bottom: 5px;
+	}
+}
+
+#chalet-section-3 {
+	height: 600px;
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
+	clip-path: polygon(50% 0%, 100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
+	#street-view {
+		height: 100%;
+	}
+}
+
+#chalet-section-4 {
+	background-color: rgba(0, 0, 0, 1);
+	margin-top: -60px;
+	height: 400px;
+	-webkit-clip-path: polygon(50% 15%, 100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
+	clip-path: polygon(50% 15%, 100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
+	.testimony-swiper {
+		.swiper-pagination {
+			bottom: -30px;
+		}
+		.swiper-slide {
+			color: #fff;
+			margin-top: 20px;
+			p {
+				font-size: 40px;
+				font-style: italic;
+			}
+			p.small {
+				font-size: 20px;
+				font-style: normal;
+				font-weight: 300;
+			}
+		}
 	}
 }
 
@@ -248,17 +288,39 @@ ul li .lead {
 	border-radius: 0px 0px 0px 0px;
 	-moz-border-radius: 0px 0px 0px 0px;
 	-webkit-border-radius: 0px 0px 0px 0px;
-	margin-bottom: 0px;
 	.navbar_brand {
 		padding-top: 6px;
 		width: 250px;
 	}
-	#my_nav li {
-		padding-top: 25px;
+	#my_nav {
+		a {
+			color: #000;
+			font-size: 22px;
+			padding-bottom: 26px;
+			padding-top: 26px;
+		}
+		a:hover {
+			color: rgba(0, 0, 0, 0.6)
+		}
+		li {
+			padding-top: 0px;
+		}
+		.dropdown-menu {
+			padding: 0;
+		}
+		.open {
+			a {
+			}
+			.dropdown-toggle {
+				background-color: rgba(0, 0, 0, 0.6);
+				color: #fff;
+
+			}
+		}
 	}
 }
 
-.anim-nav {
+.anim-nav-home {
 	background-color: rgba(255, 255, 255, 1);
 	opacity: 0;
 }
@@ -280,19 +342,59 @@ ul li .lead {
 			height: 70vh;
 		}
 	}
+	.pool-text-1, .pool-text-2 {
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		right: 0;
+		top: 20vh;
+		width: 845px;
+		// border: 1px solid black;
+	}
+	.pool-text-2 {
+		top: 30vh;
+	}
+	.skiout-text {
+		top: 55vh;
+	}
+	.treat-text {
+		left: 10vw;
+	}
+	.your-text {
+		left: 40vw;
+		top: 30vh;
+	}
+	.self-text {
+		left: 70vw;
+		top: 50vh;
+	}
+	.sauna-text, .massage-text {
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		right: 0;
+		top: 30vh;
+		width: 340px;
+		// border: 1px solid black;
+	}
+	.massage-text {
+		width: 800px;
+		// border: 1px solid black;
+	}
 	.svg-chalet-logo, .logo-fill {
 		left: 0;
 		margin: auto;
 		position: absolute;
 		right: 0;
-		top: 20vh;
-		width: 300px;
+		top: 15vh;
+		width: 400px;
 		z-index: 2;
 	}
 	.logo-fill {
-		top: 19.5vh;
-		width: 330px;
+		top: 14.5vh;
+		width: 430px;
 	}
+
 }
 
 #home-section-2 {

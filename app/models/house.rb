@@ -10,4 +10,9 @@ class House < ActiveRecord::Base
      medium: '300x300>'
    }
    validates_attachment :image, presence: true, content_type: { :content_type => /\Aimage\/.*\Z/ }, size: { in: 0..5.megabytes }
+
+   def floor_plan_count
+     self.floor_plans.size
+   end
+
 end

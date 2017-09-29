@@ -22,7 +22,11 @@
     ga('send', 'pageview');
 
   </script>
-
+  <% unless current_page?(root_path) %>
+    <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeg_RmZatJNDbEeg6qg0bOX3XSFJliZV8&callback=initialize">
+    </script>
+  <% end %>
 </head>
 <body>
   <%= render("shared/nav") %>

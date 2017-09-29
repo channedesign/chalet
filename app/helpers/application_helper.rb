@@ -5,20 +5,16 @@ module ApplicationHelper
 
   def month_text
     ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    # {
-    #   '1': 'Jan',
-    #   '2': 'Feb',
-    #   '3': 'Mar',
-    #   '4': 'Apr',
-    #   '5': 'May',
-    #   '6': 'Jun',
-    #   '7': 'Jul',
-    #   '8': 'Aug',
-    #   '9': 'Sep',
-    #   '10': 'Oct',
-    #   '11': 'Nov',
-    #   '12': 'Dec'
-    # }
+  end
+
+  def check_floor_plan_count(house)
+    if house.floor_plan_count == 3
+      'col-sm-4'
+    elsif house.floor_plan_count == 2
+      'col-sm-6'
+    else
+      'col-sm-12'
+    end
   end
 
 end

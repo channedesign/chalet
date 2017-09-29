@@ -12,11 +12,27 @@
 		</svg>
 	</div>
 
+	<h1 class="anim-absolute-text pool-text-1">HEATED INDOOR</h1>
+	<h1 class="anim-absolute-text pool-text-2">SWIMMING POOL</h1>
+
+
+	<h1 class="anim-absolute-text skiin-text">SKI IN</h1>
+	<h1 class="anim-absolute-text skiout-text">SKI OUT</h1>
+
+	<h1 class="anim-absolute-text treat-text">TREAT</h1>
+	<h1 class="anim-absolute-text your-text">YOUR</h1>
+	<h1 class="anim-absolute-text self-text">SELF</h1>
+	<h1 class="anim-absolute-text sauna-text">SAUNA</h1>
+
+	<h1 class="anim-absolute-text massage-text">MASSAGE ROOM</h1>
+
 	<div class="intro-swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><%= image_tag("HA-SwimmingPool-1.jpg", class: "pic_home") %></div>
-      <div class="swiper-slide"><%= image_tag("home-hideaway1.jpg", class: "pic_home") %></div>
-      <div class="swiper-slide"><%= image_tag("chalet_neige3.jpg", class: "pic_home") %></div>
+			<div class="swiper-slide"><%= image_tag("home-section-1-intro-1.jpg", class: "pic_home") %></div>
+			<div class="swiper-slide"><%= image_tag("home-section-1-intro-5.jpg", class: "pic_home") %></div>
+			<div class="swiper-slide"><%= image_tag("home-section-1-intro-2.jpg", class: "pic_home") %></div>
+			<div class="swiper-slide"><%= image_tag("home-section-1-intro-4.jpg", class: "pic_home") %></div>
+			<div class="swiper-slide"><%= image_tag("home-section-1-intro-3.jpg", class: "pic_home") %></div>
     </div>
 	</div>
 </div>
@@ -28,17 +44,18 @@
 		<div class="container">
 			<div class="row parallax-anim set-height">
 				<div class="col-md-12">
-					<h1>HIDE AWAY TODAY IN OUR CHALETS</h1>
+					<!-- <h1>HIDE AWAY TODAY IN OUR CHALETS</h1> -->
+					<h1>IN THE BEAUTIFULL VALLEY OF CHAMONIX</h1>
 					<p class="sub-title">At the bottom the of the Grand Montet Pierre à Ric ski slope. You Ski-In &amp; Ski-Out from your door step.</p>
 				</div>
 				<div class="col-sm-4">
-					<%= image_tag("Chalets-CableCar.jpg", class: "") %>
+					<%= image_tag("home-section-2-pic-1.jpg", class: "") %>
 				</div>
 				<div class="col-sm-4">
-					<%= image_tag("HA-SwimmingPool-1.jpg", class: "") %>
+					<%= image_tag("home-section-2-pic-2.jpg", class: "") %>
 				</div>
 				<div class="col-sm-4">
-					<%= image_tag("chalet_neige3.jpg", class: "") %>
+					<%= image_tag("home-section-2-pic-3.jpg", class: "") %>
 				</div>
 			</div>
 		</div>
@@ -154,7 +171,7 @@
 				  <div id="tab_panda_club" class="tab-pane fade in active">
 				    <div class="col-md-6 panda_winter">
 				    	<h4>WINTER</h4>
-				    	<%= image_tag("pandaclubhiver.jpg", class: "tab_logo_panda") %>
+				    	<%= image_tag("home-section-6-tab-pandaclubhiver.jpg", class: "tab_logo_panda") %>
 				    	<p class="heavy">Come with your family</p>
 				    	<p class="small">Set in the heart of the forest, at the foot of Grand Montet, is our Panda Club, which is home to our Children's Ski School.</p>
 				    	<p class="small">From 3 to 14 years old. The Panda Club is famous in Chamonix for its super child friendly service, exceptional standards and success rates, but more importantly enjoyment factor for children.</p>
@@ -164,7 +181,7 @@
 				    </div>
 				    <div class="col-md-6 panda_summer">
 				    	<h4>SUMMER</h4>
-				    	<%= image_tag("chaletsummerhorse.jpg", class: "tab_logo_panda") %>
+				    	<%= image_tag("home-section-6-tab-chaletsummerhorse.jpg", class: "tab_logo_panda") %>
 				    	<p class="heavy">Come with your horse</p>
 
 				    	<p class="small">If you bring along your horses when vacationing, they have a stable, a training rink, grass land and the open woods at their door (for an extra cost of 50€/day).</p>
@@ -174,33 +191,33 @@
 
 
 				  <div id="tab_ski_rental" class="tab-pane fade">
-				  	<%= render("home/tab", name: "Sanglard", name_pic: "sanglard.jpg", distance: "50m", phone: "+33 4 50 54 05 27", web: "uk.rentski.com", real_web: "http://uk.rentski.com/shops/argentiere.html", address: "98 chemin de la Glacière, 74400 Argentière, France", latlng: "45.978684, 6.927316", border: true) %>
+				  	<%= render("home/tab", name: "Sanglard", name_pic: "home-section-6-tab-sanglard.jpg", distance: "50m", phone: "+33 4 50 54 05 27", web: "uk.rentski.com", real_web: "http://uk.rentski.com/shops/argentiere.html", address: "98 chemin de la Glacière, 74400 Argentière, France", latlng: "45.978684, 6.927316", border: true) %>
 
-				  	<%= render("home/tab", name: "Grands Montets Sport", name_pic: "grandmontetsport.jpg", distance: "50m", phone: "+33 4 50 54 20 30", web: "grands-montets-sports.com", real_web: "http://www.grands-montets-sports.com/?lang=en", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978270, 6.926172", border: true) %>
+				  	<%= render("home/tab", name: "Grands Montets Sport", name_pic: "home-section-6-tab-grandmontetsport.jpg", distance: "50m", phone: "+33 4 50 54 20 30", web: "grands-montets-sports.com", real_web: "http://www.grands-montets-sports.com/?lang=en", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978270, 6.926172", border: true) %>
 
-				  	<%= render("home/tab", name: "Sportech", name_pic: "sportech.jpg", distance: "500m", phone: "+33 4 50 54 00 56", web: "sportech-argentiere.fr", real_web: "http://sportech-argentiere.fr/en/ski-shop-sportech.html", address: "352 rue Charlet Straton, 74400 Argentière, France", latlng: "45.984645, 6.927229", border: false) %>
+				  	<%= render("home/tab", name: "Sportech", name_pic: "home-section-6-tab-sportech.jpg", distance: "500m", phone: "+33 4 50 54 00 56", web: "sportech-argentiere.fr", real_web: "http://sportech-argentiere.fr/en/ski-shop-sportech.html", address: "352 rue Charlet Straton, 74400 Argentière, France", latlng: "45.984645, 6.927229", border: false) %>
 				  </div>
 
 
 				  <div id="tab_restaurant" class="tab-pane fade">
-				    <%= render("home/tab", name: "L'Argentero", name_pic: "argentero.jpg", distance: "50m", phone: "+33 4 50 54 03 77", web: "", real_web: "", address: "180 Chemin Glacière, 74400 Argentière", latlng: "45.978361, 6.927775", border: true) %>
+				    <%= render("home/tab", name: "L'Argentero", name_pic: "home-section-6-tab-argentero.jpg", distance: "50m", phone: "+33 4 50 54 03 77", web: "", real_web: "", address: "180 Chemin Glacière, 74400 Argentière", latlng: "45.978361, 6.927775", border: true) %>
 
-				    <%= render("home/tab", name: "Les Marmottons", name_pic: "marmotton.jpg", distance: "50m", phone: "+33 4 50 54 10 67", web: "brasserielesmarmottons.fr", real_web: "http://brasserielesmarmottons.fr", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.9781703,6.9242791", border: true) %>
+				    <%= render("home/tab", name: "Les Marmottons", name_pic: "home-section-6-tab-marmotton.jpg", distance: "50m", phone: "+33 4 50 54 10 67", web: "brasserielesmarmottons.fr", real_web: "http://brasserielesmarmottons.fr", address: "56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.9781703,6.9242791", border: true) %>
 
-				    <%= render("home/tab", name: "La Crèmerie Du Glacier", name_pic: "cremerie.jpg", distance: "500m", phone: "+33 4 50 54 07 52", web: "lacremerieduglacier.fr", real_web: "http://lacremerieduglacier.fr", address: "766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978409,6.935329", border: false) %>
+				    <%= render("home/tab", name: "La Crèmerie Du Glacier", name_pic: "home-section-6-tab-cremerie.jpg", distance: "500m", phone: "+33 4 50 54 07 52", web: "lacremerieduglacier.fr", real_web: "http://lacremerieduglacier.fr", address: "766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France", latlng: "45.978409,6.935329", border: false) %>
 				  </div>
 
 
 				  <div id="tab_transport" class="tab-pane fade">
-				    <%= render("home/tab", name: "Argentière Train Station", name_pic: "train.jpg", distance: "500m", phone: "", web: "voyage-sncf.com", real_web: "http://www.voyage-sncf.com", address: "84 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France", latlng: "45.982024, 6.926358", border: true) %>
+				    <%= render("home/tab", name: "Argentière Train Station", name_pic: "home-section-6-tab-train.jpg", distance: "500m", phone: "", web: "voyage-sncf.com", real_web: "http://www.voyage-sncf.com", address: "84 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France", latlng: "45.982024, 6.926358", border: true) %>
 
-				    <%= render("home/tab", name: "Geneva International Airport", name_pic: "airport.jpg", distance: "88km", phone: "", web: "gva.ch", real_web: "https://www.gva.ch/en/desktopdefault.aspx", address: "Route de l'Aéroport 21, 1215 Le Grand-Saconnex, Switzerland", latlng: "46.236924, 6.108985", border: false) %>
+				    <%= render("home/tab", name: "Geneva International Airport", name_pic: "home-section-6-tab-airport.jpg", distance: "88km", phone: "", web: "gva.ch", real_web: "https://www.gva.ch/en/desktopdefault.aspx", address: "Route de l'Aéroport 21, 1215 Le Grand-Saconnex, Switzerland", latlng: "46.236924, 6.108985", border: false) %>
 
 				  </div>
 				  <div id="tab_other" class="tab-pane fade">
-				    <%= render("home/tab", name: "Golf de Chamonix", name_pic: "golf.jpg", distance: "5km", phone: "+33 4 50 54 09 59", web: "golfdechamonix.com", real_web: "http://www.golfdechamonix.com/index.php/en/", address: "Les Praz de Chamonix, 35 route du golf, 74400 Chamonix-Mont-Blanc, France", latlng: "45.942802, 6.888795", border: true) %>
+				    <%= render("home/tab", name: "Golf de Chamonix", name_pic: "home-section-6-tab-golf.jpg", distance: "5km", phone: "+33 4 50 54 09 59", web: "golfdechamonix.com", real_web: "http://www.golfdechamonix.com/index.php/en/", address: "Les Praz de Chamonix, 35 route du golf, 74400 Chamonix-Mont-Blanc, France", latlng: "45.942802, 6.888795", border: true) %>
 
-				    <%= render("home/tab", name: "Tennis des Îles", name_pic: "tennis.jpg", distance: "1km", phone: "+33 4 50 53 06 28", web: "chamonix.net", real_web: "http://www.chamonix.net/english/leisure/tennis", address: "Les Iles, 74400 Argentiere, France", latlng: "45.968156, 6.913432", border: false) %>
+				    <%= render("home/tab", name: "Tennis des Îles", name_pic: "home-section-6-tab-tennis.jpg", distance: "1km", phone: "+33 4 50 53 06 28", web: "chamonix.net", real_web: "http://www.chamonix.net/english/leisure/tennis", address: "Les Iles, 74400 Argentiere, France", latlng: "45.968156, 6.913432", border: false) %>
 
 				  </div>
 				</div>
@@ -210,6 +227,6 @@
 </div>
 
 
-<%= render("home/modal", modal_id: "panda_club_winter", modal_pic: "panda_club_winter_modal1.jpg", title: "Panda-Club", text1: "Whether your child is a complete beginner, needs to improve their skills, or can ski but wants to head onto the big slopes with other children the Panda Base camp really is a SKI COOL for all children, ages 3-12 years!", text2: "We also have our Junior Academy , for those children 8-14 years that already can ski and want to head off and learn new skills, moguls, freestyle and off piste", text3: "The Panda Club is affiliated with Evolution2. They attribute their success to utilising the same philosophy in everything they do – the pursuit of excellence - and providing the best possible service with the highest quality staff.", text4: "", link: "http://www.evolution2-chamonix.com/ski-school/children") %>
+<%= render("home/modal", modal_id: "panda_club_winter", modal_pic: "home-section-6-tab-panda_club_winter_modal1.jpg", title: "Panda-Club", text1: "Whether your child is a complete beginner, needs to improve their skills, or can ski but wants to head onto the big slopes with other children the Panda Base camp really is a SKI COOL for all children, ages 3-12 years!", text2: "We also have our Junior Academy , for those children 8-14 years that already can ski and want to head off and learn new skills, moguls, freestyle and off piste", text3: "The Panda Club is affiliated with Evolution2. They attribute their success to utilising the same philosophy in everything they do – the pursuit of excellence - and providing the best possible service with the highest quality staff.", text4: "", link: "http://www.evolution2-chamonix.com/ski-school/children") %>
 
-<%= render("home/modal", modal_id: "panda_club_summer", modal_pic: "panda_club_summer_modal1.jpg", title: "A taste of glee for a memorable Chamonix Summer in the Hideaway Chalets", text1: "Right at your back door, you also enjoy high-end amenities. Chamonix is the dream valley to honeymoon, climb rock, via ferrata and glacier, to paraglide, sky dive, hot-air balloon, heli-tour, ride a 3 800 m elevation cablecar, run low and high trails, to golf, descend white rivers, hydro speed, swim in pools, venture monkey accrobranche, bungee jump, summer luge, paintball, bike, horse ride, ice skate, do archery, play tennis, squash and bowl, take part in frisbee and geocatching contests, train yoga and gym/fitness, dance and party, relax in spas, go to movies, museums and nature reserves, to photograph, rod fish, window-shop, stroll, loaf around, enjoy music festivals while the white peaks strike the sky and the fair daisies stare back at you in the meadows, and…  every Autumn, wonder in awe at the larch tree forests going up in bright yellow flames.", text2: "", text3: "", text4: "", link: "") %>
+<%= render("home/modal", modal_id: "panda_club_summer", modal_pic: "home-section-6-tab-panda_club_summer_modal1.jpg", title: "A taste of glee for a memorable Chamonix Summer in the Hideaway Chalets", text1: "Right at your back door, you also enjoy high-end amenities. Chamonix is the dream valley to honeymoon, climb rock, via ferrata and glacier, to paraglide, sky dive, hot-air balloon, heli-tour, ride a 3 800 m elevation cablecar, run low and high trails, to golf, descend white rivers, hydro speed, swim in pools, venture monkey accrobranche, bungee jump, summer luge, paintball, bike, horse ride, ice skate, do archery, play tennis, squash and bowl, take part in frisbee and geocatching contests, train yoga and gym/fitness, dance and party, relax in spas, go to movies, museums and nature reserves, to photograph, rod fish, window-shop, stroll, loaf around, enjoy music festivals while the white peaks strike the sky and the fair daisies stare back at you in the meadows, and…  every Autumn, wonder in awe at the larch tree forests going up in bright yellow flames.", text2: "", text3: "", text4: "", link: "") %>

@@ -1,13 +1,15 @@
 $(document).ready(function(){
 
 
+
+
 	//===================================================//
 	//================   Swiper Init   ==================//
 	//===================================================//
 
 	(function() {
 		var mySwiper = new Swiper ('.intro-swiper', {
-			autoplay: 3000,
+			autoplay: 5000,
 			speed: 1500,
 	    loop: true,
 			spaceBetween: 10,
@@ -20,9 +22,9 @@ $(document).ready(function(){
 			spaceBetween: 10,
 			nextButton: '.swiper-button-next',
 			prevButton: '.swiper-button-prev',
-			autoplay: 3000,
-			autoplayDisableOnInteraction: false,
-			speed: 1000,
+			// autoplay: 3000,
+			// autoplayDisableOnInteraction: false,
+			speed: 1500,
 	  });
 		var chaletSwiperThumbs = new Swiper ('.chalet-swiper-thumbs', {
 			centeredSlides: true,
@@ -30,10 +32,20 @@ $(document).ready(function(){
 			touchRatio: 0.2,
 			slideToClickedSlide: true,
 			spaceBetween: 10,
-			speed: 1000,
+			speed: 1500,
 	  });
 		chaletSwiper.params.control = chaletSwiperThumbs;
 	  chaletSwiperThumbs.params.control = chaletSwiper;
+		var testimonySwiper = new Swiper ('.testimony-swiper', {
+			centeredSlides: true,
+			slidesPerView: 1,
+			autoplay: 4000,
+			spaceBetween: 500,
+			speed: 1000,
+			pagination: '.swiper-pagination',
+
+			paginationClickable: true
+	  });
 	})();
 
 
@@ -61,16 +73,9 @@ $(document).ready(function(){
 	(function() {
 		var iconTween = $tm.staggerFrom($(".band .col-xs-4"), 2, { x: -100, opacity: 0, ease: Power2.easeOut }, 0.2)
 		var parallaxAnim = $tm.to($('.parallax-anim'), 1, { y: '35%', ease: Power1.easeInOut });
-		var logoSvg = new TimelineMax()
-						.to($('#line-mountain'), 2, { strokeDashoffset: 0, delay: 1 })
-						.to($('#line-roof'), 2, { strokeDashoffset: 0 }, "-=1.5")
-						.from($('.white-mountain'), 2, { opacity: 0 }, "-=1.5")
-						.from($('.blue-mountain'), 2, { opacity: 0 }, "-=1.5")
-						.from($('.edelweiss'), 2, { opacity: 0, rotation: 720, transformOrigin: '51% 58%', scale: 0 }, "-=2.5")
-						.from($('.blue-white-mountain'), 2, { opacity: 0 }, "-=2")
-						.to($('#line-mountain, #line-roof, .white-mountain, .blue-mountain'), 1, { opacity: 0 }, "-=1.75")
-						.from($('.logo-text-1'), 2, { opacity: 0, x: -100, ease: Power3.easeOut }, "-=2")
-						.from($('.logo-text-2'), 2, { opacity: 0, x: 100, ease: Power3.easeOut }, "-=1.5")
+
+
+
 
 
 
@@ -89,9 +94,11 @@ $(document).ready(function(){
 
 		$(window).scroll(function() {
 			if($(window).scrollTop() >= 70 ) {
-				$tm.to($('.anim-nav'), 1, {  opacity: 1 });
+				$tm.to($('.anim-nav-home'), 1, {  opacity: 1 });
+				$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 1)' });
 			} else {
-				$tm.to($('.anim-nav'), 1, {  opacity: 0 });
+				$tm.to($('.anim-nav-home'), 1, {  opacity: 0 });
+				$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 0)' });
 			}
 			if($(window).scrollTop() >= 1000) {
 				$tm.to($('#home-section-1'), 0.1, { opacity: 0 });
@@ -99,6 +106,38 @@ $(document).ready(function(){
 				$tm.to($('#home-section-1'), 0.1, { opacity: 1 });
 			}
 		});
+
+	})();
+
+	// Intro Animation
+	(function() {
+
+		var logoSvg = new TimelineMax()
+						.to($('#line-mountain'), 2, { strokeDashoffset: 0, delay: 0.5 })
+						.to($('#line-roof'), 2, { strokeDashoffset: 0 }, "-=1.5")
+						.from($('.white-mountain'), 2, { opacity: 0 }, "-=1.5")
+						.from($('.blue-mountain'), 2, { opacity: 0 }, "-=1.5")
+						.from($('.edelweiss'), 2, { opacity: 0, rotation: 720, transformOrigin: '51% 58%', scale: 0 }, "-=2.5")
+						.from($('.blue-white-mountain'), 2, { opacity: 0 }, "-=2")
+						.to($('#line-mountain, #line-roof, .white-mountain, .blue-mountain'), 1, { opacity: 0 }, "-=1.75")
+						.from($('.logo-text-1'), 2, { opacity: 0, x: -100, ease: Power3.easeOut }, "-=2")
+						.from($('.logo-text-2'), 2, { opacity: 0, x: 100, ease: Power3.easeOut }, "-=1.5")
+						.to($('.blue-white-mountain, .edelweiss, .logo-text-1, .logo-text-2'), 2, { opacity: 0 })
+						.from($(".pool-text-1"), 4, { opacity: 0, x: -200, ease: Power4.easeOut })
+						.from($(".pool-text-2"), 4, { opacity: 0, x: 200, ease: Power4.easeOut }, "-=4")
+						.to($(".pool-text-1"), 1, { opacity: 0, x: 200, ease: Power4.easeIn }, "-=0.5")
+						.to($(".pool-text-2"), 1, { opacity: 0, x: -200, ease: Power4.easeIn }, "-=1")
+						.fromTo($(".skiin-text"), 6, {  x: -2000 }, { x: 2000 })
+						.fromTo($(".skiout-text"), 6, {  x: 2000 }, { x: -2000 }, "-=2")
+						.staggerFrom([$(".treat-text"), $(".your-text"), $(".self-text")], 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, 0.4, "-=2")
+						.to($(".treat-text, .your-text, .self-text"), 2, { rotationX: 1080, scale: 0, opacity: 0 })
+						.from($(".sauna-text"), 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, "-=1")
+						.to($(".sauna-text"), 1, { opacity: 0 })
+						.from($(".massage-text"), 5, { opacity: 0 })
+						.to($(".massage-text"), 1, { opacity: 0 })
+
+
+
 
 	})();
 
@@ -112,7 +151,7 @@ $(document).ready(function(){
 								.from($(el).find(".bg-p1"), 2, { scale: 1.2, y: 200 })
 								.from($(el).find(".bg-p2"), 2, { scale: 1.8, y: -200 }, "-=2");
 
-			var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.p-bg-' + num, duration: '80%', triggerHook: 0.5 })
+			var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.p-bg-' + num, duration: '100%', triggerHook: 1 })
 								.setTween(parallaxBg)
 								.addTo(animController);
 		});
@@ -137,21 +176,21 @@ $(document).ready(function(){
 	(function() {
 
 		var svgChaletNameLines = new TimelineMax()
-						.to($(".svg-chalet-name .chalet-name-line-1"), 1, { strokeDashoffset: 0, delay: 1 })
-						.to($(".svg-chalet-name .chalet-name-line-2"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-4"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-5"), 0.5, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-6"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-7"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-8"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-9"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-10"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-11"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-12"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-15"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-1"), 1, { strokeDashoffset: 0, delay: 0.5 })
+						.to($(".svg-chalet-name .chalet-name-line-2"), 1.5, { strokeDashoffset: 0 }, "-=1")
+						.to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=1.5")
+						.to($(".svg-chalet-name .chalet-name-line-4"), 1.5, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-5"), 0.5, { strokeDashoffset: 0 }, "-=1.8")
+						.to($(".svg-chalet-name .chalet-name-line-6"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-7"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-8"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-9"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-10"), 0.5, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-11"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-12"), 1, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=2")
+						.to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=1.5")
+						.to($(".svg-chalet-name .chalet-name-line-15"), 1, { strokeDashoffset: 0 }, "-=1")
 						.to($(".svg-chalet-name .chalet-name-line-16"), 1, { strokeDashoffset: 0 }, "-=1")
 						.to($(".svg-chalet-name .chalet-name-line-17"), 1, { strokeDashoffset: 0 }, "-=1")
 
