@@ -1,3 +1,16 @@
+var panorama;
+function initialize() {
+	panorama = new google.maps.StreetViewPanorama(
+  	document.getElementById('street-view'),
+   	{
+     position: {lat: 45.9775559, lng: 6.9276951},
+     pov: {heading: 0, pitch: 0},
+     zoom: 1,
+     scrollwheel: false,
+     fullscreenControl: false
+   	});
+}
+
 $(document).ready(function(){
 
 
@@ -8,16 +21,16 @@ $(document).ready(function(){
 	//===================================================//
 
 	(function() {
-		var mySwiper = new Swiper ('.intro-swiper', {
-			autoplay: 5000,
-			speed: 1500,
-	    loop: true,
-			spaceBetween: 10,
-			effect: 'fade',
-			fade: {
-				crossFade: true
-			}
-	  });
+		// var mySwiper = new Swiper ('.intro-swiper', {
+		// 	autoplay: 5000,
+		// 	speed: 1500,
+	  //   loop: true,
+		// 	spaceBetween: 10,
+		// 	effect: 'fade',
+		// 	fade: {
+		// 		crossFade: true
+		// 	}
+	  // });
 		var chaletSwiper = new Swiper ('.chalet-swiper', {
 			spaceBetween: 10,
 			nextButton: '.swiper-button-next',
@@ -72,7 +85,7 @@ $(document).ready(function(){
 	var animController = new ScrollMagic.Controller();
 	(function() {
 		var iconTween = $tm.staggerFrom($(".band .col-xs-4"), 2, { x: -100, opacity: 0, ease: Power2.easeOut }, 0.2)
-		var parallaxAnim = $tm.to($('.parallax-anim'), 1, { y: '35%', ease: Power1.easeInOut });
+		var parallaxAnim = $tm.to($('.parallax-anim'), 2, { y: 200 });
 
 
 
@@ -86,7 +99,7 @@ $(document).ready(function(){
 							.setTween(iconTween)
 		 					.addTo(animController);
 
-		var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '80%', triggerHook: 1 })
+		var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '100%', triggerHook: 1 })
 							.setTween(parallaxAnim)
 							.addTo(animController);
 
@@ -112,29 +125,38 @@ $(document).ready(function(){
 	// Intro Animation
 	(function() {
 
-		var logoSvg = new TimelineMax()
-						.to($('#line-mountain'), 2, { strokeDashoffset: 0, delay: 0.5 })
-						.to($('#line-roof'), 2, { strokeDashoffset: 0 }, "-=1.5")
-						.from($('.white-mountain'), 2, { opacity: 0 }, "-=1.5")
-						.from($('.blue-mountain'), 2, { opacity: 0 }, "-=1.5")
-						.from($('.edelweiss'), 2, { opacity: 0, rotation: 720, transformOrigin: '51% 58%', scale: 0 }, "-=2.5")
-						.from($('.blue-white-mountain'), 2, { opacity: 0 }, "-=2")
-						.to($('#line-mountain, #line-roof, .white-mountain, .blue-mountain'), 1, { opacity: 0 }, "-=1.75")
-						.from($('.logo-text-1'), 2, { opacity: 0, x: -100, ease: Power3.easeOut }, "-=2")
-						.from($('.logo-text-2'), 2, { opacity: 0, x: 100, ease: Power3.easeOut }, "-=1.5")
-						.to($('.blue-white-mountain, .edelweiss, .logo-text-1, .logo-text-2'), 2, { opacity: 0 })
-						.from($(".pool-text-1"), 4, { opacity: 0, x: -200, ease: Power4.easeOut })
-						.from($(".pool-text-2"), 4, { opacity: 0, x: 200, ease: Power4.easeOut }, "-=4")
-						.to($(".pool-text-1"), 1, { opacity: 0, x: 200, ease: Power4.easeIn }, "-=0.5")
-						.to($(".pool-text-2"), 1, { opacity: 0, x: -200, ease: Power4.easeIn }, "-=1")
-						.fromTo($(".skiin-text"), 6, {  x: -2000 }, { x: 2000 })
-						.fromTo($(".skiout-text"), 6, {  x: 2000 }, { x: -2000 }, "-=2")
-						.staggerFrom([$(".treat-text"), $(".your-text"), $(".self-text")], 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, 0.4, "-=2")
-						.to($(".treat-text, .your-text, .self-text"), 2, { rotationX: 1080, scale: 0, opacity: 0 })
-						.from($(".sauna-text"), 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, "-=1")
-						.to($(".sauna-text"), 1, { opacity: 0 })
-						.from($(".massage-text"), 5, { opacity: 0 })
-						.to($(".massage-text"), 1, { opacity: 0 })
+		var introAnim = new TimelineMax({ repeat: -1 })
+						.to('#line-mountain', 2, { strokeDashoffset: 0, delay: 1.5 })
+						.to('#line-roof', 2, { strokeDashoffset: 0 }, "-=1.5")
+						.from('.white-mountain', 2, { opacity: 0 }, "-=1.5")
+						.from('.blue-mountain', 2, { opacity: 0 }, "-=1.5")
+						.from('.edelweiss', 2, { opacity: 0, rotation: 720, transformOrigin: '51% 58%', scale: 0 }, "-=2.5")
+						.from('.blue-white-mountain', 1, { opacity: 0 }, "-=2")
+						.to('#line-mountain, #line-roof, .white-mountain, .blue-mountain', 1, { opacity: 0 }, "-=1.75")
+						.from('.logo-text-1', 2, { opacity: 0, x: -100, ease: Power3.easeOut }, "-=2")
+						.from('.logo-text-2', 2, { opacity: 0, x: 100, ease: Power3.easeOut }, "-=1.5")
+						.to('.blue-white-mountain, .edelweiss, .logo-text-1, .logo-text-2', 1, { opacity: 0 })
+						.to('.intro-pic-1', 2, { opacity: 0 }, "-=1")
+						.from('.intro-pic-2', 2, { opacity: 0 }, "-=1")
+						.from(".pool-text-first", 2, { opacity: 0, x: -200, ease: Power4.easeOut }, "-=1")
+						.from(".pool-text-second", 2, { opacity: 0, x: 200, ease: Power4.easeOut }, "-=2")
+						.to(".pool-text-first", 2, { opacity: 0, x: 200, ease: Power4.easeIn })
+						.to(".pool-text-second", 2, { opacity: 0, x: -200, ease: Power4.easeIn }, "-=2")
+						.to('.intro-pic-2', 2, { opacity: 0 }, "-=0.5")
+						.from('.intro-pic-3', 2, { opacity: 0 }, "-=1")
+						.fromTo(".skiin-text", 6, {  x: -2000 }, { x: 2000 }, "-=2")
+						.fromTo(".skiout-text", 6, {  x: 2000 }, { x: -2000 }, "-=2")
+						.to('.intro-pic-3', 2, { opacity: 0 }, "-=3")
+						.from('.intro-pic-4', 2, { opacity: 0 }, "-=1")
+						.staggerFrom([".treat-text", ".your-text", ".self-text"], 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, 0.4, "-=2")
+						.to(".treat-text, .your-text, .self-text", 2, { rotationX: 1080, scale: 0, opacity: 0 })
+						.from(".sauna-text", 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, "-=1")
+						.to(".sauna-text", 1, { opacity: 0 })
+						.to('.intro-pic-4', 2, { opacity: 0 }, "-=1")
+						.from('.intro-pic-5', 2, { opacity: 0 }, "-=1")
+						.from(".massage-text", 5, { opacity: 0 }, "-=1")
+						.to(".massage-text", 1, { opacity: 0 })
+						.to('.intro-pic-5', 2, { opacity: 0 }, "-=0.5")
 
 
 

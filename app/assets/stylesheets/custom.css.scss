@@ -205,9 +205,10 @@ ul li .lead {
 	background-color: rgba(0, 0, 0, 1);
 	margin-top: -60px;
 	height: 400px;
-	-webkit-clip-path: polygon(50% 15%, 100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
-	clip-path: polygon(50% 15%, 100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
+	-webkit-clip-path: polygon(50% 15%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0);
+	clip-path: polygon(50% 15%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0);
 	.testimony-swiper {
+		margin-top: 50px;
 		.swiper-pagination {
 			bottom: -30px;
 		}
@@ -335,6 +336,11 @@ ul li .lead {
 
 #home-section-1 {
 	position: relative;
+	.intro-pic {
+		height: 70vh;
+		position: fixed;
+		width: 100%;
+	}
 	.intro-swiper {
 		position: fixed;
 		width: 100%;
@@ -342,7 +348,7 @@ ul li .lead {
 			height: 70vh;
 		}
 	}
-	.pool-text-1, .pool-text-2 {
+	.pool-text-first, .pool-text-second {
 		bottom: 0;
 		left: 0;
 		margin: auto;
@@ -351,7 +357,7 @@ ul li .lead {
 		width: 845px;
 		// border: 1px solid black;
 	}
-	.pool-text-2 {
+	.pool-text-second {
 		top: 30vh;
 	}
 	.skiout-text {

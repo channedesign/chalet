@@ -219,17 +219,6 @@
   </div>
 </div>
 
-<script>
-var panorama;
-   function initialize() {
-     panorama = new google.maps.StreetViewPanorama(
-         document.getElementById('street-view'),
-         {
-           position: {lat: 45.9775559, lng: 6.9276951},
-           pov: {heading: 0, pitch: 0},
-           zoom: 1,
-           scrollwheel: false,
-           fullscreenControl: false
-         });
-   }
+<script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeg_RmZatJNDbEeg6qg0bOX3XSFJliZV8&callback=initialize">
 </script>
