@@ -6,15 +6,21 @@ function initialize() {
      position: {lat: 45.9775559, lng: 6.9276951},
      pov: {heading: 0, pitch: 0},
      zoom: 1,
-     scrollwheel: false,
+    //  scrollwheel: false,
      fullscreenControl: false
    	});
 }
 
 $(document).ready(function(){
 
+	// Remove StreetView layer to allow scroll
+	(function() {
 
+		$("#chalet-section-3").click(function() {
+			$(".street-view-layer").remove();
+		});
 
+	})();
 
 	//===================================================//
 	//================   Swiper Init   ==================//
@@ -33,10 +39,10 @@ $(document).ready(function(){
 	  // });
 		var chaletSwiper = new Swiper ('.chalet-swiper', {
 			spaceBetween: 10,
-			nextButton: '.swiper-button-next',
-			prevButton: '.swiper-button-prev',
-			// autoplay: 3000,
-			// autoplayDisableOnInteraction: false,
+			// nextButton: '.swiper-button-next',
+			// prevButton: '.swiper-button-prev',
+			autoplay: 3000,
+			autoplayDisableOnInteraction: false,
 			speed: 1500,
 	  });
 		var chaletSwiperThumbs = new Swiper ('.chalet-swiper-thumbs', {
@@ -56,7 +62,6 @@ $(document).ready(function(){
 			spaceBetween: 500,
 			speed: 1000,
 			pagination: '.swiper-pagination',
-
 			paginationClickable: true
 	  });
 	})();
@@ -83,16 +88,13 @@ $(document).ready(function(){
 	//===================================================//
 	var $tm = TweenMax;
 	var animController = new ScrollMagic.Controller();
+	$tm.to('.preload', 2, { opacity: 0 });
+	$tm.to('.preload', 0.1, { zIndex: "-9999", delay: 1.5 });
+
+	// Simple Animation
 	(function() {
-		var iconTween = $tm.staggerFrom($(".band .col-xs-4"), 2, { x: -100, opacity: 0, ease: Power2.easeOut }, 0.2)
-		var parallaxAnim = $tm.to($('.parallax-anim'), 2, { y: 200 });
-
-
-
-
-
-
-
+		var iconTween = $tm.staggerFrom(".band .col-xs-4", 2, { x: -100, opacity: 0, ease: Power2.easeOut }, 0.2)
+		var parallaxAnim = $tm.to('.parallax-anim, .chalet-bg', 2, { y: "30%" });
 
 
 		var iconScene = new ScrollMagic.Scene({ triggerElement: '.band', offset: -100 })
@@ -113,18 +115,22 @@ $(document).ready(function(){
 				$tm.to($('.anim-nav-home'), 1, {  opacity: 0 });
 				$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 0)' });
 			}
-			if($(window).scrollTop() >= 1000) {
-				$tm.to($('#home-section-1'), 0.1, { opacity: 0 });
-			} else {
-				$tm.to($('#home-section-1'), 0.1, { opacity: 1 });
-			}
+			// if($(window).scrollTop() >= 800 ) {
+			// 	$tm.to($('#home-section-1'), 0.1, {  opacity: 0 });
+			// } else {
+			// 	$tm.to($('#home-section-1'), 0.1, {  opacity: 1 });
+			// }
+
 		});
 
 	})();
 
 	// Intro Animation
 	(function() {
-
+		var max = ($(window).width() + 500)
+		var min = ( $(window).width() - $(window).width() - 500)
+		console.log('max:' + max);
+		console.log('min:' + min);
 		var introAnim = new TimelineMax({ repeat: -1 })
 						.to('#line-mountain', 2, { strokeDashoffset: 0, delay: 1.5 })
 						.to('#line-roof', 2, { strokeDashoffset: 0 }, "-=1.5")
@@ -144,23 +150,32 @@ $(document).ready(function(){
 						.to(".pool-text-second", 2, { opacity: 0, x: -200, ease: Power4.easeIn }, "-=2")
 						.to('.intro-pic-2', 2, { opacity: 0 }, "-=0.5")
 						.from('.intro-pic-3', 2, { opacity: 0 }, "-=1")
-						.fromTo(".skiin-text", 6, {  x: -2000 }, { x: 2000 }, "-=2")
-						.fromTo(".skiout-text", 6, {  x: 2000 }, { x: -2000 }, "-=2")
-						.to('.intro-pic-3', 2, { opacity: 0 }, "-=3")
+						.fromTo(".skiin-text", 4, {  x: min }, { x: max }, "-=2")
+						.fromTo(".skiout-text", 4, {  x: max }, { x: min }, "-=2")
+						.to('.intro-pic-3', 2, { opacity: 0 }, "-=1.5")
 						.from('.intro-pic-4', 2, { opacity: 0 }, "-=1")
-						.staggerFrom([".treat-text", ".your-text", ".self-text"], 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, 0.4, "-=2")
-						.to(".treat-text, .your-text, .self-text", 2, { rotationX: 1080, scale: 0, opacity: 0 })
+						.staggerFrom([".treat-text", ".yourself-text", ".with-text"], 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, 0.4, "-=2")
+						.to(".treat-text, .yourself-text, .with-text", 2, { rotationX: 1080, scale: 0, opacity: 0 })
 						.from(".sauna-text", 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, "-=1")
 						.to(".sauna-text", 1, { opacity: 0 })
 						.to('.intro-pic-4', 2, { opacity: 0 }, "-=1")
 						.from('.intro-pic-5', 2, { opacity: 0 }, "-=1")
 						.from(".massage-text", 5, { opacity: 0 }, "-=1")
 						.to(".massage-text", 1, { opacity: 0 })
-						.to('.intro-pic-5', 2, { opacity: 0 }, "-=0.5")
+						.to('.intro-pic-5', 2, { opacity: 0 }, "-=0.5");
 
+	//Hide Intro Animations
+	var hideIntroAnim = $tm.to($('#home-section-1'), 0.1, { opacity: 0 });
 
+	var hideIntroAnimScene = new ScrollMagic.Scene({ triggerElement: '#home-section-2', offset: 600 })
+						.setTween(hideIntroAnim)
+						.addTo(animController);
 
-
+	// 					// if($(window).scrollTop() >= 70) {
+	// 					// 	introAnim.pause();
+	// 					// } else {
+	// 					// 	introAnim.resume();
+	// 					// }
 	})();
 
 	// Background Parallax Animation
@@ -198,23 +213,41 @@ $(document).ready(function(){
 	(function() {
 
 		var svgChaletNameLines = new TimelineMax()
-						.to($(".svg-chalet-name .chalet-name-line-1"), 1, { strokeDashoffset: 0, delay: 0.5 })
-						.to($(".svg-chalet-name .chalet-name-line-2"), 1.5, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=1.5")
-						.to($(".svg-chalet-name .chalet-name-line-4"), 1.5, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-5"), 0.5, { strokeDashoffset: 0 }, "-=1.8")
-						.to($(".svg-chalet-name .chalet-name-line-6"), 1, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-7"), 1, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-8"), 1, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-9"), 1, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-10"), 0.5, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-11"), 1, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-12"), 1, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=2")
-						.to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=1.5")
-						.to($(".svg-chalet-name .chalet-name-line-15"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-16"), 1, { strokeDashoffset: 0 }, "-=1")
-						.to($(".svg-chalet-name .chalet-name-line-17"), 1, { strokeDashoffset: 0 }, "-=1")
+							.to($(".svg-chalet-name .chalet-name-line-1"), 2, { strokeDashoffset: 0, delay: 1 })
+							.to($(".svg-chalet-name .chalet-name-line-2"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-4"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-5"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-6"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-7"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-8"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-9"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-10"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-11"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-12"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-15"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".svg-chalet-name .chalet-name-line-16"), 2, { strokeDashoffset: 0 }, "-=2")
+							.to($(".chalet-name-line"), 3, { fill: 'rgba(0, 0, 0,1)' }, "-=1")
+
+						// .to($(".svg-chalet-name .chalet-name-line-1"), 1, { strokeDashoffset: 0, delay: 1 })
+						// .to($(".svg-chalet-name .chalet-name-line-2"), 1.5, { strokeDashoffset: 0 }, "-=1")
+						// .to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=1.5")
+						// .to($(".svg-chalet-name .chalet-name-line-4"), 1.5, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-5"), 0.5, { strokeDashoffset: 0 }, "-=1.8")
+						// .to($(".svg-chalet-name .chalet-name-line-6"), 1, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-7"), 1, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-8"), 1, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-9"), 1, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-10"), 0.5, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-11"), 1, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-12"), 1, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=2")
+						// .to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=1.5")
+						// .to($(".svg-chalet-name .chalet-name-line-15"), 1, { strokeDashoffset: 0 }, "-=1")
+						// .to($(".svg-chalet-name .chalet-name-line-16"), 1, { strokeDashoffset: 0 }, "-=1")
+						// .to($(".svg-chalet-name .chalet-name-line-17"), 1, { strokeDashoffset: 0 }, "-=1")
 
 	})();
 
@@ -240,7 +273,6 @@ $(document).ready(function(){
 	//===================================================//
 
 	(function() {
-		if(window.location.pathname === '/') {
 			//Google map Init
 			var handlerPandaClub = Gmaps.build('Google');
 			var handlerSkiRental = Gmaps.build('Google');
@@ -368,7 +400,7 @@ $(document).ready(function(){
 				$(".map").css({"opacity": 0, "z-index" : -1});
 				$("#map_other").css({"opacity": 1, "z-index" : 1});
 			});
-		}
+
 	})();
 
 	//===================================================//

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928145618) do
+ActiveRecord::Schema.define(version: 20171002075403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20170928145618) do
 
   create_table "houses", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(version: 20170928145618) do
     t.text     "property_feature"
     t.text     "description"
     t.integer  "sleep_capacity"
+    t.text     "home_description"
+    t.text     "fr_home_description"
+    t.text     "fr_description"
+    t.text     "fr_property_feature"
+    t.text     "fr_property_fact"
   end
 
   create_table "months", force: :cascade do |t|
@@ -98,48 +103,6 @@ ActiveRecord::Schema.define(version: 20170928145618) do
   end
 
   add_index "pictures", ["house_id"], name: "index_pictures_on_house_id", using: :btree
-
-  create_table "price_listing_twos", force: :cascade do |t|
-    t.string   "month"
-    t.string   "week1"
-    t.string   "week2"
-    t.string   "week3"
-    t.string   "week4"
-    t.string   "price1week1"
-    t.string   "price2week1"
-    t.string   "price1week2"
-    t.string   "price2week2"
-    t.string   "price1week3"
-    t.string   "price2week3"
-    t.string   "price1week4"
-    t.string   "price2week4"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "week5"
-    t.string   "price1week5"
-    t.string   "price2week5"
-  end
-
-  create_table "price_listings", force: :cascade do |t|
-    t.string   "month"
-    t.string   "week1"
-    t.string   "week2"
-    t.string   "week3"
-    t.string   "week4"
-    t.string   "price1week1"
-    t.string   "price2week1"
-    t.string   "price1week2"
-    t.string   "price2week2"
-    t.string   "price1week3"
-    t.string   "price2week3"
-    t.string   "price1week4"
-    t.string   "price2week4"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "week5"
-    t.string   "price1week5"
-    t.string   "price2week5"
-  end
 
   create_table "weeks", force: :cascade do |t|
     t.integer  "month_id"

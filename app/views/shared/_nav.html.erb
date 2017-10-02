@@ -14,17 +14,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="my_nav">
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path  %></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Chalets
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Hideaway I', hideawayI_path %></li>
-            <li><%= link_to 'Hideaway II', hideawayII_path %></li>
-            <li><%= link_to 'Panda', panda_path %></li>
-            <li><%= link_to 'Hibou', hibou_path %></li>
+            <li><%= link_to 'Hideaway I', hideawayI_path, class: ('active' if current_page?(hideawayI_path)) %></li>
+            <li><%= link_to 'Hideaway II', hideawayII_path, class: ('active' if current_page?(hideawayII_path)) %></li>
+            <li><%= link_to 'Panda', panda_path, class: ('active' if current_page?(panda_path)) %></li>
+            <li><%= link_to 'Hibou', hibou_path, class: ('active' if current_page?(hibou_path)) %></li>
           </ul>
         </li>
-        <li><%= link_to("Contact", chalet_email) %></li>
+        <li><%= link_to "Contact", chalet_email %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

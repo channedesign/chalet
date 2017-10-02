@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+
+
+  # namespace :fr do
+  # get 'hibou/index'
+  # end
+  #
+  # namespace :fr do
+  # get 'panda/index'
+  # end
+  #
+  # namespace :fr do
+  # get 'hideaway2/index'
+  # end
+  #
+  # namespace :fr do
+  # get 'hideaway1/index'
+  # end
+
+  namespace :fr do
+    get 'home', to: 'home#index'
+    get 'hideawayI', to: 'hideaway1#index'
+    get 'hideawayII', to: 'hideaway2#index'
+    get 'panda', to: 'panda#index'
+    get 'hibou', to: 'hibou#index'
+  end
+
   root "home#index"
   get 'hideawayI', to: 'hideaway1#index'
   get 'hideawayII', to: 'hideaway2#index'
