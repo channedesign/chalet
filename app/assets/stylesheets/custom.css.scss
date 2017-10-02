@@ -64,7 +64,7 @@ ul li .lead {
 	position: absolute;
 	text-shadow: 2px 2px 5px #000;
 	z-index: 2;
-	@media(max-width: 1200px) {
+	@media(max-width: 1300px) {
 		font-size: 80px;
 	}
 	@media(max-width: 1000px) {
@@ -152,7 +152,6 @@ ul li .lead {
 	height: 80vh;
 	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
 	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
-	// background-image: image-url("chalet-intro.jpg");
 	.chalet-bg {
 		background-position: center 80%;
 		background-repeat: no-repeat;
@@ -172,17 +171,6 @@ ul li .lead {
 			margin-top: -70px;
 		}
 	}
-
-	// .testy {
-	// 	background-color: rgba(255, 255, 255, 0.5);
-	// 	height: 100%;
-	// 	width: 100%;
-	// 	span {
-	// 		font-size: 130px;
-	// 		position: relative;
-	// 		top: 27%;
-	// 	}
-	// }
 }
 
 #chalet-section-2 {
@@ -407,6 +395,14 @@ ul li .lead {
 	.pool-text-second {
 		top: 30vh;
 	}
+	.pool-text-first-fr {
+		width: 390px;
+		// border: 1px solid black;
+	}
+	.pool-text-second-fr {
+		width: 1000px;
+		// border: 1px solid black;
+	}
 	.skiout-text {
 		top: 55vh;
 	}
@@ -431,7 +427,7 @@ ul li .lead {
 		// border: 1px solid black;
 	}
 	.massage-text {
-		width: 800px;
+		width: 460px;
 		// border: 1px solid black;
 	}
 	.svg-chalet-logo, .logo-fill {
@@ -447,7 +443,57 @@ ul li .lead {
 		top: 14.5vh;
 		width: 27%;
 	}
-
+	@media(max-width: 1300px) {
+		.pool-text-first, .pool-text-second {
+			width: 680px;
+		}
+		.pool-text-first-fr {
+			width: 320px;
+		}
+		.pool-text-second-fr {
+			width: 800px;
+		}
+		.sauna-text {
+			width: 260px;
+		}
+		.massage-text {
+			width: 370px;
+		}
+	}
+	@media(max-width: 1000px) {
+		.pool-text-first, .pool-text-second {
+			width: 520px;
+		}
+		.pool-text-first-fr {
+			width: 230px;
+		}
+		.pool-text-second-fr {
+			width: 600px;
+		}
+		.sauna-text {
+			width: 200px;
+		}
+		.massage-text {
+			width: 290px;
+		}
+	}
+	@media(max-width: 800px) {
+		.pool-text-first, .pool-text-second {
+			width: 350px;
+		}
+		.pool-text-first-fr {
+			width: 160px;
+		}
+		.pool-text-second-fr {
+			width: 400px;
+		}
+		.sauna-text {
+			width: 140px;
+		}
+		.massage-text {
+			width: 190px;
+		}
+	}
 }
 
 #home-section-2 {

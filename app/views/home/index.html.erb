@@ -25,7 +25,7 @@
 	<h1 class="anim-absolute-text with-text">WITH</h1>
 	<h1 class="anim-absolute-text sauna-text">SAUNA</h1>
 
-	<h1 class="anim-absolute-text massage-text">MASSAGE ROOM</h1>
+	<h1 class="anim-absolute-text massage-text">MASSAGE</h1>
 
 	<%= image_tag("home-section-1-intro-1.jpg", class: "intro-pic intro-pic-1") %>
 	<%= image_tag("home-section-1-intro-5.jpg", class: "intro-pic intro-pic-2") %>
@@ -33,15 +33,6 @@
 	<%= image_tag("home-section-1-intro-4.jpg", class: "intro-pic intro-pic-4") %>
 	<%= image_tag("home-section-1-intro-3.jpg", class: "intro-pic intro-pic-5") %>
 
-	 <!-- <div class="intro-swiper">
-    <div class="swiper-wrapper">
-			<div class="swiper-slide"><%= image_tag("home-section-1-intro-1.jpg", class: "pic_home") %></div>
-			<div class="swiper-slide"><%= image_tag("home-section-1-intro-5.jpg", class: "pic_home") %></div>
-			<div class="swiper-slide"><%= image_tag("home-section-1-intro-2.jpg", class: "pic_home") %></div>
-			<div class="swiper-slide"><%= image_tag("home-section-1-intro-4.jpg", class: "pic_home") %></div>
-			<div class="swiper-slide"><%= image_tag("home-section-1-intro-3.jpg", class: "pic_home") %></div>
-    </div>
-	</div> -->
 </div>
 
 
@@ -98,7 +89,7 @@
 	<div class="anim-background bg-p2">
 		<%= image_tag 'home-section-3-background-p2.png' %>
 	</div>
-	<span class="anim-text">Breathtaking View</span>
+	<!-- <span class="anim-text">Breathtaking View</span> -->
 </div>
 
 <div id="home-section-4">
@@ -114,7 +105,7 @@
 					<%= link_to chalet.url do %>
 						<div class="col-sm-12">
 							<div class="col-sm-6  pull-normal <%= 'pull-right' if index.odd? %>">
-								<h2><%= chalet.name %><span class="sleep-text"> - Sleep <%= chalet.sleep_capacity %></span></h2>
+								<h2><%= chalet.name %><span class="sleep-text"> - Sleeps <%= chalet.sleep_capacity %></span></h2>
 								<%= image_tag chalet.image.url %>
 							</div>
 							<div class="col-sm-6 <%= 'pull-left' if index.odd? %>">

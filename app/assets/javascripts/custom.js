@@ -115,12 +115,6 @@ $(document).ready(function(){
 				$tm.to($('.anim-nav-home'), 1, {  opacity: 0 });
 				$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 0)' });
 			}
-			// if($(window).scrollTop() >= 800 ) {
-			// 	$tm.to($('#home-section-1'), 0.1, {  opacity: 0 });
-			// } else {
-			// 	$tm.to($('#home-section-1'), 0.1, {  opacity: 1 });
-			// }
-
 		});
 
 	})();
@@ -129,8 +123,6 @@ $(document).ready(function(){
 	(function() {
 		var max = ($(window).width() + 500)
 		var min = ( $(window).width() - $(window).width() - 500)
-		console.log('max:' + max);
-		console.log('min:' + min);
 		var introAnim = new TimelineMax({ repeat: -1 })
 						.to('#line-mountain', 2, { strokeDashoffset: 0, delay: 1.5 })
 						.to('#line-roof', 2, { strokeDashoffset: 0 }, "-=1.5")
@@ -171,11 +163,6 @@ $(document).ready(function(){
 						.setTween(hideIntroAnim)
 						.addTo(animController);
 
-	// 					// if($(window).scrollTop() >= 70) {
-	// 					// 	introAnim.pause();
-	// 					// } else {
-	// 					// 	introAnim.resume();
-	// 					// }
 	})();
 
 	// Background Parallax Animation
@@ -210,6 +197,7 @@ $(document).ready(function(){
 							.addTo(animController);
 	})();
 
+	// Chalet partial name animation
 	(function() {
 
 		var svgChaletNameLines = new TimelineMax()
@@ -229,25 +217,7 @@ $(document).ready(function(){
 							.to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=2")
 							.to($(".svg-chalet-name .chalet-name-line-15"), 2, { strokeDashoffset: 0 }, "-=2")
 							.to($(".svg-chalet-name .chalet-name-line-16"), 2, { strokeDashoffset: 0 }, "-=2")
-							.to($(".chalet-name-line"), 3, { fill: 'rgba(0, 0, 0,1)' }, "-=1")
-
-						// .to($(".svg-chalet-name .chalet-name-line-1"), 1, { strokeDashoffset: 0, delay: 1 })
-						// .to($(".svg-chalet-name .chalet-name-line-2"), 1.5, { strokeDashoffset: 0 }, "-=1")
-						// .to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=1.5")
-						// .to($(".svg-chalet-name .chalet-name-line-4"), 1.5, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-5"), 0.5, { strokeDashoffset: 0 }, "-=1.8")
-						// .to($(".svg-chalet-name .chalet-name-line-6"), 1, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-7"), 1, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-8"), 1, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-9"), 1, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-10"), 0.5, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-11"), 1, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-12"), 1, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=2")
-						// .to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=1.5")
-						// .to($(".svg-chalet-name .chalet-name-line-15"), 1, { strokeDashoffset: 0 }, "-=1")
-						// .to($(".svg-chalet-name .chalet-name-line-16"), 1, { strokeDashoffset: 0 }, "-=1")
-						// .to($(".svg-chalet-name .chalet-name-line-17"), 1, { strokeDashoffset: 0 }, "-=1")
+							.to($(".chalet-name-line"), 3, { fill: 'rgba(0, 0, 0,1)' }, "-=1");
 
 	})();
 
@@ -268,6 +238,55 @@ $(document).ready(function(){
 	  });
 	});
 
+
+
+	//===================================================//
+	//===================   Admin   =====================//
+	//===================================================//
+
+	(function() {
+		// Date Picker Init
+		$('.datepicker').datepicker({
+			autoclose: true,
+			orientation: "bottom auto",
+			format: 'dd/mm/yyyy'
+		});
+
+		// jQuery-ui sortable for admin
+		$("#sortable_horizontal").sortable({
+			axis: 'x',
+			update: function() {
+				$.post($(this).data("update-url"), $(this).sortable('serialize'))
+			}
+		});
+		$(".sortable").sortable({
+			update: function() {
+				$.post($(this).data("update-url"), $(this).sortable('serialize'))
+			}
+		});
+
+		// dropzone
+		Dropzone.autoDiscover = false;
+		$(".dropzone-picture").dropzone({
+			 maxFilesize: 20,
+			 paramName: "picture[chalet_picture]",
+			 params: { house_id: location.search.split('house_id=')[1] },
+			 addRemoveLinks: false,
+			 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload pictures</p>",
+			 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
+			 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
+	 	});
+		$(".dropzone-floor-plan").dropzone({
+			 maxFilesize: 20,
+			 paramName: "floor_plan[floor_plan_image]",
+			 params: { house_id: location.search.split('house_id=')[1] },
+			 addRemoveLinks: false,
+			 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload floor plans</p>",
+			 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
+			 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
+	 	});
+	})();
+
 	//===================================================//
 	//===================   Gmaps   =====================//
 	//===================================================//
@@ -281,6 +300,7 @@ $(document).ready(function(){
 			var handlerOther = Gmaps.build('Google');
 
 			function gMap(handler, zoomNum, centerNum, mapID, moreMarkers) {
+
 				handler.buildMap({
 				provider: {
 					zoom: zoomNum,
@@ -294,7 +314,6 @@ $(document).ready(function(){
 
 				});
 			}
-
 
 
 			handlerPandaClub.buildMap({
@@ -321,9 +340,7 @@ $(document).ready(function(){
 					{lat: 45.984628, lng: 6.927215, infowindow: "<h1>Sportech</h1><h3>Ski Rental</h3><p>352 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=shoppingbag|F55A51", width: 40, height: 40}},
 					{lat: 45.978684, lng: 6.927316, infowindow: "<h1>Sanglard</h1><h3>Ski Rental</h3><p>98 chemin de la Glacière, 74400 Argentière, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=shoppingbag|F55A51", width: 40, height: 40}},
 					{lat: 45.978270, lng: 6.926172, infowindow: "<h1>Sportech</h1><h3>Ski Rental</h3><p>56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=shoppingbag|F55A51", width: 40, height: 40}},
-
 					]);
-
 				});
 
 			handlerRestaurant.buildMap({
@@ -337,9 +354,7 @@ $(document).ready(function(){
 					{lat: 45.978297, lng: 6.927679, infowindow: "<h1>L'Argentero</h1><h3>Restaurant</h3><p>180 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=restaurant|F55A51", width: 40, height: 40}},
 					{lat: 45.978214, lng: 6.926657, infowindow: "<h1>Les Marmottons</h1><h3>Restaurant</h3><p>56 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=restaurant|F55A51", width: 40, height: 40}},
 					{lat: 45.978458, lng: 6.935138, infowindow: "<h1>La Crèmerie du Glacier</h1><h3>Restaurant</h3><p>766 Chemin de la Glacière, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=restaurant|F55A51", width: 40, height: 40}},
-
 					]);
-
 				});
 
 			handlerTransport.buildMap({
@@ -352,10 +367,7 @@ $(document).ready(function(){
 					{lat: 45.977618, lng: 6.927604, infowindow: "<h1>Chalets Hideaway</h1><p>117 Chemin des Carterons, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=home|000000", width: 40, height: 40} },
 					{lat: 45.982024, lng: 6.926358, infowindow: "<h1>Argentière Train Station</h1><p>84 Rue Charlet Straton, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=train|F55A51", width: 40, height: 40}},
 					{lat: 46.236924, lng: 6.108985, infowindow: "<h1>Geneva International Airport</h1><p>Route de l'Aéroport 21, 1215 Le Grand-Saconnex, Switzerland</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=airport|F55A51", width: 40, height: 40}},
-
-
 					]);
-
 				});
 
 			handlerOther.buildMap({
@@ -368,10 +380,7 @@ $(document).ready(function(){
 					{lat: 45.977618, lng: 6.927604, infowindow: "<h1>Chalets Hideaway</h1><p>117 Chemin des Carterons, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=home|000000", width: 40, height: 40} },
 					{lat: 45.942802, lng: 6.888795, infowindow: "<h1>Golf de Chamonix</h1><h3>Golf</h3><p>Les Praz de Chamonix, 35 route du golf, 74400 Chamonix-Mont-Blanc, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=glyphish_golf|F55A51", width: 40, height: 40}},
 					{lat: 45.968156, lng: 6.913432, infowindow: "<h1>Tennis des Îles</h1><h3>Tennis</h3><p>Les Iles, 74400 Argentiere, France</p>", picture:{url: "http://chart.apis.google.com/chart?chst=d_map_pin_icon_withshadow&chld=sport|F55A51", width: 40, height: 40}},
-
-
 					]);
-
 				});
 
 
@@ -401,65 +410,6 @@ $(document).ready(function(){
 				$("#map_other").css({"opacity": 1, "z-index" : 1});
 			});
 
-	})();
-
-	//===================================================//
-	//===================   Admin   =====================//
-	//===================================================//
-
-	(function() {
-		// Date Picker Init
-		$('.datepicker').datepicker({
-			autoclose: true,
-			orientation: "bottom auto",
-			format: 'dd/mm/yyyy'
-		});
-
-		// jQuery-ui sortable for admin
-		$("#sortable_horizontal").sortable({
-			axis: 'x',
-			update: function() {
-				$.post($(this).data("update-url"), $(this).sortable('serialize'))
-			}
-		});
-		// $("#sortable_appartment").sortable({
-		// 	axis: 'y',
-		// 	update: function() {
-		// 		$.post($(this).data("update-url"), $(this).sortable('serialize'))
-		// 	}
-		// });
-		// $("#sortable_week").sortable({
-		// 	axis: 'x',
-		// 	update: function() {
-		// 		$.post($(this).data("update-url"), $(this).sortable('serialize'))
-		// 	}
-		// });
-		$(".sortable").sortable({
-			update: function() {
-				$.post($(this).data("update-url"), $(this).sortable('serialize'))
-			}
-		});
-
-		// dropzone
-		Dropzone.autoDiscover = false;
-		$(".dropzone-picture").dropzone({
-			 maxFilesize: 20,
-			 paramName: "picture[chalet_picture]",
-			 params: { house_id: location.search.split('house_id=')[1] },
-			 addRemoveLinks: false,
-			 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload pictures</p>",
-			 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
-			 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
-	 	});
-		$(".dropzone-floor-plan").dropzone({
-			 maxFilesize: 20,
-			 paramName: "floor_plan[floor_plan_image]",
-			 params: { house_id: location.search.split('house_id=')[1] },
-			 addRemoveLinks: false,
-			 dictDefaultMessage: "<p class='lead'>You can Drag and Drop or Click to upload floor plans</p>",
-			 // success: function() { $(".games_edit_memo_div").load(location.href+" .games_edit_memo_div>*",""); },
-			 // queuecomplete: function() { window.location.href = "/admins/games_memo_card"; }
-	 	});
 	})();
 
 });
