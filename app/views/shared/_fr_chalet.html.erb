@@ -81,7 +81,7 @@
     <div class="row">
       <% @other_chalets.map do |chalet| %>
         <div class="col-sm-4">
-          <h2><%= chalet.name %> <span class="sleep-text">- Sleep <%= chalet.sleep_capacity %></span></h2>
+          <h2><%= chalet.name %> <span class="sleep-text">- Couche <%= chalet.sleep_capacity %></span></h2>
           <%= link_to(image_tag(chalet.image.url), chalet.url) %>
           <%= link_to 'En Savoir Plus', chalet.url, class: 'btn btn-black' %>
         </div>
@@ -103,42 +103,43 @@
       </div>
       <div class="modal-body">
         <% appartment = chalet.appartments.last %>
+        <% appartment_en = chalet.appartments.first %>
         <% if appartment.visible? %>
-          <% if appartment.description? %>
+          <!-- <% if appartment.description? %>
             <br>
             <p>Pricings &amp; Availabilities</p>
             <br>
-          <% end %>
+          <% end %> -->
           <ul class="nav nav-pills nav-justified">
             <% appartment.months.order(:position).each_with_index do |month, i| %>
-              <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
+              <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= i %>"><%= month.name %></a></li>
             <% end %>
           </ul>
           <div class="tab-content ">
-            <% appartment.months.includes(:weeks).each_with_index do |month, i| %>
-              <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
+            <% appartment_en.months.includes(:weeks).each_with_index do |month, i| %>
+              <div id="<%= appartment.name %>-<%= i %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
 
                 <table class="table">
                   <thead>
                     <tr>
                       <th></th>
                       <% month.weeks.order(:position).each do |week| %>
-                        <th class="text-center"><%= "#{week.from.day}-#{week.to.day} #{month_text[week.to.month - 1]}" %></th>
+                        <th class="text-center"><%= "#{week.from.day}-#{week.to.day} #{month_text_fr[week.to.month - 1]}" %></th>
                       <% end %>
 
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="text-left"><strong>SELF-CATERED</strong></td>
+                      <td class="text-left"><strong>DEMI-PENSION</strong></td>
                       <% month.weeks.each do |week| %>
-                        <td><%= pricing_format(week.self_catered) %></td>
+                        <td><%= pricing_format_fr(week.self_catered) %></td>
                       <% end %>
                     </tr>
                     <tr>
-                      <td class="text-left"><strong>CATERED</strong></td>
+                      <td class="text-left"><strong>PENSION COMPLÈTE</strong></td>
                       <% month.weeks.each do |week| %>
-                        <td><%= pricing_format(week.weekend) %></td>
+                        <td><%= pricing_format_fr(week.weekend) %></td>
                       <% end %>
                     </tr>
                   </tbody>

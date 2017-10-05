@@ -11,6 +11,14 @@ function initialize() {
    	});
 }
 
+function inPortrait() {
+	if($(window).width() < $(window).height()) {
+		return true
+	} else {
+		return false
+	}
+}
+
 $(document).ready(function(){
 
 	// Remove StreetView layer to allow scroll
@@ -94,28 +102,33 @@ $(document).ready(function(){
 	// Simple Animation
 	(function() {
 		var iconTween = $tm.staggerFrom(".band .col-xs-4", 2, { x: -100, opacity: 0, ease: Power2.easeOut }, 0.2)
-		var parallaxAnim = $tm.to('.parallax-anim, .chalet-bg', 2, { y: "30%" });
+
 
 
 		var iconScene = new ScrollMagic.Scene({ triggerElement: '.band', offset: -100 })
 							.setTween(iconTween)
 		 					.addTo(animController);
 
-		var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '100%', triggerHook: 1 })
-							.setTween(parallaxAnim)
-							.addTo(animController);
+		if(!inPortrait()) {
+			var parallaxAnim = $tm.to('.parallax-anim, .chalet-bg', 2, { y: "30%" });
+			var parallaxScene = new ScrollMagic.Scene({ triggerElement: '.parallax-anim', duration: '100%', triggerHook: 1 })
+								.setTween(parallaxAnim)
+								.addTo(animController);
+		}
 
 
 
-		$(window).scroll(function() {
-			if($(window).scrollTop() >= 70 ) {
-				$tm.to($('.anim-nav-home'), 1, {  opacity: 1 });
-				$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 1)' });
-			} else {
-				$tm.to($('.anim-nav-home'), 1, {  opacity: 0 });
-				$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 0)' });
-			}
-		});
+		if($(window).width() > 768) {
+			$(window).scroll(function() {
+				if($(window).scrollTop() >= 70 ) {
+					$tm.to($('.anim-nav-home'), 1, {  opacity: 1 });
+					$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 1)' });
+				} else {
+					$tm.to($('.anim-nav-home'), 1, {  opacity: 0 });
+					$tm.to($('.anim-nav'), 1, {  backgroundColor: 'rgba(255, 255, 255, 0)' });
+				}
+			});
+		}
 
 	})();
 
@@ -159,7 +172,7 @@ $(document).ready(function(){
 	//Hide Intro Animations
 	var hideIntroAnim = $tm.to($('#home-section-1'), 0.1, { opacity: 0 });
 
-	var hideIntroAnimScene = new ScrollMagic.Scene({ triggerElement: '#home-section-2', offset: 600 })
+	var hideIntroAnimScene = new ScrollMagic.Scene({ triggerElement: '#home-section-2', offset: 500 })
 						.setTween(hideIntroAnim)
 						.addTo(animController);
 

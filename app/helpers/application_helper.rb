@@ -7,6 +7,10 @@ module ApplicationHelper
     ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   end
 
+  def month_text_fr
+    ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Jui', 'Août', 'Sep', 'Oct', 'Nov', 'Dec']
+  end
+
   def check_floor_plan_count(house)
     if house.floor_plan_count == 3
       'col-sm-4'
