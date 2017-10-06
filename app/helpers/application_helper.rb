@@ -11,10 +11,10 @@ module ApplicationHelper
     ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Jui', 'Août', 'Sep', 'Oct', 'Nov', 'Dec']
   end
 
-  def check_floor_plan_count(house)
-    if house.floor_plan_count == 3
+  def check_floor_plan_count(floor_plans)
+    if floor_plans.size == 3
       'col-sm-4'
-    elsif house.floor_plan_count == 2
+    elsif floor_plans.size == 2
       'col-sm-6'
     else
       'col-sm-12'

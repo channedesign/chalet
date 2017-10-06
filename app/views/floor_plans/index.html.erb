@@ -13,6 +13,7 @@
           <div class="col-md-3" id="floor_plan_<%= floor_plan.id %>">
             <%# floor_plan.name %>
             <%= image_tag floor_plan.floor_plan_image.url(:thumb) %><br>
+            <%= link_to 'Edit', edit_floor_plan_path(floor_plan) %>
             <%= link_to 'Delete', floor_plan, method: :delete, remote: true,  data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
           </div>
         <% end %>

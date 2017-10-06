@@ -85,6 +85,6 @@ class FloorPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def floor_plan_params
-      params.require(:floor_plan).permit(:house_id, :floor_plan_image)
+      params.require(:floor_plan).permit(:house_id, :floor_plan_image, :name)
     end
 end

@@ -266,7 +266,7 @@ $(document).ready(function(){
 		});
 
 		// jQuery-ui sortable for admin
-		$("#sortable_horizontal").sortable({
+		$(".sortable_horizontal").sortable({
 			axis: 'x',
 			update: function() {
 				$.post($(this).data("update-url"), $(this).sortable('serialize'))

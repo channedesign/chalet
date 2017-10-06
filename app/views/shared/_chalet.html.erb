@@ -45,8 +45,8 @@
       <%= chalet.property_feature.html_safe %>
       <h2 class="heavy">Property Floor Plan</h2>
       <div class="marginTop20">
-        <% chalet.floor_plans.map do |floor_plan| %>
-          <div class="no-padding <%= check_floor_plan_count(chalet) %>">
+        <% @floor_plans.map do |floor_plan| %>
+          <div class="no-padding <%= check_floor_plan_count(@floor_plans) %>">
             <%= link_to(image_tag(floor_plan.floor_plan_image.url), '', data: { toggle: 'modal', target: '#picture-modal', img: floor_plan.floor_plan_image.url }) %>
           </div>
         <% end %>
@@ -119,7 +119,7 @@
 
 
           <div class="tab-content ">
-            <% appartment.months.includes(:weeks).each_with_index do |month, i| %>
+            <% appartment.months.each_with_index do |month, i| %>
               <div id="<%= appartment.name %>-<%= month.id %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
 
                 <table class="table">
@@ -135,13 +135,13 @@
                   <tbody>
                     <tr>
                       <td class="text-left"><strong>SELF-CATERED</strong></td>
-                      <% month.weeks.each do |week| %>
+                      <% month.weeks.order(:position).each do |week| %>
                         <td><%= pricing_format(week.self_catered) %></td>
                       <% end %>
                     </tr>
                     <tr>
                       <td class="text-left"><strong>CATERED</strong></td>
-                      <% month.weeks.each do |week| %>
+                      <% month.weeks.order(:position).each do |week| %>
                         <td><%= pricing_format(week.weekend) %></td>
                       <% end %>
                     </tr>
