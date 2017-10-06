@@ -32,10 +32,6 @@ h1{
 
 img {
 	width: 100%;
-	// // border-radius: 10px 10px 10px 10px;
-	// -moz-border-radius: 10px 10px 10px 10px;
-	// -webkit-border-radius: 10px 10px 10px 10px;
-	// border: 0px solid #000000;
 }
 
 p {
@@ -948,7 +944,16 @@ ul li .lead {
   position: fixed;
 	right: 0;
   top:0;
-  z-index: 99999;
+  z-index: 999999;
+	img {
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100px;
+	}
 }
 
 .flag-icon {
@@ -1177,38 +1182,9 @@ footer {
 
 
 
-/*---------------    1950    ------------------*/
-
-// @media (min-width: 1951px) {
-// 	/*.home_nav {
-// 		position: absolute;
-// 		top: 85%;
-// 		right: 20%;
-// 	}*/
-// 	.band_height{
-// 		height: 500px;
-// 	}
-// }
-//
-// @media (max-width: 1950px) {
-// 	/*.home_nav {
-// 		position: absolute;
-// 		top: 85%;
-// 		right: 20%;
-// 	}*/
-// 	.band_height{
-// 		height: 500px;
-// 	}
-// }
-
 /*---------------    1500    ------------------*/
 
 @media (max-width: 1500px) {
-	/*.home_nav {
-		position: absolute;
-		top: 85%;
-		right: 10%;
-	}*/
 	.band_height{
 		height: 400px;
 	}
@@ -1217,32 +1193,6 @@ footer {
 /*---------------    992   ------------------*/
 
 @media (max-width: 991px) {
-	// .band_height {
-	// 	display: none;
-	// }
-	// .band_height_mobile {
-	// 	display: block;
-	// }
-	/*.pic_home_mobile {
-		display: block;
-		width: 100%;
-		border-radius: 0px 0px 0px 0px;
-		-moz-border-radius: 0px 0px 0px 0px;
-		-webkit-border-radius: 0px 0px 0px 0px;
-		border: 0px solid #000000;
-	}
-	.pic_home {
-		display: none;
-	}*/
-	// .navbar {
-	// 	opacity: 1;
-	// }
-	// .margin_nav {
-	// 	margin-top: 0px;
-	// }
-	// .margin_home_main_content_mobile {
-	// 	margin-top: 400px;
-	// }
 	.panda_winter {
 		border-right: none;
 		border-bottom: 1px solid #ddd;
@@ -1251,133 +1201,12 @@ footer {
 	.panda_summer {
 		padding-top: 30px;
 	}
-	// .paddingTopTab{
-	// 	padding-top: 10px;
-	// }
 	.tab_horizontal_border {
 		height: 230px;
 	}
-	// .map_wrapper {
-	// 	height: 300px;
-	// }
-	// .map {
-	// 	height: 300px;
-	// }
 }
 @media(max-width: 767px) {
 	.tab_horizontal_border {
 	 height: 430px;
  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@-webkit-keyframes lds-grid {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes lds-grid {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.lds-grid {
-  position: relative;
-}
-.lds-grid div {
-	bottom: 0;
-	left: 0;
-	margin: auto;
-  position: absolute;
-	right: 0;
-	top: 0;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-animation: lds-grid linear 1s infinite;
-  animation: lds-grid linear 1s infinite;
-}
-.lds-grid div:nth-child(1),
-.lds-grid div:nth-child(6),
-.lds-grid div:nth-child(8) {
-  -webkit-animation-delay: -0.666s;
-  animation-delay: -0.666s;
-}
-.lds-grid div:nth-child(2),
-.lds-grid div:nth-child(5),
-.lds-grid div:nth-child(7) {
-  -webkit-animation-delay: -0.333s;
-  animation-delay: -0.333s;
-}
-.lds-grid div:nth-child(1),
-.lds-grid div:nth-child(2),
-.lds-grid div:nth-child(3) {
-  top: 50px;
-}
-.lds-grid div:nth-child(4),
-.lds-grid div:nth-child(5),
-.lds-grid div:nth-child(6) {
-  top: 100px;
-}
-.lds-grid div:nth-child(7),
-.lds-grid div:nth-child(8),
-.lds-grid div:nth-child(9) {
-  top: 150px;
-}
-.lds-grid div:nth-child(1),
-.lds-grid div:nth-child(4),
-.lds-grid div:nth-child(7) {
-  left: 50px;
-}
-.lds-grid div:nth-child(2),
-.lds-grid div:nth-child(5),
-.lds-grid div:nth-child(8) {
-  left: 100px;
-}
-.lds-grid div:nth-child(3),
-.lds-grid div:nth-child(6),
-.lds-grid div:nth-child(9) {
-  left: 150px;
-}
-.lds-grid div:nth-child(1),
-.lds-grid div:nth-child(6),
-.lds-grid div:nth-child(8) {
-  background: #000;
-}
-.lds-grid div:nth-child(2),
-.lds-grid div:nth-child(4),
-.lds-grid div:nth-child(9) {
-  background: #000;
-}
-.lds-grid div:nth-child(3),
-.lds-grid div:nth-child(5),
-.lds-grid div:nth-child(7) {
-  background: #000;
 }

@@ -58,7 +58,7 @@ function introAnim() {
 
 function introAnimChalet() {
 	var svgChaletNameLines = new TimelineMax()
-						.to($(".svg-chalet-name .chalet-name-line-1"), 2, { strokeDashoffset: 0, delay: 1 })
+						.to($(".svg-chalet-name .chalet-name-line-1"), 2, { strokeDashoffset: 0 })
 						.to($(".svg-chalet-name .chalet-name-line-2"), 2, { strokeDashoffset: 0 }, "-=2")
 						.to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=2")
 						.to($(".svg-chalet-name .chalet-name-line-4"), 2, { strokeDashoffset: 0 }, "-=2")
@@ -85,6 +85,8 @@ $(window).load( function() {
 
 $(document).ready(function(){
 
+	var preloaderImg = new TimelineMax({ repeat: -1 })
+						.from($(".preload img"), 2, { scale: 0, opacity: 0 });
 	// Remove StreetView layer to allow scroll
 	(function() {
 
@@ -99,16 +101,6 @@ $(document).ready(function(){
 	//===================================================//
 
 	(function() {
-		// var mySwiper = new Swiper ('.intro-swiper', {
-		// 	autoplay: 5000,
-		// 	speed: 1500,
-	  //   loop: true,
-		// 	spaceBetween: 10,
-		// 	effect: 'fade',
-		// 	fade: {
-		// 		crossFade: true
-		// 	}
-	  // });
 		var chaletSwiper = new Swiper ('.chalet-swiper', {
 			spaceBetween: 10,
 			// nextButton: '.swiper-button-next',
@@ -198,41 +190,6 @@ $(document).ready(function(){
 
 	// Intro Animation
 	(function() {
-		// var max = ($(window).width() + 500)
-		// var min = ( $(window).width() - $(window).width() - 500)
-		// var introAnim = new TimelineMax({ repeat: -1 })
-		// 				.to('#line-mountain', 2, { strokeDashoffset: 0, delay: 1.5 })
-		// 				.to('#line-roof', 2, { strokeDashoffset: 0 }, "-=1.5")
-		// 				.from('.white-mountain', 2, { opacity: 0 }, "-=1.5")
-		// 				.from('.blue-mountain', 2, { opacity: 0 }, "-=1.5")
-		// 				.from('.edelweiss', 2, { opacity: 0, rotation: 720, transformOrigin: '51% 58%', scale: 0 }, "-=2.5")
-		// 				.from('.blue-white-mountain', 1, { opacity: 0 }, "-=2")
-		// 				.to('#line-mountain, #line-roof, .white-mountain, .blue-mountain', 1, { opacity: 0 }, "-=1.75")
-		// 				.from('.logo-text-1', 2, { opacity: 0, x: -100, ease: Power3.easeOut }, "-=2")
-		// 				.from('.logo-text-2', 2, { opacity: 0, x: 100, ease: Power3.easeOut }, "-=1.5")
-		// 				.to('.blue-white-mountain, .edelweiss, .logo-text-1, .logo-text-2', 1, { opacity: 0 })
-		// 				.to('.intro-pic-1', 2, { opacity: 0 }, "-=1")
-		// 				.from('.intro-pic-2', 2, { opacity: 0 }, "-=1")
-		// 				.from(".pool-text-first", 2, { opacity: 0, x: -200, ease: Power4.easeOut }, "-=1")
-		// 				.from(".pool-text-second", 2, { opacity: 0, x: 200, ease: Power4.easeOut }, "-=2")
-		// 				.to(".pool-text-first", 2, { opacity: 0, x: 200, ease: Power4.easeIn })
-		// 				.to(".pool-text-second", 2, { opacity: 0, x: -200, ease: Power4.easeIn }, "-=2")
-		// 				.to('.intro-pic-2', 2, { opacity: 0 }, "-=0.5")
-		// 				.from('.intro-pic-3', 2, { opacity: 0 }, "-=1")
-		// 				.fromTo(".skiin-text", 4, {  x: min }, { x: max }, "-=2")
-		// 				.fromTo(".skiout-text", 4, {  x: max }, { x: min }, "-=2")
-		// 				.to('.intro-pic-3', 2, { opacity: 0 }, "-=1.5")
-		// 				.from('.intro-pic-4', 2, { opacity: 0 }, "-=1")
-		// 				.staggerFrom([".treat-text", ".yourself-text", ".with-text"], 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, 0.4, "-=2")
-		// 				.to(".treat-text, .yourself-text, .with-text", 2, { rotationX: 1080, scale: 0, opacity: 0 })
-		// 				.from(".sauna-text", 2, { opacity: 0, scale: 0, ease: Elastic.easeOut.config(2, 1) }, "-=1")
-		// 				.to(".sauna-text", 1, { opacity: 0 })
-		// 				.to('.intro-pic-4', 2, { opacity: 0 }, "-=1")
-		// 				.from('.intro-pic-5', 2, { opacity: 0 }, "-=1")
-		// 				.from(".massage-text", 5, { opacity: 0 }, "-=1")
-		// 				.to(".massage-text", 1, { opacity: 0 })
-		// 				.to('.intro-pic-5', 2, { opacity: 0 }, "-=0.5");
-
 	//Hide Intro Animations
 	var hideIntroAnim = $tm.to($('#home-section-1'), 0.1, { opacity: 0 });
 
@@ -272,30 +229,6 @@ $(document).ready(function(){
 		var svgMountainLinesScene = new ScrollMagic.Scene({ triggerElement: '#home-section-2', duration: '50%', triggerHook: 0.5 })
 							.setTween(svgMountainLines)
 							.addTo(animController);
-	})();
-
-	// Chalet partial name animation
-	(function() {
-
-		// var svgChaletNameLines = new TimelineMax()
-		// 					.to($(".svg-chalet-name .chalet-name-line-1"), 2, { strokeDashoffset: 0, delay: 1 })
-		// 					.to($(".svg-chalet-name .chalet-name-line-2"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-3"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-4"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-5"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-6"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-7"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-8"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-9"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-10"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-11"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-12"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-13"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-14"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-15"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".svg-chalet-name .chalet-name-line-16"), 2, { strokeDashoffset: 0 }, "-=2")
-		// 					.to($(".chalet-name-line"), 3, { fill: 'rgba(0, 0, 0,1)' }, "-=1");
-
 	})();
 
 
