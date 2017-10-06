@@ -1,0 +1,179 @@
+<div id="chalet-section-1">
+  <div class="chalet-bg" style="background-image:url(<%= chalet.image.url %>);"></div>
+  <div class="svg-wrapper">
+    <svg  class="svg-chalet-name" width="100%" height="100%" viewBox="0 0 264 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+      <g>
+        <%= svg.html_safe %>
+      </g>
+  </div>
+</div>
+
+<div id="chalet-section-2" class="container">
+  <div class="row">
+    <div class="col-sm-8 marginTop50">
+      <p class="regular"><%= chalet.fr_description.html_safe %></p>
+      <div class="chalet-swiper">
+        <div class="swiper-wrapper">
+          <% chalet.pictures.order(:position).each do |picture| %>
+            <div class="swiper-slide"><a data-toggle="modal" data-target="#picture-modal" data-img="<%= picture.chalet_picture.url %>"><%= image_tag picture.chalet_picture.url %></a></div>
+          <% end %>
+        </div>
+        <!-- <div class="swiper-button-prev swiper-button-black"></div>
+        <div class="swiper-button-next swiper-button-black"></div> -->
+      </div>
+      <div class="chalet-swiper-thumbs">
+        <div class="swiper-wrapper">
+          <% chalet.pictures.order(:position).each do |picture| %>
+            <div class="swiper-slide"><%= image_tag picture.chalet_picture.url %></div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-sm-6 no-padding">
+        <%= link_to 'Prix & Disponibilité', '', data: { toggle: 'modal', target: '#pricings-table' }, class: "btn btn-black"  %>
+      </div>
+      <div class="col-sm-6 no-padding">
+        <%= link_to 'Télécharger la Brochure', "/brochures/#{chalet.name} - Brochure - Winter - 2017-2018.pdf", class: 'btn btn-black', target: '_blank' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2 class="heavy">Infos</h2>
+      <%= chalet.fr_property_fact.html_safe %>
+      <h2 class="heavy">Installations</h2>
+      <%= chalet.fr_property_feature.html_safe %>
+      <h2 class="heavy">Plan</h2>
+      <div class="marginTop20">
+        <% @floor_plans.map do |floor_plan| %>
+          <div class="no-padding <%= check_floor_plan_count(@floor_plans) %>">
+            <%= link_to(image_tag(floor_plan.floor_plan_image.url), '', data: { toggle: 'modal', target: '#picture-modal', img: floor_plan.floor_plan_image.url }) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="chalet-section-3">
+  <div class="street-view-layer"></div>
+
+  <div id="street-view"></div>
+</div>
+
+<div id="chalet-section-4">
+  <div class='container'>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="testimony-swiper text-center">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide"><p>“Our stay here was truly amazing, so good to be able to ski in and out of the chalet, the kids loved the pool, Beatrice was so helpful, we will be back!”</p><p class="small">- Mrs Simpson, London UK 2017 -</p></div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="chalet-section-5">
+  <div class="container">
+    <div class="row">
+      <% @other_chalets.map do |chalet| %>
+        <div class="col-sm-4">
+          <h2><%= chalet.name %> <span class="sleep-text">- Capacité <%= chalet.sleep_capacity %></span></h2>
+          <%= link_to(image_tag(chalet.image.url), chalet.url) %>
+          <%= link_to 'En Savoir Plus', chalet.url, class: 'btn btn-black' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div id="pricings-table" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg text-center">
+    <div class="modal-content">
+      <div class="modal-header modal-header-background" style="background-image:url(<%= chalet.image.url %>);">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title heavy">
+          <h1><%= chalet.name %></h1>
+          <h2>Hiver - 2017/2018</h2>
+        </div>
+      </div>
+      <div class="modal-body">
+        <% appartment = chalet.appartments.last %>
+        <% appartment_en = chalet.appartments.first %>
+        <% if appartment.visible? %>
+          <!-- <% if appartment.description? %>
+            <br>
+            <p>Pricings &amp; Availabilities</p>
+            <br>
+          <% end %> -->
+          <ul class="nav nav-pills nav-justified">
+            <% appartment.months.order(:position).each_with_index do |month, i| %>
+              <li class="<%= active_tab?(i) %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= i %>"><%= month.name %></a></li>
+            <% end %>
+          </ul>
+          <div class="tab-content ">
+            <% appartment_en.months.each_with_index do |month, i| %>
+              <div id="<%= appartment.name %>-<%= i %>" class="tab-pane fade <%= 'in active' if i == 0 %>">
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <% month.weeks.order(:position).each do |week| %>
+                        <th class="text-center"><%= "#{week.from.day}-#{week.to.day} #{month_text_fr[week.to.month - 1]}" %></th>
+                      <% end %>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left"><strong>DEMI-PENSION</strong></td>
+                      <% month.weeks.order(:position).each do |week| %>
+                        <td><%= pricing_format_fr(week.self_catered) %></td>
+                      <% end %>
+                    </tr>
+                    <tr>
+                      <td class="text-left"><strong>PENSION COMPLÈTE</strong></td>
+                      <% month.weeks.order(:position).each do |week| %>
+                        <td><%= pricing_format_fr(week.weekend) %></td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <div class="col-md-6 col-sm-offset-3 no-padding">
+          <%= link_to 'Reservez', chalet_email(1), class: 'btn btn-black' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="picture-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src='' class="picture">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeg_RmZatJNDbEeg6qg0bOX3XSFJliZV8&callback=initialize">
+</script>

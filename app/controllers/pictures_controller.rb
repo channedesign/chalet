@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @chalets = House.all
+    @chalets = House.order(:position)
   end
 
   # GET /pictures/1
@@ -66,7 +66,7 @@ class PicturesController < ApplicationController
 
   def delete_all # naming confusion if destroy_all
     Picture.where(house_id: params[:house_id]).destroy_all
-    redirect_to pictures_path, notice: 'Pictures were successfully destroyed.' 
+    redirect_to pictures_path, notice: 'Pictures were successfully destroyed.'
   end
 
   def sort

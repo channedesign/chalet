@@ -1,6 +1,6 @@
 <h1 class="text-center">Add Picture to <%= @picture.house.name %></h1><br><br>
 
-<%= form_for @picture, html: { multipart: true, class: 'dropzone' } do |f| %>
+<%= form_for @picture, html: { multipart: true, class: 'dropzone dropzone-picture' } do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>

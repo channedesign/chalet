@@ -8,7 +8,7 @@
       <div class="col-md-3 add_picture_div">
         <%= link_to (fa_icon 'plus'), new_picture_path(house_id: chalet.id), class: 'add_picture_button' %>
       </div>
-      <div class="sortable_picture" data-update-url="<%= sort_pictures_path %>">
+      <div class="sortable" data-update-url="<%= sort_pictures_path %>">
         <% chalet.pictures.order(:position).each do |picture| %>
           <div class="col-md-3" id="picture_<%= picture.id %>">
             <%= picture.name %>

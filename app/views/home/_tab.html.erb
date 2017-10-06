@@ -1,17 +1,17 @@
-<div class="col-md-12 tab_horizontal_border">
-	<div class="col-md-6">
+<div class="col-md-12 <%= 'tab_horizontal_border' if border %>">
+	<div class="col-sm-6">
 		<p class="lead"><%= name %></p>
 		<%= image_tag("#{name_pic}", class: "tab_logo") %>
 		<% if distance.present? %>
 			<p>Distance: <%= distance %></p>
 		<% end %>
 	</div>
-	<div class="col-md-6 paddingTopTab">
+	<div class="col-sm-6 paddingTopTab">
 		<% if phone.present? %>
 			<div class="col-xs-2">
 				<%= fa_icon "phone" %>
 			</div>
-			<div class="col-xs-10 left">
+			<div class="col-xs-10 ">
 				<%= link_to("#{phone}", "tel:#{phone}") %>
 			</div>
 			<br>
@@ -34,7 +34,6 @@
 			<div class="col-xs-10 left">
 				<%= link_to("#{address}", "http://maps.google.com/?ll=#{latlng}", target: "_blank") %>
 			</div>
-		<% end %>	
+		<% end %>
 	</div>
 </div>
-

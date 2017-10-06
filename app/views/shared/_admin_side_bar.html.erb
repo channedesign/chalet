@@ -10,10 +10,14 @@
         Pictures
       </li>
     <% end %>
-
+    <%= link_to floor_plans_path do %>
+      <li class="<%= side_bar_active(floor_plans_path) %>">
+        Floor Plans
+      </li>
+    <% end %>
     <li>What to do</li>
   </ul>
   <div class="col-md-12">
-    <%= image_tag 'ChaletsHideaway-logo-footer.png' %>
+    <%= image_tag 'logo-ChaletsHideaway-footer.png' %>
   </div>
 </div>

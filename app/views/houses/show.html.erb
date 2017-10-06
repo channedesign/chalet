@@ -30,7 +30,7 @@
       <% unless appartment.months.size > 4 %>
        <%= link_to 'Add Month', new_month_path(appartment_id: appartment.id), class: 'btn btn-success' %>
       <% end %>
-      <ul class="nav nav-pills nav-justified" id="sortable_month" data-update-url="<%= sort_months_path %>">
+      <ul class="nav nav-pills nav-justified sortable_horizontal" data-update-url="<%= sort_months_path %>">
         <% appartment.months.order(:position).each_with_index do |month, i| %>
           <li class="<%= active_tab?(i) %>" id="month_<%= month.id %>"><a data-toggle="pill" href="#<%= appartment.name %>-<%= month.id %>"><%= month.name %></a></li>
         <% end %>
@@ -43,11 +43,11 @@
             <%= link_to "Add Week to #{month.name}", new_week_path(month_id: month.id), class: "btn btn-success" %><br><br>
             <table class="table">
               <thead>
-                <tr id="sortable_week" data-update-url="<%= sort_weeks_path %>">
+                <tr class="sortable_horizontal" data-update-url="<%= sort_weeks_path %>">
                   <th>PRICING</th>
                   <span >
                     <% month.weeks.order(:position).each do |week| %>
-                      <th class="text-center" id="week_<%= week.id %>"><%= link_to "#{week.from.day}-#{week.to.day} #{month.name[0, 3]}", edit_week_path(week.id), class: 'btn btn-warning btn-xs' %> | <%= link_to 'Delete Week', week_path(week.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></th>
+                      <th class="text-center" id="week_<%= week.id %>"><%= link_to "#{week.from.day}-#{week.to.day} #{month_text[week.to.month - 1]}", edit_week_path(week.id), class: 'btn btn-warning btn-xs' %> | <%= link_to 'Delete Week', week_path(week.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></th>
                     <% end %>
                   </span>
                 </tr>
@@ -55,7 +55,7 @@
               <tbody>
                 <tr>
                   <td class="text-left"><strong>SELF-CATERED</strong></td>
-                  <% month.weeks.each do |week| %>
+                  <% month.weeks.order(:position).each do |week| %>
 
                       <td><%= link_to pricing_format(week.self_catered), edit_week_path(week.id), class: 'btn btn-warning btn-xs' %></td>
 
@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                   <td class="text-left"><strong>PRICE PER WEEKEND</strong></td>
-                  <% month.weeks.each do |week| %>
+                  <% month.weeks.order(:position).each do |week| %>
 
                       <td><%= link_to pricing_format(week.weekend), edit_week_path(week.id), class: 'btn btn-warning btn-xs' %></td>
 

@@ -1,0 +1,27 @@
+<div class="row">
+  <% @chalets.each do |chalet| %>
+    <div class="col-md-6 text-center" id="chalet_<%= chalet.id %>">
+      <div class="col-md-12">
+        <h2><%= chalet.name %></h2>
+        <br><br>
+      </div>
+      <div class="col-md-3 add_picture_div">
+        <%= link_to (fa_icon 'plus'), new_floor_plan_path(house_id: chalet.id), class: 'add_picture_button' %>
+      </div>
+      <div class="sortable" data-update-url="<%= sort_floor_plans_path %>">
+        <% chalet.floor_plans.order(:position).each do |floor_plan| %>
+          <div class="col-md-3" id="floor_plan_<%= floor_plan.id %>">
+            <%# floor_plan.name %>
+            <%= image_tag floor_plan.floor_plan_image.url(:thumb) %><br>
+            <%= link_to 'Edit', edit_floor_plan_path(floor_plan) %>
+            <%= link_to 'Delete', floor_plan, method: :delete, remote: true,  data: { confirm: 'Are you sure?' }, class: 'btn btn-link'  %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-12">
+        <br><br>
+        <%= link_to 'Delete All', delete_all_floor_plans_path(house_id: chalet.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>

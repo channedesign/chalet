@@ -1,6 +1,35 @@
 Rails.application.routes.draw do
-  root "home#index"
 
+
+  # namespace :fr do
+  # get 'hibou/index'
+  # end
+  #
+  # namespace :fr do
+  # get 'panda/index'
+  # end
+  #
+  # namespace :fr do
+  # get 'hideaway2/index'
+  # end
+  #
+  # namespace :fr do
+  # get 'hideaway1/index'
+  # end
+
+  namespace :fr do
+    get 'home', to: 'home#index'
+    get 'hideawayI', to: 'hideaway1#index'
+    get 'hideawayII', to: 'hideaway2#index'
+    get 'panda', to: 'panda#index'
+    get 'hibou', to: 'hibou#index'
+  end
+
+  root "home#index"
+  get 'hideawayI', to: 'hideaway1#index'
+  get 'hideawayII', to: 'hideaway2#index'
+  get 'panda', to: 'panda#index'
+  get 'hibou', to: 'hibou#index'
 
 
 
@@ -9,11 +38,18 @@ Rails.application.routes.draw do
   devise_for :admins
 
   scope 'admin' do
-    resources :houses
+    resources :houses do
+      collection { post :sort }
+    end
     resources :pictures do
       collection { delete :delete_all }
       collection { post :sort }
     end
+    resources :floor_plans do
+      collection { delete :delete_all }
+      collection { post :sort }
+    end
+
     resources :pricings
     resources :weeks do
       collection { post :sort }
