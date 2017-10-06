@@ -12,13 +12,13 @@
 //
 //= require jquery
 //= require jquery-ui
-//= require jquery.turbolinks
+
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require underscore
 //= require gmaps/google
-//= require turbolinks
+
 //= require tween_max.min
 //= require scroll_magic.min
 //= require animation.gsap.min
