@@ -322,6 +322,9 @@ ul li .lead {
 }
 
 #chalet-section-5 {
+	h2 {
+		height: 50px;
+	}
 	img {
 		margin-bottom: 10px;
 	}
@@ -770,13 +773,18 @@ ul li .lead {
 	// }
 	@media(max-width: 768px) {
 		background-color: #fff;
-		img {
-			height: auto;
-		}
+		// img {
+		// 	height: auto;
+		// }
 		.row {
 			margin-top: 0px;
 		}
 		.set-height {
+			height: auto;
+		}
+	}
+	@media(max-width: 767px) {
+		img {
 			height: auto;
 		}
 	}

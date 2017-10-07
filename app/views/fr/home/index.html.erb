@@ -103,11 +103,11 @@
 				<% @chalets.each_with_index do |chalet, index| %>
 					<%= link_to chalet.url do %>
 						<div class="col-sm-12">
-							<div class="col-sm-6  pull-normal <%= 'pull-right' if index.odd? %>">
+							<div class="col-md-6  pull-normal <%= 'pull-right' if index.odd? %>">
 								<h2><%= chalet.name %><span class="sleep-text"> - Capacité <%= chalet.sleep_capacity %></span></h2>
 								<%= image_tag chalet.image.url %>
 							</div>
-							<div class="col-sm-6 <%= 'pull-left' if index.odd? %>">
+							<div class="col-md-6 <%= 'pull-left' if index.odd? %>">
 								<p class="chalet-description"><%= chalet.fr_home_description.html_safe %></p>
 								<%= link_to 'En Savoir Plus', chalet.url, class: 'text-center btn btn-black' %>
 							</div>
@@ -141,7 +141,7 @@
 <div id="home-section-6">
 	<div class=" text-center">
 		<div class="row ">
-			<div class="col-sm-6 no-padding">
+			<div class="col-md-6 no-padding">
 				<!-- <h1>LOCATION</h1> -->
 				<!-- <div class="marginTopMinMin"> -->
 					<div class="map_wrapper">
@@ -153,7 +153,7 @@
 					</div>
 				<!-- </div> -->
 			</div>
-			<div class="col-sm-6 no-padding whats-around-wrapper">
+			<div class="col-md-6 no-padding whats-around-wrapper">
 				<h1 class="text-angled text-right">AUX ALENTOURS</h1>
 				<ul class="nav nav-tabs nav-justified">
 				  <li class="active"><%= link_to("PANDA CLUB", "#tab_panda_club", data: {toggle: "tab"}, id: "click_tab_panda_club") %></li>
