@@ -811,6 +811,7 @@ ul li .lead {
 	z-index: 2;
 	img {
 		height: 800px;
+		min-width: 100vw; 
 	}
 	.anim-background {
 		position: absolute;
