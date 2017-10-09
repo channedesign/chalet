@@ -131,13 +131,13 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="text-left"><strong>DEMI-PENSION</strong></td>
+                      <td class="text-left"><strong>SELF-CATERED</strong></td>
                       <% month.weeks.order(:position).each do |week| %>
                         <td><%= pricing_format_fr(week.self_catered) %></td>
                       <% end %>
                     </tr>
                     <tr>
-                      <td class="text-left"><strong>PENSION COMPLÈTE</strong></td>
+                      <td class="text-left"><strong>CATERED</strong></td>
                       <% month.weeks.order(:position).each do |week| %>
                         <td><%= pricing_format_fr(week.weekend) %></td>
                       <% end %>
