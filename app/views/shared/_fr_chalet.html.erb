@@ -137,7 +137,7 @@
                       <% end %>
                     </tr>
                     <tr>
-                      <td class="text-left"><strong>CATERED</strong></td>
+                      <td class="text-left"><strong>CATERED*</strong></td>
                       <% month.weeks.order(:position).each do |week| %>
                         <td><%= pricing_format_fr(week.weekend) %></td>
                       <% end %>
@@ -152,6 +152,9 @@
       <div class="modal-footer">
         <div class="col-md-6 col-sm-offset-3 no-padding">
           <%= link_to 'Reservez', chalet_email(1), class: 'btn btn-black' %>
+        </div>
+        <div class="col-xs-12 text-left marginTop20">
+          <small>*Catered comprend le petit dejeuner, le goûter et le repas du soir, le tout préparé par notre Chef.</small>
         </div>
       </div>
     </div>
