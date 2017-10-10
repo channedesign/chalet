@@ -657,6 +657,14 @@ ul li .lead {
 		}
 		.sauna-text, .massage-text {
 			top: 33vh;
+			width: 150px;
+			// border: 1px solid black;
+		}
+		.massage-text {
+			width: 190px;
+		}
+		.sauna-text {
+			width: 130px;
 		}
 		// .svg-chalet-logo, .logo-fill {
 		// 	top: 25vh;
@@ -686,19 +694,29 @@ ul li .lead {
 		}
 		.pool-text-first-fr {
 			font-size: 30px;
-			width: 100px;
-			border: 1px solid black;
+			width: 120px;
+			// border: 1px solid black;
 		}
 		.pool-text-second-fr {
 			font-size: 30px;
-			width: 300px;
-			border: 1px solid black;
+			width: 320px;
+			// border: 1px solid black;
 		}
 	}
 	@media(max-width: 350px) {
 		.pool-text-first, .pool-text-second {
 			font-size: 30px;
 			width: 265px;
+		}
+		.pool-text-first-fr {
+			font-size: 30px;
+			width: 120px;
+			// border: 1px solid black;
+		}
+		.pool-text-second-fr {
+			font-size: 30px;
+			width: 320px;
+			// border: 1px solid black;
 		}
 		.with-text {
 			left: 65vw;
