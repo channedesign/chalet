@@ -205,8 +205,9 @@ $(document).ready(function(){
 		parallaxBg.forEach(function(el, index) {
 			var num = index + 1;
 			$(el).addClass('p-bg-' + num);
-			var parallaxBg = new TimelineMax()
-								.from($(el).find(".bg-p1"), 2, { scale: 1.2, y: 200 })
+			var parallaxBg = new TimelineLite()
+								.from($(el).find(".bg-p0"), 2, { x: 200 })
+								.from($(el).find(".bg-p1"), 2, { scale: 1.2, y: 200 }, "-=2")
 								.from($(el).find(".bg-p2"), 2, { scale: 1.8, y: -200 }, "-=2");
 
 			var parallaxBgScene = new ScrollMagic.Scene({ triggerElement: '.p-bg-' + num, duration: '100%', triggerHook: 1 })
@@ -219,7 +220,7 @@ $(document).ready(function(){
 	// SVG Mountain lines/Arrow
 	(function() {
 
-		var svgMountainLines = new TimelineMax()
+		var svgMountainLines = new TimelineLite()
 							.to($(".img-mountains-line .line-1"), 2, { strokeDashoffset: 0 })
 							.to($(".img-mountains-line .line-2"), 2, { strokeDashoffset: 0 }, "-=2")
 							.to($(".img-mountains-line .line-3"), 2, { strokeDashoffset: 0 }, "-=2")
