@@ -206,7 +206,7 @@ $(document).ready(function(){
 			var num = index + 1;
 			$(el).addClass('p-bg-' + num);
 			var parallaxBg = new TimelineLite()
-								.from($(el).find(".bg-p0"), 2, { x: 200 })
+								.from($(el).find(".bg-p0"), 2, { x: "10%" })
 								.from($(el).find(".bg-p1"), 2, { scale: 1.2, y: 200 }, "-=2")
 								.from($(el).find(".bg-p2"), 2, { scale: 1.8, y: -200 }, "-=2");
 
