@@ -687,10 +687,12 @@ ul li .lead {
 		.pool-text-first-fr {
 			font-size: 30px;
 			width: 100px;
+			border: 1px solid black;
 		}
 		.pool-text-second-fr {
 			font-size: 30px;
 			width: 300px;
+			border: 1px solid black;
 		}
 	}
 	@media(max-width: 350px) {
@@ -821,6 +823,13 @@ ul li .lead {
 		position: relative;
 		left: -200px;
 		width: 120%;
+	}
+	@media(max-width: 1000px) {
+		.img-stretch {
+			position: relative;
+			left: 0;
+			width: 100%;
+		}
 	}
 	@media(orientation: portrait) {
 		height: 400px;
