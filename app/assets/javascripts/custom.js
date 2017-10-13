@@ -124,7 +124,7 @@ $(document).ready(function(){
 			slidesPerView: 1,
 			autoplay: 4000,
 			spaceBetween: 500,
-			speed: 1000,
+			speed: 1500,
 			pagination: '.swiper-pagination',
 			paginationClickable: true
 	  });
