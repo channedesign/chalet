@@ -1,6 +1,6 @@
 module ApplicationHelper
   def chalet_email(num = nil)
-    "mailto:chaletshideaway@gmail.com?subject=Chalets Hideaway #{num}"
+    "mailto:martin@chaletshideaway.com?subject=Chalets Hideaway #{num}"
   end
 
   def month_text
